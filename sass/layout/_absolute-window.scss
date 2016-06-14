@@ -1,0 +1,10 @@
+/* layout-absolute-window */
+
+html.ck-absolute-window { // 顶层
+	.ck-window { // 容器
+		@include make-window-absolute;
+		.ck-window-content { // 客户区
+			@include make-window-content;
+		}
+	}
+}

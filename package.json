@@ -1,0 +1,42 @@
+{
+  "name": "csskit",
+  "version": "1.0.0",
+  "description": "css kit library with sass",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aflover/csskit.git"
+  },
+  "keywords": [
+    "css",
+    "kit",
+    "pure",
+    "library",
+    "sass"
+  ],
+  "author": {
+    "name": "jetiny",
+    "email": "86287344@qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aflover/csskit/issues"
+  },
+  "homepage": "https://github.com/aflover/csskit#readme",
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.7.4",
+    "normalize-scss": "^5.0.3",
+    "support-for": "^1.0.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect": "^4.1.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-util": "^3.0.7"
+  }
+}
