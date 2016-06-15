@@ -3,6 +3,11 @@ var bourbon = require("bourbon").includePaths,
     connect = require("gulp-connect"),
     gulp = require("gulp"),
     gutil = require('gulp-util'),
+    rename = require('gulp-rename'),
+    log = require('gulp-log'),
+    filter = require('gulp-filter'),
+    sicon = require('./scripts/icon'),
+    buffer = require('gulp-buffer'),
     sass = require("gulp-sass");
 
 var paths = {
@@ -36,6 +41,42 @@ gulp.task("connect", function() {
         livereload: true
     });
 });
+
+function makeIconSassTask (name) {
+    return function () {
+        var item = sicon.resolve(name);
+        // var cssFilter = filter('*.css', { restore: true });
+        // var fontFilter = filter(['.eot', '.svg', '.ttf', '.woff', '.woff2'], { restore: true });
+        return gulp.src(item.cssFile)
+                .pipe(rename(function (path) {
+                    path.basename = '_' + path.basename;
+                    path.extname = ".scss"
+                }))
+                .pipe(buffer())
+                .pipe(sicon.gulpContentFilter(function (file) {
+                    file.contents = new Buffer(item.toSass(file.contents.toString('utf8')));
+                }))
+                .pipe(gulp.dest("./sass/icon/"))
+            ;
+    }
+}
+
+function makeIconFontTask (name) {
+    return function () {
+        var item = sicon.resolve(name);
+        return gulp.src(item.fontsDir + '/*')
+                .pipe(gulp.dest("./fonts/"))
+            ;
+    }
+}
+
+['photon', 'font-awesome'].forEach(function (it) {
+    gulp.task("icon-" + it + '-sass', makeIconSassTask(it));
+    gulp.task("icon-" + it + '-font', makeIconFontTask(it));
+});
+
+gulp.task("icon-photon", ["icon-photon-sass", "icon-photon-font"]);
+gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-font"]);
 
 gulp.task("dev", ["sass", "connect"], function() {
     gulp.watch(paths.scss, ["sass"]);

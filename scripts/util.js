@@ -8,10 +8,10 @@ function getIconRe (prefix) {
 function matchIcon(prefix, input) {
 	var re = getIconRe(prefix);
 	var ret = [];
-	var mat = re.exec(textfa);
+	var mat = re.exec(input);
 	while (mat) {
 	    ret.push([mat[1], mat[2]]);
-	    mat  = re.exec(textfa);
+	    mat  = re.exec(input);
 	}
 	return ret;
 }
