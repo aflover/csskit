@@ -33,10 +33,12 @@
     "support-for": "^1.0.6"
   },
   "devDependencies": {
+    "font-awesome": "^4.6.3",
+    "fontawesome": "^4.5.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-connect": "^4.1.0",
     "gulp-sass": "^2.3.1",
-    "gulp-util": "^3.0.7"
+    "photon": "connors/photon"
   }
 }

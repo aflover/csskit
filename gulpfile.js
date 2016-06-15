@@ -24,7 +24,7 @@ gulp.task("sass", function() {
         }))
         .on('error', handleSassError)
         .pipe(autoprefix("last 2 versions"))
-        .pipe(gulp.dest("./dist"))
+        .pipe(gulp.dest("./dist/css"))
         .pipe(connect.reload())
         ;
 });
