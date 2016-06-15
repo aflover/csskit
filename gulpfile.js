@@ -8,6 +8,7 @@ var bourbon = require("bourbon").includePaths,
     filter = require('gulp-filter'),
     sicon = require('./scripts/icon'),
     buffer = require('gulp-buffer'),
+    watch = require('gulp-watch'),
     sass = require("gulp-sass");
 
 var paths = {
@@ -49,7 +50,7 @@ function makeIconSassTask (name) {
         // var fontFilter = filter(['.eot', '.svg', '.ttf', '.woff', '.woff2'], { restore: true });
         return gulp.src(item.cssFile)
                 .pipe(rename(function (path) {
-                    path.basename = '_' + path.basename;
+                    path.basename = '_icons-' + path.basename;
                     path.extname = ".scss"
                 }))
                 .pipe(buffer())
@@ -64,7 +65,7 @@ function makeIconSassTask (name) {
 function makeIconFontTask (name) {
     return function () {
         var item = sicon.resolve(name);
-        return gulp.src(item.fontsDir + '/*')
+        return gulp.src(item.fontsDir)
                 .pipe(gulp.dest("./fonts/"))
             ;
     }
@@ -79,5 +80,7 @@ gulp.task("icon-photon", ["icon-photon-sass", "icon-photon-font"]);
 gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-font"]);
 
 gulp.task("dev", ["sass", "connect"], function() {
-    gulp.watch(paths.scss, ["sass"]);
+    watch(paths.scss, function(){
+        gulp.start('sass');
+    });
 });

@@ -1,0 +1,6 @@
+//--------------------------------------------------------- 通用元素
+@mixin make-element-size-default() {
+	@include make-font-size-default;
+	@include make-pad-default;
+	@include make-line-height-default;
+}

@@ -1,0 +1,13 @@
+/* base-内补白 */
+
+.pad-default {
+	@include make-pad-default;
+}
+
+.pad-lg {
+	@include make-pad-lg;
+}
+
+.pad-sm {
+	@include make-pad-sm;
+}

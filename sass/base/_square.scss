@@ -1,0 +1,13 @@
+/* base-方形 */
+
+.square-default {
+	@include make-square-default;
+}
+
+.square-lg {
+	@include make-square-lg;
+}
+
+.square-sm {
+	@include make-square-sm;
+}

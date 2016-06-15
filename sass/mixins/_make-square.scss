@@ -1,0 +1,20 @@
+//--------------------------------------------------------- 方形
+
+@mixin make-square-default($font-size: $font-size-default, $important: false) {
+	@if $important {
+	    font-size: $font-size !important;
+	    width: ceil($font-size * $line-height-default) !important;
+	}
+	@else {
+	    font-size: $font-size;
+	    width: ceil($font-size * $line-height-default); //近似
+	}
+}
+
+@mixin make-square-sm($font-size: $font-size-sm, $important: false) {
+    @include make-square-default($font-size-sm, $important);
+}
+
+@mixin make-square-lg($font-size: $font-size-lg, $important: false) {
+    @include make-square-default($font-size-lg, $important);
+}

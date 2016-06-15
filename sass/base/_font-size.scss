@@ -1,0 +1,13 @@
+/* base-字体 */
+
+.font-default {
+    @include make-font-size-default;
+}
+
+.font-sm {
+    @include make-font-size-sm;
+}
+
+.font-lg {
+    @include make-font-size-lg;
+}

@@ -1,6 +1,16 @@
 @import "bourbon";
 
+@import "mixins/opacity";
+
 @import "mixins/reset-box-sizing";
 @import "mixins/make-layout-window";
 @import "mixins/make-text-select";
+@import "mixins/make-icon-font";
+@import "mixins/make-pad";
+@import "mixins/make-font-size";
+@import "mixins/make-square";
+@import "mixins/make-box";
+
+@import "mixins/make-element";
+@import "mixins/make-button";
 

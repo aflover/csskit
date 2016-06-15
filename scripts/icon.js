@@ -7,7 +7,7 @@ var path = require('path'),
 var configs = {
 	'photon' : {
 		resolve : 'photon/package.json',
-		fonts : 'fonts',
+		fonts : 'fonts/photon-entypo.*',
 		css : 'dist/css/photon.css',
 		prefixFrom: 'icon',
 		prefixTo: 'pt',
@@ -15,7 +15,7 @@ var configs = {
 	},
 	'font-awesome' : {
 		resolve : 'font-awesome/package.json',
-		fonts : 'fonts',
+		fonts : 'fonts/fontawesome-webfont.*',
 		css : 'css/font-awesome.css',
 		prefixFrom: 'fa',
 		taskName: 'font-awesome',

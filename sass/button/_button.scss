@@ -1,0 +1,6 @@
+/* button */
+
+.ck-btn {
+	@include make-button-default;
+	@include make-element-size-default;
+}

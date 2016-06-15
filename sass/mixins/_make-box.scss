@@ -1,0 +1,121 @@
+//--------------------------------------------------------- 盒子
+
+@mixin make-box-ll() {
+	@include make-font-size-lg;
+	@include make-pad-lg;
+}
+
+@mixin make-box-ls() {
+	@include make-font-size-lg;
+	@include make-pad-sm;
+}
+
+@mixin make-box-sl() {
+	@include make-font-size-sm;
+	@include make-pad-lg;
+}
+
+@mixin make-box-ss() {
+	@include make-font-size-sm;
+	@include make-pad-sm;
+}
+
+@mixin make-box-sd() {
+	@include make-font-size-sm;
+	@include make-pad-default;
+}
+
+@mixin make-box-ds() {
+	@include make-font-size-default;
+	@include make-pad-sm;
+}
+
+@mixin make-box-ld() {
+	@include make-font-size-lg;
+	@include make-pad-default;
+}
+
+@mixin make-box-dl() {
+	@include make-font-size-default;
+	@include make-pad-lg;
+}
+
+@mixin make-box-dd() {
+	@include make-font-size-default;
+	@include make-pad-default;
+}
+
+@mixin make-box-item ($prefix, $name : false) {
+	&#{$prefix}-9 { 
+		@if $name {
+			#{$name} { @include make-box-ll;	}
+		}
+		@else {
+			@include make-box-ll;	
+		}
+	}
+	&#{$prefix}-7 {
+		@if $name {
+			#{$name} { @include make-box-dl;	}
+		}
+		@else {
+			@include make-box-dl;	
+		}
+	}
+	&#{$prefix}-8 { 
+		@if $name {
+			#{$name} { @include make-box-ld;	}
+		}
+		@else {
+			@include make-box-ld;	
+		}
+	}
+	&#{$prefix}-6 {
+		@if $name {
+			#{$name} { @include make-box-sl;	}
+		}
+		@else {
+			@include make-box-sl;	
+		}
+	}
+	&#{$prefix}-5 {
+		@if $name {
+			#{$name} { @include make-box-dd; }
+		}
+		@else {
+			@include make-box-dd;	
+		}
+	}
+	&#{$prefix}-4 {
+		@if $name {
+			#{$name} { @include make-box-ls;	}
+		}
+		@else {
+			@include make-box-ls;	
+		}
+	}
+	&#{$prefix}-3 {
+		@if $name {
+			#{$name} { @include make-box-sd;	}
+		}
+		@else {
+			@include make-box-sd;	
+		}
+	}
+	&#{$prefix}-2 {
+		@if $name {
+			#{$name} { @include make-box-ds;	}
+		}
+		@else {
+			@include make-box-ds;	
+		}
+	}
+	&#{$prefix}-1 {
+		@if $name {
+			#{$name} { @include make-box-ss;	}
+		}
+		@else {
+			@include make-box-ss;	
+		}
+	}
+}

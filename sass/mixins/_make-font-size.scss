@@ -1,0 +1,34 @@
+//--------------------------------------------------------- 行高
+
+$line-height-default: 1.2 !default; // line-height(1.0~1.2)
+
+@mixin make-line-height-default() {
+	line-height: $line-height-default;
+}
+
+//--------------------------------------------------------- 字体
+
+// 字体
+
+$font-size-sm: 12px !default;
+$font-size-default: 14px !default;
+$font-size-lg: 16px !default;
+
+$font-size-important: false !default;
+
+@mixin make-font-size-default($font-size: $font-size-default, $important: $font-size-important) {
+	@if $important {
+    	font-size: $font-size !important;
+	}
+	@else {
+    	font-size: $font-size;
+	}
+}
+
+@mixin make-font-size-sm($important: $font-size-important) {
+    @include make-font-size-default($font-size-sm, $important);
+}
+
+@mixin make-font-size-lg($important: $font-size-important) {
+    @include make-font-size-default($font-size-lg, $important);
+}
