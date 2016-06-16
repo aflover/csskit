@@ -1,0 +1,48 @@
+//--------------------------------------------------------- 状态辅助
+
+@mixin when-focus() {
+	&:focus{
+		@content;
+	}
+}
+
+@mixin when-hover() {
+	&:hover{
+		@content;
+	}
+}
+
+@mixin when-active() {
+	&.active,
+	&:active {
+		@content;
+	}
+}
+
+@mixin when-disabled() {
+	&[disabled]	{
+		@content;
+	}
+}
+
+@mixin when-not-disabled() {
+	&:not([disabled])	{
+		@content;
+	}
+}
+
+@mixin when-hover-focus-active() {
+	&:focus,
+	&:hover,
+	&:active,
+	&.active {
+		@content;
+	}
+}
+
+@mixin when-hover-focus() {
+	&:focus,
+	&:hover {
+		@content;
+	}
+}

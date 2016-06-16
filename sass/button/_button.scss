@@ -4,3 +4,15 @@
 	@include make-button-default;
 	@include make-element-size-default;
 }
+
+.btn-tick {
+    @include make-button-tick;
+}
+
+.btn-scale {
+    @include make-button-scale;
+}
+
+.btn-shadow {
+	@include make-button-inner-shadow;
+}
