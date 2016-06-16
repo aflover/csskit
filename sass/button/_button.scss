@@ -1,25 +1,71 @@
 /* button */
 
+$btn-disabled-bg-color : #DDD !default;
+$btn-disabled-color : #808080 !default;
+
+$btn-flat-color: white !default;
+$btn-default-border-color: #AAA !default;
+
+$btn-flat-primary-bg-color : #4288CC !default;
+$btn-flat-danger-bg-color : #c43c35 !default;
+$btn-flat-info-bg-color : #339bb9 !default;
+$btn-flat-secondary-bg-color : #1E9891 !default;
+
 .ck-btn {
 	@include make-button-default;
 	@include make-element-size-default;
 
 	&[disabled],
 	&[disabled]:hover {
-		color: #808080 ;
-		background-color: #DDD ;
+		color: $btn-disabled-color ;
+		background-color: $btn-disabled-bg-color ;
+		border-color: transparent;
 	}
+	
+	@include make-element-bg-darken(#DDD);
+	border-color: $btn-default-border-color;
 }
 
-.btn-flat {
+.btn-flat-default {
+	color: black;
+	border-color: $btn-default-border-color;
+	background-color: white;
+}
+
+.btn-flat-primary {
 	color: white;
-	background-color: #4288CC;
-	@include when-hover {
-		background-color: #4792DB;
-	}
-	@include when-active{
-		background-color: #3674AF;
-	}
+	@include make-element-bg-darken($btn-flat-primary-bg-color);
+}
+
+.btn-flat-danger {
+	color: white;
+	@include make-element-bg-darken($btn-flat-danger-bg-color);
+}
+
+.btn-flat-info {
+	color: white;
+	@include make-element-bg-darken($btn-flat-info-bg-color);
+}
+
+.btn-flat-secondary {
+	color: white;
+	@include make-element-bg-darken($btn-flat-secondary-bg-color);
+}
+
+.btn-outline-primary {
+	@include make-element-bg-invert($btn-flat-primary-bg-color, $btn-flat-color);
+}
+
+.btn-outline-danger {
+	@include make-element-bg-invert($btn-flat-danger-bg-color, $btn-flat-color);
+}
+
+.btn-outline-info {
+	@include make-element-bg-invert($btn-flat-info-bg-color, $btn-flat-color);
+}
+
+.btn-outline-secondary {
+	@include make-element-bg-invert($btn-flat-secondary-bg-color, $btn-flat-color);
 }
 
 .btn-meta-tick {

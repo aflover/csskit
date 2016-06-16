@@ -1,6 +1,49 @@
 //--------------------------------------------------------- 通用元素
+
+// 尺寸
 @mixin make-element-size-default() {
 	@include make-font-size-default;
 	@include make-pad-default;
 	@include make-line-height-default;
+}
+
+// 背景颜色
+@mixin make-element-bg-variant($bg-color, $bg-color-hover, $bg-color-active : false) {
+	background-color: $bg-color;
+	@include when-hover-focus {
+		background-color: $bg-color-hover;
+	}
+	@if $bg-color-active {
+		@include when-active {
+			background-color: $bg-color-active;
+		}
+	}
+}
+
+// 背景变暗
+@mixin make-element-bg-darken($bg-color) {
+	border-color: transparent;
+	@include make-element-bg-variant(
+		$bg-color ,
+		darken($bg-color, 5%) ,
+		darken($bg-color, 10%)
+	);
+}
+
+// 背景反转
+@mixin make-element-bg-invert($color, $bg-color) {
+	border-color: $color;
+	color: $color;
+	background-color: $bg-color;
+
+	@include when-hover-focus {
+		border-color: transparent;
+		color: $bg-color;
+		background-color: darken($color, 5%);
+	}
+
+	@include when-active {
+		border-color: transparent;
+		background-color: darken($color, 10%);
+	}
 }
