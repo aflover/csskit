@@ -71,6 +71,12 @@ function makeIconFontTask (name) {
     }
 }
 
+function makeIconHtmlTask(name) {
+    return function() {
+
+    };
+}
+
 ['photon', 'font-awesome'].forEach(function (it) {
     gulp.task("icon-" + it + '-sass', makeIconSassTask(it));
     gulp.task("icon-" + it + '-font', makeIconFontTask(it));
@@ -79,7 +85,11 @@ function makeIconFontTask (name) {
 gulp.task("icon-photon", ["icon-photon-sass", "icon-photon-font"]);
 gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-font"]);
 
-gulp.task("dev", ["sass", "connect"], function() {
+gulp.task("fonts", function(){
+    return gulp.src('./fonts/*').pipe(gulp.dest("./dist/fonts"));
+});
+
+gulp.task("dev", ["fonts", "sass", "connect"], function() {
     watch(paths.scss, function(){
         gulp.start('sass');
     });

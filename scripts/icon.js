@@ -12,13 +12,18 @@ var configs = {
 		prefixFrom: 'icon',
 		prefixTo: 'pt',
 		taskName: 'photon',
+		htmlFile : 'demo-specs/icon-photon.html',
+		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	},
 	'font-awesome' : {
 		resolve : 'font-awesome/package.json',
 		fonts : 'fonts/fontawesome-webfont.*',
 		css : 'css/font-awesome.css',
 		prefixFrom: 'fa',
+		prefixTo: 'fa',
 		taskName: 'font-awesome',
+		htmlFile : 'demo-specs/icon-font-awesome.html',
+		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	}
 }
 
@@ -45,7 +50,11 @@ function resolve (config) {
 	return {
 		cssFile : cssFile,
 		toSass : function (content) {
-			return util.replaceIcon(content, config.prefixFrom, config.prefixTo);
+			var mat = util.matchIcon(config.prefixFrom, content);
+			var html = fs.readFileSync(config.htmlFile).toString();
+			html = util.replaceHtmlBlock(html, mat, config.prefixTo, config.htmlFormat);
+			fs.writeFileSync(config.htmlFile, html);
+			return util.replaceIcon(mat, config.prefixTo);
 		},
 		fontsDir : fontsDir,
 		// fontsDirs : fontsDirs,

@@ -16,26 +16,38 @@ function matchIcon(prefix, input) {
 	return ret;
 }
 
-function makeIcon(arr, prefix, after) {
-	return arr.map(function(it){
+function replaceIcon(mat, prefix, after) {
+	return mat.map(function(it){
 		return '.' + prefix + it[0] + ':' + (after ? 'after' : 'before') + ' { content: "' + it[1] +'" }';
 	}).join('\n');
 }
 
-function replaceIcon(input, prefixFrom, prefixTo, after) {
-	return makeIcon(matchIcon(prefixFrom, input), prefixTo || prefixFrom, after);
+function replaceHtml (mat, prefix, format) {
+	return mat.map(function(it){
+		return format.replace(/%name/g, prefix + it[0]).replace(/%content/g, it[1]);
+	}).join('\n');
+}
+
+// 包括空格和换行
+var RE_BLOCK = /(\s{0,}<!--\sstart\s-->)([\s\S]*?)(\s{0,}<!--\send\s-->)/; //匹配 <!-- start --> * <!-- end -->
+
+function replaceHtmlBlock (input, mat, prefix, format) {
+	var html = replaceHtml(mat, prefix, format);
+	return input.replace(RE_BLOCK, function (all, start, content, end) {
+		return start + '\n' + html + end;
+	});
 }
 
 module.exports = {
+	matchIcon : matchIcon,
 	replaceIcon : replaceIcon,
-		getIconRe : getIconRe,
-		matchIcon : matchIcon,
-		makeIcon : makeIcon,
+	replaceHtml : replaceHtml,
+	replaceHtmlBlock : replaceHtmlBlock,
 }
 
 if (0) {
 
-var textfa = `
+var text = `
 .fa-inverse {
   color: #ffffff;
 }
@@ -69,8 +81,18 @@ var textfa = `
 
 `
 
-console.log(replaceIcon(textfa, 'fa', 'fx'));
-console.log(replaceIcon(textfa, 'icon', 'bb'));
+console.log(replaceIcon(matchIcon('fa', text), 'prefix1'));
+console.log(replaceIcon(matchIcon('icon', text), 'prefix2'));
+
+console.log(replaceHtml(matchIcon('fa', text), 'fax', '<label title="%content"><i class="%name"></i><span>%name</span></label>'));
+
+var html = `
+    <!-- start --> 
+		hhx
+	<!-- end -->
+`
+
+console.log(replaceHtmlBlock(html, matchIcon('fa', text), 'fax', '<label title="%content"><i class="%name"></i><span>%name</span></label>'));
 
 }
 
