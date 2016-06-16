@@ -1,5 +1,11 @@
 //--------------------------------------------------------- 盒子
 
+@mixin make-box-element-default () {
+	@include make-line-height-default;
+	display: inline-block;
+	border: 1px solid transparent;
+}
+
 @mixin make-box-ll() {
 	@include make-font-size-lg;
 	@include make-pad-lg;

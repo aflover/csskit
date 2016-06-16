@@ -3,16 +3,33 @@
 .ck-btn {
 	@include make-button-default;
 	@include make-element-size-default;
+
+	&[disabled],
+	&[disabled]:hover {
+		color: #808080 ;
+		background-color: #DDD ;
+	}
 }
 
-.btn-tick {
+.btn-flat {
+	color: white;
+	background-color: #4288CC;
+	@include when-hover {
+		background-color: #4792DB;
+	}
+	@include when-active{
+		background-color: #3674AF;
+	}
+}
+
+.btn-meta-tick {
     @include make-button-tick;
 }
 
-.btn-scale {
+.btn-meta-scale {
     @include make-button-scale;
 }
 
-.btn-shadow {
+.btn-meta-shadow {
 	@include make-button-inner-shadow;
 }

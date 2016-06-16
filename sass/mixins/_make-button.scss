@@ -11,7 +11,7 @@
 	border: 1px solid transparent;  // 去除 Button的默认边框样式 + 去除 Border宽度
 	@include user-select(none);
 	text-transform: none;			// 
-	outline: none;
+	// outline: none;
 }
 
 //--------------------------------------------------------- 按钮效果
