@@ -4,4 +4,4 @@
 	@include make-box-element-default;
 }
 
-@include make-box-item(".box");
+@include make-box(".box-");

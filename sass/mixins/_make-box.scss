@@ -6,122 +6,58 @@
 	border: 1px solid transparent;
 }
 
-@mixin make-box-ll() {
-	@include make-font-size-lg;
-	@include make-pad-lg;
-}
-
-@mixin make-box-ls() {
-	@include make-font-size-lg;
-	@include make-pad-sm;
-}
-
-@mixin make-box-sl() {
-	@include make-font-size-sm;
-	@include make-pad-lg;
-}
-
-@mixin make-box-ss() {
-	@include make-font-size-sm;
-	@include make-pad-sm;
-}
-
-@mixin make-box-sd() {
-	@include make-font-size-sm;
-	@include make-pad-default;
-}
-
-@mixin make-box-ds() {
-	@include make-font-size-default;
-	@include make-pad-sm;
-}
-
-@mixin make-box-ld() {
-	@include make-font-size-lg;
-	@include make-pad-default;
-}
-
-@mixin make-box-dl() {
-	@include make-font-size-default;
-	@include make-pad-lg;
-}
-
-@mixin make-box-dd() {
-	@include make-font-size-default;
-	@include make-pad-default;
-}
-
-@mixin make-box-item ($prefix, $name : false) {
-	&#{$prefix}-9 { 
-		@if $name {
-			#{$name} { @include make-box-ll;	}
+@mixin make-box-font-or-pad($type, $isFont : true ) {
+	@if $type == "d" {
+		@if $isFont == true {
+			@include make-font-size-default;
 		}
 		@else {
-			@include make-box-ll;	
+			@include make-pad-default;
 		}
-	}
-	&#{$prefix}-7 {
-		@if $name {
-			#{$name} { @include make-box-dl;	}
-		}
-		@else {
-			@include make-box-dl;	
-		}
-	}
-	&#{$prefix}-8 { 
-		@if $name {
-			#{$name} { @include make-box-ld;	}
+	} @else if $type == "l" {
+		@if $isFont == true {
+			@include make-font-size-lg;
 		}
 		@else {
-			@include make-box-ld;	
+			@include make-pad-lg;
 		}
-	}
-	&#{$prefix}-6 {
-		@if $name {
-			#{$name} { @include make-box-sl;	}
-		}
-		@else {
-			@include make-box-sl;	
-		}
-	}
-	&#{$prefix}-5 {
-		@if $name {
-			#{$name} { @include make-box-dd; }
+	} @else if $type == "s" {
+		@if $isFont == true {
+			@include make-font-size-sm;
 		}
 		@else {
-			@include make-box-dd;	
+			@include make-pad-sm;
 		}
 	}
-	&#{$prefix}-4 {
-		@if $name {
-			#{$name} { @include make-box-ls;	}
+}
+
+@mixin make-box-item($prefix, $font, $pad, $name: "") {
+	&#{$prefix}#{$font}#{$pad} { 
+		@if $name != "" {
+			#{$name} {
+				@include make-box-font-or-pad($font);
+				@include make-box-font-or-pad($pad, false);
+			}
 		}
 		@else {
-			@include make-box-ls;	
+			@include make-box-font-or-pad($font);
+			@include make-box-font-or-pad($pad, false);
 		}
 	}
-	&#{$prefix}-3 {
-		@if $name {
-			#{$name} { @include make-box-sd;	}
-		}
-		@else {
-			@include make-box-sd;	
-		}
-	}
-	&#{$prefix}-2 {
-		@if $name {
-			#{$name} { @include make-box-ds;	}
-		}
-		@else {
-			@include make-box-ds;	
-		}
-	}
-	&#{$prefix}-1 {
-		@if $name {
-			#{$name} { @include make-box-ss;	}
-		}
-		@else {
-			@include make-box-ss;	
-		}
-	}
+}
+
+@mixin make-box($prefix, $name : "") {
+
+	@include make-box-item($prefix, "s", "s", $name);
+	@include make-box-item($prefix, "s", "d", $name);
+	@include make-box-item($prefix, "s", "l", $name);
+
+	@include make-box-item($prefix, "d", "s", $name);
+	@include make-box-item($prefix, "d", "d", $name);
+	@include make-box-item($prefix, "d", "l", $name);
+
+	@include make-box-item($prefix, "l", "s", $name);
+	@include make-box-item($prefix, "l", "d", $name);
+	@include make-box-item($prefix, "l", "l", $name);
+	
 }

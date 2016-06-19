@@ -1,0 +1,56 @@
+
+@mixin make-group-default() {
+	// reset ul style & margin & padding
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block; 
+	>* {
+		@include make-font-size-default;
+		@include make-pad-default;
+		@content;
+	}
+	@include make-box('.box-', '>*');
+}
+
+@mixin make-group-line($vertical) {
+	@if $vertical {
+		>* {
+			display: block;
+			margin-top: -1px ;
+			@include when-hover-focus-active{
+				z-index: 2;
+			};
+		}
+	}
+	@else {
+		vertical-align: middle;
+		@include clearfix;
+		>* {
+			float: left;
+			margin-left: -1px ;
+			@include when-hover-focus-active{
+				z-index: 2;
+			};
+		}
+	}
+}
+
+@mixin make-group-radius($radius, $vertical) {
+	@if $vertical {
+		:first-child {
+			@include border-top-radius($radius);
+		}
+		:last-child {
+			@include border-bottom-radius($radius);
+		}
+	}
+	@else {	
+		:first-child {
+			@include border-left-radius($radius);
+		}
+		:last-child {
+			@include border-right-radius($radius);
+		}
+	}
+}

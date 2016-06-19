@@ -21,8 +21,8 @@
 }
 
 // 背景变暗
-@mixin make-element-bg-darken($bg-color) {
-	border-color: transparent;
+@mixin make-element-variant-darken($bg-color) {
+	// border-color: transparent;
 	@include make-element-bg-variant(
 		$bg-color ,
 		darken($bg-color, 5%) ,
@@ -30,8 +30,8 @@
 	);
 }
 
-// 背景反转
-@mixin make-element-bg-invert($color, $bg-color) {
+// outline 风格
+@mixin make-element-variant-outline($color, $bg-color) {
 	border-color: $color;
 	color: $color;
 	background-color: $bg-color;
@@ -44,6 +44,16 @@
 
 	@include when-active {
 		border-color: transparent;
+		color: $bg-color;
 		background-color: darken($color, 10%);
+	}
+}
+
+@mixin make-element-flat-outline($color, $bg-color, $outline : false) {
+	@if $outline == true {
+		@include make-element-variant-outline($bg-color, $color);
+	} @else {
+		color: $color;
+		@include make-element-variant-darken($bg-color);
 	}
 }

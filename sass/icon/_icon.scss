@@ -1,3 +1,43 @@
 /* icon-导出字体风格 */
 
+.ck-icon {
+	margin: 0 5px;
+}
+
+.box-ss,
+.box-sd,
+.box-sl,
+ {
+  .square-icon {
+  	@include make-square-sm;
+  }
+}
+
+.ck-group-col,
+.ck-group-row,
+.box-ds,
+.box-dd,
+.box-dl,
+ {
+  .square-icon {
+  	@include make-square-default;
+  }
+}
+
+.box-ls,
+.box-ld,
+.box-ll,
+ {
+  .square-icon {
+  	@include make-square-lg;
+  	// $fn : "make-square-lg"; 
+  	// if mixin-exists($fn) {
+  	// 	@include #{$fn}();
+  	// 	@warn " #{$fn} ";
+  	// }
+  	// // @include #{$fn}();
+  }
+}
+
+
 @include make-icon-font-classes;

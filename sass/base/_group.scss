@@ -1,0 +1,29 @@
+/* base-分组 */
+
+$group-round-radius : 2px;
+$group-circle-radius : 500px;
+
+.ck-group-col,
+.ck-group-row {
+	@include make-group-default;
+}
+
+.ck-group-col {
+	@include make-group-line(true);
+	&.group-circle > {
+		@include make-group-radius($group-circle-radius, true);
+	}
+	&.group-round > {
+		@include make-group-radius($group-round-radius, true);
+	}
+}
+
+.ck-group-row {
+	@include make-group-line(false);
+	&.group-circle > {
+		@include make-group-radius($group-circle-radius, false);
+	}
+	&.group-round > {
+		@include make-group-radius($group-round-radius, false);
+	}
+}

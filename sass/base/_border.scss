@@ -1,0 +1,19 @@
+/* base-边线 */
+
+.border-hidden {
+	border-color : transparent !important;
+}
+
+.border-none {
+	border-width : 0 !important;
+}
+
+.border-hidden-vertical {
+	border-top-color : transparent !important;
+	border-bottom-color : transparent !important;
+}
+
+.border-none-vertical {
+	border-top-width : 0 !important;
+	border-bottom-width : 0 !important;
+}
