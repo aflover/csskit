@@ -8,14 +8,28 @@
 }
 
 // 背景颜色
-@mixin make-element-bg-variant($bg-color, $bg-color-hover, $bg-color-active : false) {
-	background-color: $bg-color;
-	@include when-hover-focus {
-		background-color: $bg-color-hover;
+@mixin make-element-bg-variant($bg-color, $bg-color-hover, $bg-color-active, $linear : '') {
+	@if $linear == '' {
+		background-color: $bg-color;
 	}
-	@if $bg-color-active {
-		@include when-active {
+	@else {
+		border-color: $bg-color;
+		@include linear-gradient($bg-color, darken($bg-color, $linear));
+	}
+	@include when-hover-focus {
+		@if $linear == '' {
+			background-color: $bg-color-hover;
+		}
+		@else {
+			@include linear-gradient($bg-color-hover, darken($bg-color-hover, $linear));
+		}
+	}
+	@include when-active {
+		@if $linear == '' {
 			background-color: $bg-color-active;
+		}
+		@else {
+			@include linear-gradient($bg-color-active, darken($bg-color-active, $linear));
 		}
 	}
 }
@@ -25,27 +39,40 @@
 	// border-color: transparent;
 	@include make-element-bg-variant(
 		$bg-color ,
-		darken($bg-color, 5%) ,
-		darken($bg-color, 10%)
+		darken($bg-color, 5) ,
+		darken($bg-color, 10) 
 	);
 }
 
 // outline 风格
-@mixin make-element-variant-outline($color, $bg-color) {
+@mixin make-element-variant-outline($color, $bg-color, $linear : '') {
 	border-color: $color;
 	color: $color;
-	background-color: $bg-color;
-
-	@include when-hover-focus {
-		border-color: transparent;
-		color: $bg-color;
-		background-color: darken($color, 5%);
+	@if $linear == '' {
+		background-color: $bg-color;
 	}
-
-	@include when-active {
-		border-color: transparent;
+	@else {
+		@include linear-gradient($bg-color, darken($bg-color, $linear));
+	}
+	@include when-hover-focus {
+		// border-color: transparent;
 		color: $bg-color;
-		background-color: darken($color, 10%);
+		@if $linear == '' {
+			background-color: darken($color, 5);
+		}
+		@else {
+			@include linear-gradient($color, darken(darken($color, 5), $linear));
+		}
+	}
+	@include when-active {
+		// border-color: transparent;
+		color: $bg-color;
+		@if $linear == '' {
+			background-color: darken($color, 10);
+		}
+		@else {
+			@include linear-gradient($color, darken(darken($color, 10), $linear));
+		}
 	}
 }
 
