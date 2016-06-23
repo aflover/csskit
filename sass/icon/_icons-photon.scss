@@ -1,3 +1,4 @@
+@mixin make-icons-photon() {
 .pt-note:before { content: "\e800" }
 .pt-note-beamed:before { content: "\e801" }
 .pt-music:before { content: "\e802" }
@@ -282,3 +283,4 @@
 .pt-sweden:before { content: "\e919" }
 .pt-db-shape:before { content: "\e91a" }
 .pt-logo-db:before { content: "\e91b" }
+}

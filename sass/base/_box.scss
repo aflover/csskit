@@ -1,7 +1,0 @@
-/* base-盒子 */
-
-.box-item {
-	@include make-box-element-default;
-}
-
-@include make-box(".box-");

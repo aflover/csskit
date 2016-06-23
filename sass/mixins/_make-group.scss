@@ -10,7 +10,7 @@
 		@include make-pad-default;
 		@content;
 	}
-	@include make-box('.box-', '>*');
+	@include make-size('.group-size-', '>*');
 }
 
 @mixin make-group-line($vertical) {
@@ -18,7 +18,11 @@
 		>* {
 			display: block;
 			margin-top: -1px ;
-			@include when-hover-focus-active{
+			@include when-disabled {
+				margin-top: 0;
+				border-top-width: 0;
+			};
+			@include when-not-disabled-hover-focus-active{
 				z-index: 2;
 			};
 		}
@@ -29,7 +33,11 @@
 		>* {
 			float: left;
 			margin-left: -1px ;
-			@include when-hover-focus-active{
+			@include when-disabled {
+				margin-left: 0;
+				border-left-width: 0;
+			};
+			@include when-not-disabled-hover-focus-active{
 				z-index: 2;
 			};
 		}

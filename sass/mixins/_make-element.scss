@@ -35,12 +35,13 @@
 }
 
 // 背景变暗
-@mixin make-element-variant-darken($bg-color) {
+@mixin make-element-variant-darken($bg-color, $linear : '') {
 	// border-color: transparent;
 	@include make-element-bg-variant(
 		$bg-color ,
 		darken($bg-color, 5) ,
-		darken($bg-color, 10) 
+		darken($bg-color, 10),
+		$linear
 	);
 }
 
@@ -76,11 +77,11 @@
 	}
 }
 
-@mixin make-element-flat-outline($color, $bg-color, $outline : false) {
+@mixin make-element-flat-outline($color, $bg-color, $outline : false, $linear: '') {
 	@if $outline == true {
-		@include make-element-variant-outline($bg-color, $color);
+		@include make-element-variant-outline($bg-color, $color, $linear);
 	} @else {
 		color: $color;
-		@include make-element-variant-darken($bg-color);
+		@include make-element-variant-darken($bg-color, $linear);
 	}
 }

@@ -40,6 +40,17 @@
 	}
 }
 
+@mixin when-not-disabled-hover-focus-active() {
+	&:not([disabled])	{
+		&:focus,
+		&:hover,
+		&:active,
+		&.active {
+			@content;
+		}
+	}
+}
+
 @mixin when-hover-focus() {
 	&:focus,
 	&:hover {

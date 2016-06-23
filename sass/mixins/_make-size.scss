@@ -1,0 +1,63 @@
+//--------------------------------------------------------- 盒子
+
+@mixin make-size-element-default () {
+	@include make-line-height-default;
+	display: inline-block;
+	border: 1px solid transparent;
+}
+
+@mixin make-size-font-or-pad($type, $isFont : true ) {
+	@if $type == "d" {
+		@if $isFont == true {
+			@include make-font-size-default;
+		}
+		@else {
+			@include make-pad-default;
+		}
+	} @else if $type == "l" {
+		@if $isFont == true {
+			@include make-font-size-lg;
+		}
+		@else {
+			@include make-pad-lg;
+		}
+	} @else if $type == "s" {
+		@if $isFont == true {
+			@include make-font-size-sm;
+		}
+		@else {
+			@include make-pad-sm;
+		}
+	}
+}
+
+@mixin make-size-item($prefix, $font, $pad, $name: "") {
+	&#{$prefix}#{$font}#{$pad} { 
+		@if $name != "" {
+			#{$name} {
+				@include make-size-font-or-pad($font);
+				@include make-size-font-or-pad($pad, false);
+			}
+		}
+		@else {
+			@include make-size-font-or-pad($font);
+			@include make-size-font-or-pad($pad, false);
+		}
+	}
+}
+
+@mixin make-size($prefix, $name : "") {
+
+	@include make-size-item($prefix, "s", "s", $name);
+	@include make-size-item($prefix, "s", "d", $name);
+	@include make-size-item($prefix, "s", "l", $name);
+
+	@include make-size-item($prefix, "d", "s", $name);
+	@include make-size-item($prefix, "d", "d", $name);
+	@include make-size-item($prefix, "d", "l", $name);
+
+	@include make-size-item($prefix, "l", "s", $name);
+	@include make-size-item($prefix, "l", "d", $name);
+	@include make-size-item($prefix, "l", "l", $name);
+	
+}

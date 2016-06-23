@@ -1,0 +1,7 @@
+/* base-尺寸 */
+
+.size-default {
+	@include make-size-element-default;
+}
+
+@include make-size(".size-");

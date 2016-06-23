@@ -11,7 +11,7 @@ var configs = {
 		css : 'dist/css/photon.css',
 		prefixFrom: 'icon',
 		prefixTo: 'pt',
-		taskName: 'photon',
+		name: 'photon',
 		htmlFile : 'demo-specs/icon-photon.html',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	},
@@ -21,7 +21,7 @@ var configs = {
 		css : 'css/font-awesome.css',
 		prefixFrom: 'fa',
 		prefixTo: 'fa',
-		taskName: 'font-awesome',
+		name: 'font-awesome',
 		htmlFile : 'demo-specs/icon-font-awesome.html',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	}
@@ -54,7 +54,9 @@ function resolve (config) {
 			var html = fs.readFileSync(config.htmlFile).toString();
 			html = util.replaceHtmlBlock(html, mat, config.prefixTo, config.htmlFormat);
 			fs.writeFileSync(config.htmlFile, html);
-			return util.replaceIcon(mat, config.prefixTo);
+			var sassText =  util.replaceIcon(mat, config.prefixTo);
+			sassText = '@mixin make-icons-' + config.name + '() {\r\n' + sassText + '\r\n}';
+			return sassText;
 		},
 		fontsDir : fontsDir,
 		// fontsDirs : fontsDirs,

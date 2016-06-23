@@ -1,0 +1,63 @@
+
+$theme-color-white: white !default;
+$theme-color-black: black !default;
+
+$theme-flat-default-bg-color : #DDD !default;
+$theme-flat-primary-bg-color : #4288CC !default;
+$theme-flat-danger-bg-color : #c43c35 !default;
+$theme-flat-info-bg-color : #339bb9 !default;
+$theme-flat-secondary-bg-color : #1E9891 !default;
+
+// .group-flat-default > *,
+// .group-outline-default > *,
+.flat-default,
+.outline-default {
+	@include make-element-flat-outline($theme-color-black, $theme-flat-default-bg-color);
+}
+
+// .group-outline-default > *,
+.outline-default {
+	background-color: $theme-color-white;	
+	border-color: darken($theme-flat-default-bg-color, 20);
+	color: $theme-color-black;
+}
+
+// .group-flat-primary > *,
+.flat-primary {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-primary-bg-color);
+}
+
+// .group-flat-danger > *,
+.flat-danger {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-danger-bg-color);
+}
+
+// .group-flat-info > *,
+.flat-info {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-info-bg-color);
+}
+
+// .group-flat-secondary > *,
+.flat-secondary {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-secondary-bg-color);
+}
+
+// .group-outline-primary > *,
+.outline-primary {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-primary-bg-color, true);
+}
+
+// .group-outline-danger > *,
+.outline-danger {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-danger-bg-color, true);
+}
+
+// .group-outline-info > *,
+.outline-info {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-info-bg-color, true);
+}
+
+// .group-outline-secondary > *,
+.outline-secondary {
+	@include make-element-flat-outline($theme-color-white, $theme-flat-secondary-bg-color, true);
+}

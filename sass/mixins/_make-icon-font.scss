@@ -35,8 +35,10 @@ $icon-font-classes : ();
         $lists: append($lists, '[class^="#{$item}-"]' , comma);
         $lists: append($lists, '[class*="#{$item}-"]' , comma);
     }
-    #{$lists} {
-        @include make-icon-class-icomoon;
+    @if length($lists) != 0 {
+        #{$lists} {
+            @include make-icon-class-icomoon;
+        }
     }
 }
 

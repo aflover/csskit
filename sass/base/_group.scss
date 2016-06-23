@@ -3,12 +3,12 @@
 $group-round-radius : 2px;
 $group-circle-radius : 500px;
 
-.ck-group-col,
-.ck-group-row {
+.group-col,
+.group-row {
 	@include make-group-default;
 }
 
-.ck-group-col {
+.group-col {
 	@include make-group-line(true);
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, true);
@@ -18,7 +18,7 @@ $group-circle-radius : 500px;
 	}
 }
 
-.ck-group-row {
+.group-row {
 	@include make-group-line(false);
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, false);
