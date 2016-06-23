@@ -1,23 +1,15 @@
 @import "csskit-util";
 
-$icon-photon-on: true !default;
-$icon-font-awesome-on: true !default;
-
 @import "base/reset-box";
 @import "base/clearfix";
 @import "base/float";
 @import "base/text-align";
 @import "base/text-select";
 
-
-
-
-
 @import "layout/flex-window";
 @import "layout/absolute-window";
 
 @import "button/button";
-
 
 @import "icon/font-awesome";
 @import "icon/photon";

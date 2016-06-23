@@ -19,7 +19,7 @@ $icon-font-awesome-on: false !default;
 	);
 
 	// 添加类前缀, 关联字体
-	@include make-icon-class-prefix($icon-font-fontawesome-class, $icon-font-fontawesome-family);
+	@include make-icon-class($icon-font-fontawesome-class, $icon-font-fontawesome-family);
 
 	// 导出字体文件
 	@include make-icons-font-awesome();

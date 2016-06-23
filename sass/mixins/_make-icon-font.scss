@@ -13,44 +13,45 @@
     }
 }
 
-$icon-font-classes : ();
+// $icon-font-classes : ();
 
-// 添加一个class prefix 选择器
-@mixin append-icon-font-class-prefix($selector) {
-    $lists : $icon-font-classes;
+// // 添加一个class prefix 选择器
+// @mixin append-icon-font-class-prefix($selector) {
+//     $lists : $icon-font-classes;
 
-    @if $selector { //添加新数据
-        $selector: unquote($selector);
-        $lists : append($lists , $selector, comma);
-    }
+//     @if $selector { //添加新数据
+//         $selector: unquote($selector);
+//         $lists : append($lists , $selector, comma);
+//     }
 
-    $icon-font-classes : $lists !global; //导出全局
-}
+//     $icon-font-classes : $lists !global; //导出全局
+// }
 
-// 导出字体风格
-@mixin make-icon-font-classes() {
-    $lists : ();
-    @each $item in $icon-font-classes { //取出旧数据再来一遍
-        $item: unquote($item);
-        $lists: append($lists, '[class^="#{$item}-"]' , comma);
-        $lists: append($lists, '[class*="#{$item}-"]' , comma);
-    }
-    @if length($lists) != 0 {
-        #{$lists} {
-            @include make-icon-class-icomoon;
-        }
-    }
-}
+// // 导出字体风格
+// @mixin make-icon-font-classes() {
+//     $lists : ();
+//     @each $item in $icon-font-classes { //取出旧数据再来一遍
+//         $item: unquote($item);
+//         $lists: append($lists, '[class^="#{$item}-"]' , comma);
+//         $lists: append($lists, '[class*="#{$item}-"]' , comma);
+//     }
+//     @if length($lists) != 0 {
+//         #{$lists} {
+//             @include make-icon-class-icomoon;
+//         }
+//     }
+// }
 
 // 关联字体
-@mixin make-icon-class-prefix($prefix, $font-family) {
+@mixin make-icon-class($prefix, $font-family) {
     
-    @include append-icon-font-class-prefix($prefix);
+    // @include append-icon-font-class-prefix($prefix);
 
     [class^="#{$prefix}-"],
     [class*=" #{$prefix}-"]{
         // use !important to prevent issues with browser extensions that change fonts
-        font-family: '#{$font-family}' !important;
+        // font-family: '#{$font-family}' !important;
+        @include make-icon-class-icomoon($font-family); // 直接使用
     }
 }
 
