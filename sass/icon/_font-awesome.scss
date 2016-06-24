@@ -1,5 +1,3 @@
-/* icon-fontawesome字体 */
-
 $icon-font-fontawesome-class:    'fa';
 $icon-font-fontawesome-family:   'FontAwesome';
 $icon-font-fontawesome-path: 	'../fonts';
@@ -10,6 +8,8 @@ $icon-font-awesome-on: false !default;
 @import "icons-font-awesome";
 
 @if $icon-font-awesome-on == true {
+	/* icon-fontawesome字体 */
+
 	// 添加字体
 	@include make-icon-font-face(
 		$icon-font-fontawesome-family, 

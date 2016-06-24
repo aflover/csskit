@@ -8,56 +8,65 @@ $theme-flat-danger-bg-color : #c43c35 !default;
 $theme-flat-info-bg-color : #339bb9 !default;
 $theme-flat-secondary-bg-color : #1E9891 !default;
 
-// .group-flat-default > *,
-// .group-outline-default > *,
-.flat-default,
-.outline-default {
-	@include make-element-flat-outline($theme-color-black, $theme-flat-default-bg-color);
-}
+$theme-on : false !default;
 
-// .group-outline-default > *,
-.outline-default {
-	background-color: $theme-color-white;	
-	border-color: darken($theme-flat-default-bg-color, 20);
-	color: $theme-color-black;
-}
+@if $theme-on {
+	/* base-theme */
 
-// .group-flat-primary > *,
-.flat-primary {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-primary-bg-color);
-}
+	// .group-flat-default > *,
+	// .group-outline-default > *,
+	.flat-default,
+	.outline-default {
+		@include make-element-flat-outline($theme-color-black, $theme-flat-default-bg-color);
+	}
 
-// .group-flat-danger > *,
-.flat-danger {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-danger-bg-color);
-}
+	// .group-outline-default > *,
+	.outline-default {
+		background-color: $theme-color-white;	
+		border-color: darken($theme-flat-default-bg-color, 20);
+		color: $theme-color-black;
+	}
 
-// .group-flat-info > *,
-.flat-info {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-info-bg-color);
-}
+	// .group-flat-primary > *,
+	.flat-primary {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-primary-bg-color);
+	}
 
-// .group-flat-secondary > *,
-.flat-secondary {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-secondary-bg-color);
-}
+	// .group-flat-danger > *,
+	.flat-danger {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-danger-bg-color);
+	}
 
-// .group-outline-primary > *,
-.outline-primary {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-primary-bg-color, true);
-}
+	// .group-flat-info > *,
+	.flat-info {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-info-bg-color);
+	}
 
-// .group-outline-danger > *,
-.outline-danger {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-danger-bg-color, true);
-}
+	// .group-flat-secondary > *,
+	.flat-secondary {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-secondary-bg-color);
+	}
 
-// .group-outline-info > *,
-.outline-info {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-info-bg-color, true);
-}
+	// .group-outline-primary > *,
+	.outline-primary {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-primary-bg-color, true);
+	}
 
-// .group-outline-secondary > *,
-.outline-secondary {
-	@include make-element-flat-outline($theme-color-white, $theme-flat-secondary-bg-color, true);
+	// .group-outline-danger > *,
+	.outline-danger {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-danger-bg-color, true);
+	}
+
+	// .group-outline-info > *,
+	.outline-info {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-info-bg-color, true);
+	}
+
+	// .group-outline-secondary > *,
+	.outline-secondary {
+		@include make-element-flat-outline($theme-color-white, $theme-flat-secondary-bg-color, true);
+	}
+
+
+
 }

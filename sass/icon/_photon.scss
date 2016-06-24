@@ -1,5 +1,3 @@
-/* icon-photon字体 */
-
 $icon-font-photon-class:    'pt';
 $icon-font-photon-family:   'photon-entypo';
 $icon-font-photon-path: 	'../fonts';
@@ -10,6 +8,8 @@ $icon-photon-on: false !default;
 @import "icons-photon";
 
 @if $icon-photon-on == true {
+	/* icon-photon字体 */
+
 	// 添加字体
 	@include make-icon-font-face($icon-font-photon-family, $icon-font-photon-path, $icon-font-photon-file, $icon-font-photon-version);	
 

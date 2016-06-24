@@ -1,0 +1,13 @@
+
+@import "normalize.scss";
+
+$reset-on : false !default;
+
+@if $reset-on {
+	/* base-reset */
+	
+	@include normalize();
+	
+	@include reset-box-sizing;
+}
+

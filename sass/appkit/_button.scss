@@ -3,9 +3,11 @@
 $btn-disabled-bg-color : #DDD !default;
 $btn-disabled-color : #808080 !default;
 
-.ck-btn {
+.ak-btn {
 	@include make-button-default;
 	@include make-element-size-default;
+	// 默认
+	@include make-element-flat-outline(black, $btn-disabled-bg-color);
 
 	&[disabled],
 	&[disabled]:hover {

@@ -9,6 +9,7 @@ var bourbon = require("bourbon").includePaths,
     sicon = require('./scripts/icon'),
     buffer = require('gulp-buffer'),
     watch = require('gulp-watch'),
+    path = require('path'),
     sass = require("gulp-sass");
 
 var paths = {
@@ -24,10 +25,15 @@ function handleSassError(err) {
 }
 
 gulp.task("sass", function() {
+    
+    var includePaths = [
+        path.resolve(__dirname, "sass"),
+        path.resolve(require.resolve('normalize-scss'), '..'),
+        // path.resolve(require.resolve('support-for'), '..'),
+    ].concat(bourbon);
+// console.log(includePaths);
     return gulp.src(paths.scss)
-        .pipe(sass({
-            includePaths: ["sass"].concat(bourbon)
-        }))
+        .pipe(sass({ includePaths: includePaths }))
         .on('error', handleSassError)
         .pipe(autoprefix("last 2 versions"))
         .pipe(gulp.dest("./dist/css"))

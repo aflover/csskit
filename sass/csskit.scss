@@ -1,28 +1,39 @@
-@import "csskit-util";
+// @import "csskit-util";
 
-@import "base/reset-box";
-@import "base/clearfix";
-@import "base/float";
-@import "base/text-align";
-@import "base/text-select";
+// // 重置
+// @import "base/reset";
 
-@import "layout/flex-window";
-@import "layout/absolute-window";
+// // 图标
+// @import "icon/font-awesome";
+// @import "icon/photon";
 
-@import "button/button";
+// // appkit 组件
+// @import "appkit/flex-window";
+// @import "appkit/absolute-window";
+// @import "appkit/button";
+// @import "appkit/toolbar";
 
-@import "icon/font-awesome";
-@import "icon/photon";
-@import "icon/icon";
+// // 基础
+// @import "base/clearfix";
+// @import "base/float";
+// @import "base/text-align";
+// @import "base/text-select";
+// @import "base/theme";
+// @import "base/border";
+// @import "base/pad";
+// @import "base/font-size";
+// @import "base/square";
+// @import "base/size";
+// @import "base/group";
 
-@import "toolbar/toolbar";
 
+@import "reset";
 
+@import "icon-photon";
+@import "icon-font-awesome";
 
-@import "base/theme";
-@import "base/border";
-@import "base/pad";
-@import "base/font-size";
-@import "base/square";
-@import "base/size";
-@import "base/group";
+@import "appkit";
+
+@import "base";
+
+@import "theme";

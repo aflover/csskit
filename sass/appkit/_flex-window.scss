@@ -1,10 +1,10 @@
 /* layout-flex-window */
 
-html.ck-flex-window { // 顶层
+html.ak-flex-window { // 顶层
 	@include make-layout-window-flex
-	.ck-window { // 容器
+	.ak-window { // 容器
 		@include make-window-flex;
-		.ck-window-content { // 客户区
+		.ak-window-content { // 客户区
 			@include make-window-content;
 		}
 	}

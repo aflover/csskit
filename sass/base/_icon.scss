@@ -1,0 +1,41 @@
+/* base-icon */
+
+$icon-inline-margin: 5px;
+
+.inline-icon {
+	// 行内ICON，指定边距
+	margin-left: $icon-inline-margin;
+	margin-right: $icon-inline-margin;
+}
+
+.square-icon {
+	// 接近正方形ICON
+	@include make-square-default;
+}
+
+// size 修饰
+// group 修饰
+
+.size-ss,
+.size-sd,
+.size-sl,
+.group-size-ss,
+.group-size-sd,
+.group-size-sl,
+{
+	.square-icon {
+		@include make-square-sm;
+	}
+}
+
+.size-ls,
+.size-ld,
+.size-ll,
+.group-size-ls,
+.group-size-ld,
+.group-size-ll,
+{
+	.square-icon {
+		@include make-square-lg;
+	}
+}
