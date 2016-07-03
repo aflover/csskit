@@ -1,0 +1,7 @@
+$icon-photon-on: true !default;
+$icon-font-photon-path: 	'../../fonts';
+
+@import "components/util";
+
+@import "components/icon/icon-mixin";
+@import "components/icon/photon";

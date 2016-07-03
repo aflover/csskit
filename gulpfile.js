@@ -63,7 +63,7 @@ function makeIconSassTask (name) {
                 .pipe(sicon.gulpContentFilter(function (file) {
                     file.contents = new Buffer(item.toSass(file.contents.toString('utf8')));
                 }))
-                .pipe(gulp.dest("./sass/icon/"))
+                .pipe(gulp.dest("./sass/components/icon/"))
             ;
     }
 }
@@ -77,12 +77,6 @@ function makeIconFontTask (name) {
     }
 }
 
-function makeIconHtmlTask(name) {
-    return function() {
-
-    };
-}
-
 ['photon', 'font-awesome'].forEach(function (it) {
     gulp.task("icon-" + it + '-sass', makeIconSassTask(it));
     gulp.task("icon-" + it + '-font', makeIconFontTask(it));
@@ -90,6 +84,9 @@ function makeIconHtmlTask(name) {
 
 gulp.task("icon-photon", ["icon-photon-sass", "icon-photon-font"]);
 gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-font"]);
+
+// 更新图标库
+gulp.task("icons", ["icon-font-awesome", "icon-photon"]);
 
 gulp.task("fonts", function(){
     return gulp.src('./fonts/*').pipe(gulp.dest("./dist/fonts"));

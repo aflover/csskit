@@ -1,0 +1,56 @@
+// 基础辅助功能
+
+//------------------------------------------------------- 浮动
+
+.clearfix {
+	@include clearfix;
+}
+.float-left {
+	float: left !important;
+}
+
+.float-right {
+	float: right !important;
+}
+
+//------------------------------------------------------- 文本
+
+.text-center {
+	text-align: center !important;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+.text-selectable {
+	@include make-text-select;
+}
+
+.text-noselectable {
+	@include make-text-select(false);
+}
+
+//------------------------------------------------------- 边框
+
+.border-hidden {
+	border-color : transparent !important;
+}
+
+.border-none {
+	border-width : 0 !important;
+}
+
+.border-hidden-vertical {
+	border-top-color : transparent !important;
+	border-bottom-color : transparent !important;
+}
+
+.border-none-vertical {
+	border-top-width : 0 !important;
+	border-bottom-width : 0 !important;
+}

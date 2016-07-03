@@ -1,0 +1,25 @@
+$icon-font-fontawesome-class:    'fa';
+$icon-font-fontawesome-family:   'FontAwesome';
+$icon-font-fontawesome-path: 	'../fonts';
+$icon-font-fontawesome-file:     'fontawesome-webfont';
+$icon-font-fontawesome-version:  '4.3.0';
+$icon-font-awesome-on: false !default;
+
+@import "icons-font-awesome";
+
+@if $icon-font-awesome-on == true {
+
+	// 添加字体
+	@include make-icon-font-face(
+		$icon-font-fontawesome-family, 
+		$icon-font-fontawesome-path, 
+		$icon-font-fontawesome-file, 
+		$icon-font-fontawesome-version
+	);
+
+	// 添加类前缀, 关联字体
+	@include make-icon-class($icon-font-fontawesome-class, $icon-font-fontawesome-family);
+
+	// 导出字体文件
+	@include make-icons-font-awesome();
+}

@@ -1,9 +1,0 @@
-/* base-文本选择 */
-
-.text-selectable {
-	@include make-text-select;
-}
-
-.text-noselectable {
-	@include make-text-select(false);
-}

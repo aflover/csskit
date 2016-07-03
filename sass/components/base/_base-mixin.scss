@@ -1,6 +1,5 @@
-// 文本可选择性
 
-@mixin make-text-select ( $sel : true, $cur : default) {
+@mixin make-text-select ( $sel : true, $cur : default) { // 文本可选择性
 	@if $sel == true {
 		cursor: text;
 		@include user-select(text);
