@@ -1,5 +1,7 @@
 <style lang="scss" >
-
+  #app {
+    padding: 5px;
+  }
   #app hr {
     border-width: 1px;
     border-color: #C7C7C7;
@@ -16,14 +18,16 @@
 </style>
 
 <template>
-  <div id="app">
-    <ul>
-      <li v-for="route in routers">
-        <a v-link = "{path: route.path }" >{{route.title}}</a>
-      </li>
-    </ul>
-    <div class="app-panel">
-      <router-view></router-view>
+  <div id="app" class="ak-window">
+    <div class="ak-window-content">
+      <ul class="group-col group-size-dd">
+        <li v-for="route in routers" class="group-item">
+          <a v-link = "{path: route.path }" >{{route.title}}</a>
+        </li>
+      </ul>
+      <div class="app-panel">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>

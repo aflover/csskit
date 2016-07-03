@@ -1,0 +1,18 @@
+
+html.#{$component-prefix}absolute-window { // 顶层
+	.#{$component-prefix}window { // 容器
+		@include make-window-absolute;
+		
+	}
+}
+
+html.#{$component-prefix}flex-window { // 顶层
+	@include make-layout-window-flex
+	.#{$component-prefix}window { // 容器
+		@include make-window-flex;
+	}
+}
+
+.#{$component-prefix}window-content { // 客户区
+	@include make-window-content;
+}
