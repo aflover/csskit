@@ -1,24 +1,15 @@
 
-$table-bd-color: #d0d0d0 !default;
-$table-striped-bg-color: #f8f8f8 !default;
-$table-hover-bg-color: #f3f3f3 !default;
-
-$table-active-bg-color: #4D95DC !default;
-$table-active-color: white !default;
+$table-bg-color: #f8f8f8 !default;
+$table-hover-bg-color: darken($table-bg-color, 5) !default;
+$table-active-bg-color: darken($table-bg-color, 10) !default;
+$table-bd-color: darken($table-bg-color, 15) !default;
 
 .#{$component-prefix}table {
 	cursor: default;
-
 	@include make-table-default;
-
     > thead {
         border-bottom: 1px solid $table-bd-color;
     }
-
-    // > tbody > tr:active {
-    //     background-color: darken($table-striped-bg-color, 40 );
-    // }
-
 }
 
 &.table-lined > thead > tr,
@@ -28,7 +19,7 @@ $table-active-color: white !default;
 
 &.table-striped > tbody {
     > tr:nth-child(odd) {
-        background-color: $table-striped-bg-color;
+        background-color: $table-bg-color;
     }
 }
 
@@ -38,11 +29,10 @@ $table-active-color: white !default;
 
 &.table-active {
 	 > tbody {
-    	> tr:active {
+        > tr:active,
+    	> tr.active,
+        {
 	        background-color: $table-active-bg-color;
-	        > td {
-	        	color: $table-active-color;
-	        }
 	    }
 	 }
 }
