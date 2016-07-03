@@ -1,4 +1,4 @@
-// 基础辅助功能
+// 基础辅助功能 主要用于覆盖和全局控制，一般具有高权重
 
 //------------------------------------------------------- 浮动
 
@@ -54,3 +54,33 @@
 	border-top-width : 0 !important;
 	border-bottom-width : 0 !important;
 }
+
+//------------------------------------------------------- 字体
+
+.font-default {
+    @include make-font-size-default;
+}
+
+.font-sm {
+    @include make-font-size-sm;
+}
+
+.font-lg {
+    @include make-font-size-lg;
+}
+
+//------------------------------------------------------- 内补白
+
+.pad-default {
+	@include make-pad-default;
+}
+
+.pad-lg {
+	@include make-pad-lg;
+}
+
+.pad-sm {
+	@include make-pad-sm;
+}
+
+

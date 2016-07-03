@@ -17,12 +17,6 @@ $size_items : ('s', 'd', 'l');
 	}
 }
 
-@mixin make-size-default() {
-	@include make-line-height-default;
-	@include make-font-size-default;
-	@include make-pad-default;
-}
-
 @mixin make-size-item-font-size($type) {
 	@if $type == 's' {
 		@include make-font-size-sm;

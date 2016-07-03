@@ -1,0 +1,59 @@
+//--------------------------------------------------------- 行高
+$line-height-default: 1.2 !default; // line-height(1.0~1.2)
+
+@mixin make-line-height-default() {
+	line-height: $line-height-default;
+}
+
+//--------------------------------------------------------- 字体
+$font-size-sm: 12px !default;
+$font-size-default: 14px !default;
+$font-size-lg: 16px !default;
+$font-size-important: false !default;
+
+@mixin make-font-size-default($font-size: $font-size-default, $important: $font-size-important) {
+	@if $important {
+    	font-size: $font-size !important;
+	}
+	@else {
+    	font-size: $font-size;
+	}
+}
+
+@mixin make-font-size-sm($important: $font-size-important) {
+    @include make-font-size-default($font-size-sm, $important);
+}
+
+@mixin make-font-size-lg($important: $font-size-important) {
+    @include make-font-size-default($font-size-lg, $important);
+}
+
+//--------------------------------------------------------- 内补白
+$pad-padding-sm: 0.25em !default;
+$pad-padding-default: 0.5em !default;
+$pad-padding-lg: 0.75em !default;
+$pad-padding-important: false !default;
+
+@mixin make-pad-default($padding: $pad-padding-default, $important: $pad-padding-important) {
+	@if $important {
+    	padding: $padding !important;
+	}
+	@else {
+    	padding: $padding;
+	}
+}
+
+@mixin make-pad-sm($important: $pad-padding-important) {
+    @include make-pad-default($pad-padding-sm, $important);
+}
+
+@mixin make-pad-lg($important: $pad-padding-important) {
+    @include make-pad-default($pad-padding-lg, $important);
+}
+
+//--------------------------------------------------------- 重置默认
+@mixin make-size-default() {
+	@include make-line-height-default;
+	@include make-font-size-default;
+	@include make-pad-default;
+}
