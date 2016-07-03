@@ -98,8 +98,8 @@ gulp.task('create', function(name) {
     var dir = './sass/components/' + name + '/';
     fs.existsSync(dir) || fs.mkdirSync(dir);
 
-    // fs.writeFileSync(dir + '_' + name + '.scss', '');
-    // fs.writeFileSync(dir + '_' + name + '-mixin.scss', '');
+    fs.writeFileSync(dir + '_' + name + '.scss', '');
+    fs.writeFileSync(dir + '_' + name + '-mixin.scss', '');
 
 var tmpl = `
 $iter-on: true !default;
