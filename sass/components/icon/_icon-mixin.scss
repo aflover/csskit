@@ -59,3 +59,51 @@
     transform: translate(0, 0); // ensures no half-pixel rendering in firefox
     speak: none;    // skip 
 }
+
+// inline样式
+
+@mixin make-icon-inline() { // 行内ICON
+    display: inline-block;
+    position: relative;
+    // text-align: left;
+    height: 1em;
+    width: 1em;
+}
+
+// 一些特殊的ICON
+
+@mixin make-icon-caret($color: #B3A9A9) { // 下三角
+    border: .45em solid transparent;
+    border-top-color: $color;
+    position: absolute;
+    top: 45%;
+    content: '';
+}
+
+@mixin make-icon-right($color) { // 对号
+    border: 2px solid transparent;
+    border-left-color: $color;
+    border-bottom-color: $color;
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    top: 20%;
+    min-height: 8px;
+    content: '';
+    @include transform (rotate(-55deg)) ;
+}
+
+@mixin make-icon-arrow($color) { // 下箭头
+    border: 2px solid transparent;
+    border-right-color: $color;
+    border-bottom-color: $color;
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 10%;
+    left: 10%;
+    content: '';
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all 0.3s;
+}

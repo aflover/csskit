@@ -1,8 +1,8 @@
 $icon-font-fontawesome-class:    'fa';
 $icon-font-fontawesome-family:   'FontAwesome';
-$icon-font-fontawesome-path: 	'../fonts';
 $icon-font-fontawesome-file:     'fontawesome-webfont';
 $icon-font-fontawesome-version:  '4.3.0';
+$icon-font-fontawesome-path: 	'../fonts' !default;
 $icon-font-awesome-on: false !default;
 
 @import "icons-font-awesome";

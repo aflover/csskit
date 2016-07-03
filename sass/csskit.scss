@@ -2,16 +2,16 @@
 
 @import "pure/base";
 
-
+$icon-font-photon-path: 	'../fonts' !default;
+$icon-font-fontawesome-path: '../fonts' !default;
 
 @import "pure/icon-photon";
 @import "pure/icon-font-awesome";
+@import "pure/icon";
 
-
-
+@import "pure/button";
 
 @import "pure/panel";
-
 
 
 

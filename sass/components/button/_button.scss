@@ -1,13 +1,10 @@
-/* button */
 
 $btn-disabled-bg-color : #DDD !default;
 $btn-disabled-color : #808080 !default;
 
-.ak-btn {
+.#{$component-prefix}btn {
 	@include make-button-default;
-	@include make-element-size-default;
-	// 默认
-	@include make-element-flat-outline(black, $btn-disabled-bg-color);
+	@include make-size-default;
 
 	&[disabled],
 	&[disabled]:hover {
@@ -28,14 +25,4 @@ $btn-disabled-color : #808080 !default;
 
 .btn-meta-shadow {
 	@include make-button-inner-shadow;
-}
-
-// 带箭头
-.btn-icon-caret {
-	&.open,
-	&:not([disabled]):hover {
-		> .pure-icon-caret:after {
-			@include transform(rotate(180deg) translateY(50%));
-		}
-	}
 }

@@ -1,8 +1,8 @@
 $icon-font-photon-class:    'pt';
 $icon-font-photon-family:   'photon-entypo';
-$icon-font-photon-path: 	'../fonts';
 $icon-font-photon-file:     'photon-entypo';
 $icon-font-photon-version:  '0.1.2';
+$icon-font-photon-path: 	'../fonts' !default;
 $icon-photon-on: false !default;
 
 @import "icons-photon";
