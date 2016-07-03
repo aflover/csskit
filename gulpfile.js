@@ -1,7 +1,8 @@
 var bourbon = require("bourbon").includePaths,
     autoprefix = require("gulp-autoprefixer"),
     connect = require("gulp-connect"),
-    gulp = require('gulp-param')(require('gulp'), process.argv),
+    gulp = require('gulp'),
+    param = require('gulp-param')(gulp, process.argv),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
     log = require('gulp-log'),
@@ -16,7 +17,7 @@ var bourbon = require("bourbon").includePaths,
 var paths = {
     scss: [
         "./sass/*.scss",
-        "./sass/**/*.scss"
+        "./sass/**/*.scss",
     ]
 };
 
@@ -38,7 +39,7 @@ gulp.task("sass", function() {
         .on('error', handleSassError)
         .pipe(autoprefix("last 2 versions"))
         .pipe(gulp.dest("./dist/css"))
-        .pipe(connect.reload())
+        // .pipe(connect.reload()) // 不监视了
         ;
 });
 
@@ -94,7 +95,7 @@ gulp.task("fonts", function(){
 });
 
 // 创建
-gulp.task('create', function(name) {
+param.task('create', function(name) {
     var dir = './sass/components/' + name + '/';
     fs.existsSync(dir) || fs.mkdirSync(dir);
 
@@ -114,7 +115,9 @@ $iter-on: true !default;
     console.log('done')
 });
 
-gulp.task("dev", ["fonts", "sass", "connect"], function() {
+gulp.task("dev", ["fonts"], function() {
+    // gulp.start("connect");
+    gulp.start("sass");
     watch(paths.scss, function(){
         gulp.start('sass');
     });

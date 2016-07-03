@@ -14,7 +14,7 @@ $group-circle-radius : 500px;
 
 .group-col {
 	.group-item {
-		@include make-group-item-vertical;
+		display: block;
 	}
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, true);
@@ -22,12 +22,18 @@ $group-circle-radius : 500px;
 	&.group-round > {
 		@include make-group-radius($group-round-radius, true);
 	}
+	&.group-zindex { // 有边框的情况下 需要使用zindex
+		.group-item {
+			@include make-group-item-zindex(true);
+		}
+	}
 }
 
 .group-row {
 	vertical-align: middle;
+	@include clearfix;
 	.group-item {
-		@include make-group-item-horizontal;
+		float: left;
 	}
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, false);
@@ -35,4 +41,10 @@ $group-circle-radius : 500px;
 	&.group-round > {
 		@include make-group-radius($group-round-radius, false);
 	}
+	&.group-zindex { // 有边框的情况下 需要使用zindex
+		.group-item {
+			@include make-group-item-zindex(false);
+		}
+	}
 }
+

@@ -9,9 +9,7 @@
 		@include linear-gradient($bg-color, darken($bg-color, $linear));
 	}
 
-	&:hover,
-	&:focus,
-	{
+	@include when-hover-focus {
 		@if $linear == '' {
 			background-color: $bg-color-hover;
 		}
@@ -20,8 +18,7 @@
 		}
 	}
 	
-	&:active,
-	{
+	@include when-active {
 		@if $linear == '' {
 			background-color: $bg-color-active;
 		}
@@ -54,9 +51,7 @@
 		@include linear-gradient($bg-color, darken($bg-color, $linear));
 	}
 
-	&:hover,
-	&:focus,
-	{
+	@include when-hover-focus {
 		// border-color: transparent;
 		color: $bg-color;
 		@if $linear == '' {
@@ -67,8 +62,7 @@
 		}
 	}
 
-	&:active,
-	{
+	@include when-active {
 		// border-color: transparent;
 		color: $bg-color;
 		@if $linear == '' {
