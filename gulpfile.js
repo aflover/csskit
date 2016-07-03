@@ -1,7 +1,7 @@
 var bourbon = require("bourbon").includePaths,
     autoprefix = require("gulp-autoprefixer"),
     connect = require("gulp-connect"),
-    gulp = require("gulp"),
+    gulp = require('gulp-param')(require('gulp'), process.argv),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
     log = require('gulp-log'),
@@ -10,6 +10,7 @@ var bourbon = require("bourbon").includePaths,
     buffer = require('gulp-buffer'),
     watch = require('gulp-watch'),
     path = require('path'),
+    fs = require('fs'),
     sass = require("gulp-sass");
 
 var paths = {
@@ -90,6 +91,27 @@ gulp.task("icons", ["icon-font-awesome", "icon-photon"]);
 
 gulp.task("fonts", function(){
     return gulp.src('./fonts/*').pipe(gulp.dest("./dist/fonts"));
+});
+
+// 创建
+gulp.task('create', function(name) {
+    var dir = './sass/components/' + name + '/';
+    fs.existsSync(dir) || fs.mkdirSync(dir);
+
+    // fs.writeFileSync(dir + '_' + name + '.scss', '');
+    // fs.writeFileSync(dir + '_' + name + '-mixin.scss', '');
+
+var tmpl = `
+$iter-on: true !default;
+
+@import "components/util";
+
+@import "components/iter/iter-mixin";
+@import "components/iter/iter";
+`;
+
+    fs.writeFileSync('./sass/pure/' + name + '.scss', tmpl.replace(/iter/g, name));
+    console.log('done')
 });
 
 gulp.task("dev", ["fonts", "sass", "connect"], function() {

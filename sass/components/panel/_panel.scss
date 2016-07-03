@@ -1,0 +1,21 @@
+
+.panel {
+
+}
+
+.panel-header {
+
+}
+
+.panel-body {
+
+}
+
+.panel-footer,
+.panel-header:empty {
+	display: none;
+}
+
+.panel-body + .panel-footer:not(:empty) {
+	display: block;
+}
