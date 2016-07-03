@@ -1,5 +1,8 @@
 @import "bourbon";
 
+@import "functions/str-replace";
+@import "functions/to-string";
+
 @import "mixins/opacity";
 @import "mixins/when";
 
@@ -7,6 +10,7 @@
 @import "mixins/make-layout-window";
 @import "mixins/make-text-select";
 @import "mixins/make-icon-font";
+@import "mixins/make-icon-shape";
 @import "mixins/make-pad";
 @import "mixins/make-font-size";
 @import "mixins/make-square";
@@ -16,4 +20,6 @@
 @import "mixins/make-element";
 @import "mixins/make-button";
 @import "mixins/make-toolbar";
+@import "mixins/make-table";
+@import "mixins/make-tab";
 

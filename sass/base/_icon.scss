@@ -3,9 +3,13 @@
 $icon-inline-margin: 5px;
 
 .inline-icon {
-	// 行内ICON，指定边距
+	@include make-icon-inline();
+}
+
+span +.inline-icon,
+.inline-icon + span
+{
 	margin-left: $icon-inline-margin;
-	margin-right: $icon-inline-margin;
 }
 
 .square-icon {
@@ -37,5 +41,21 @@ $icon-inline-margin: 5px;
 {
 	.square-icon {
 		@include make-square-lg;
+	}
+}
+
+
+// 垂直三角
+.pure-icon-caret {
+	&:after {
+		@include make-icon-caret;
+		@include transition(all .3s);
+	}
+}
+
+// 对号
+.pure-icon-right {
+	&:after {
+		@include make-icon-right;
 	}
 }

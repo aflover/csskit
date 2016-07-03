@@ -8,8 +8,14 @@ $group-circle-radius : 500px;
 	@include make-group-default;
 }
 
+.group-item {
+	@include make-group-item;
+}
+
 .group-col {
-	@include make-group-line(true);
+	.group-item {
+		@include make-group-item-vertical;
+	}
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, true);
 	}
@@ -19,7 +25,10 @@ $group-circle-radius : 500px;
 }
 
 .group-row {
-	@include make-group-line(false);
+	vertical-align: middle;
+	.group-item {
+		@include make-group-item-horizontal;
+	}
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, false);
 	}

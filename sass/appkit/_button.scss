@@ -29,3 +29,13 @@ $btn-disabled-color : #808080 !default;
 .btn-meta-shadow {
 	@include make-button-inner-shadow;
 }
+
+// 带箭头
+.btn-icon-caret {
+	&.open,
+	&:not([disabled]):hover {
+		> .pure-icon-caret:after {
+			@include transform(rotate(180deg) translateY(50%));
+		}
+	}
+}

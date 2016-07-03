@@ -1,7 +1,11 @@
 /* base-尺寸 */
 
-.size-default {
-	@include make-size-element-default;
-}
+$size-selectors 
+	:'.size-{iter}'
+	,'.group-size-{iter} > .group-item'
+	,'.group-size-{iter} > .tab-item'
+	,'.table-size-{iter} th'
+	,'.table-size-{iter} td'
+	;
 
-@include make-size(".size-");
+@include make-size($size-selectors);

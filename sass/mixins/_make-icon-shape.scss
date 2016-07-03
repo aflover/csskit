@@ -1,0 +1,30 @@
+// 一些特殊的ICON
+
+@mixin make-icon-caret($color: #B3A9A9) { // 下三角
+    border: .45em solid transparent;
+    border-top-color: $color;
+    position: absolute;
+    top: 45%;
+    content: '';
+}
+
+@mixin make-icon-right($color : #03A9F4) { // 对号
+    border: 2px solid transparent;
+    border-left-color: $color;
+    border-bottom-color: $color;
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    top: 20%;
+    min-height: 8px;
+    content: '';
+    @include transform (rotate(-55deg))	;
+}
+
+@mixin make-icon-inline() { // 行内ICON
+	display: inline-block;
+    position: relative;
+    text-align: left;
+    height: 1em;
+    width: 1em;
+}
