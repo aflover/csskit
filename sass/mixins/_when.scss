@@ -19,6 +19,22 @@
 	}
 }
 
+@mixin when-hover-focus() {
+	&:focus,
+	&:hover {
+		@content;
+	}
+}
+
+@mixin when-hover-focus-active() {
+	&:focus,
+	&:hover,
+	&.active,
+	&:active {
+		@content;
+	}
+}
+
 @mixin when-disabled() {
 	&[disabled]	{
 		@content;
@@ -31,29 +47,10 @@
 	}
 }
 
-@mixin when-hover-focus-active() {
-	&:focus,
-	&:hover,
-	&:active,
-	&.active {
-		@content;
-	}
-}
-
 @mixin when-not-disabled-hover-focus-active() {
 	&:not([disabled])	{
-		&:focus,
-		&:hover,
-		&:active,
-		&.active {
+		@include when-hover-focus-active{
 			@content;
-		}
-	}
-}
-
-@mixin when-hover-focus() {
-	&:focus,
-	&:hover {
-		@content;
+		};
 	}
 }
