@@ -2,7 +2,6 @@
 $size-selectors 
 	:'.size-{iter}'
 	,'.group-size-{iter} > .group-item'
-	,'.group-size-{iter} > .tab-item'
 	,'.table-size-{iter} th'
 	,'.table-size-{iter} td'
 	!default;
