@@ -67,7 +67,7 @@
     position: relative;
     // text-align: left;
     height: 1em;
-    width: 1em;
+    width: 1.15em; // 近正方形, 会造成 after内元素的 宽度比高度大
 }
 
 // 一些特殊的ICON
@@ -87,7 +87,7 @@
     position: absolute;
     width: 100%;
     height: 55%;
-    top: 20%;
+    top: 10%;
     min-height: 8px;
     content: '';
     @include transform (rotate(-55deg)) ;

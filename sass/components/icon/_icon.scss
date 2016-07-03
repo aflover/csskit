@@ -1,6 +1,5 @@
 $icon-inline-margin: 5px !default;
 
-
 // inline 风格
 .#{$component-prefix}inline-icon {
 	@include make-icon-inline;
@@ -30,21 +29,9 @@ span +.#{$component-prefix}inline-icon,
 	}
 }
 
-// 垂直三角
-.#{$component-prefix}icon-arrow {
-	text-align: left;
-	&:after {
-		@include make-icon-arrow($compoment-primary-color);
-		@include transition(all .3s);
-	}
-}
-
 .open,
 .icon-meta-open:not([disabled]):hover {
 	> .#{$component-prefix}icon-caret:after {
 		@include transform(rotate(180deg) translateY(50%));
-	}
-	> .#{$component-prefix}icon-arrow:after {
-		@include transform(rotate(225deg) translateX(-50%) translateY(-50%));
 	}
 }
