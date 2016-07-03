@@ -12,7 +12,7 @@ var configs = {
 		prefixFrom: 'icon',
 		prefixTo: 'pt',
 		name: 'photon',
-		htmlFile : 'demo-specs/icon-photon.html',
+		htmlFile : 'docs-demo/src/components/IconPhoton.vue',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	},
 	'font-awesome' : {
@@ -22,7 +22,7 @@ var configs = {
 		prefixFrom: 'fa',
 		prefixTo: 'fa',
 		name: 'font-awesome',
-		htmlFile : 'demo-specs/icon-font-awesome.html',
+		htmlFile : 'docs-demo/src/components/IconFontAwesome.vue',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	}
 }

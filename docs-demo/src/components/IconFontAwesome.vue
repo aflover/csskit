@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Fontawesome Icons</title>
-	<link rel="stylesheet" href="../dist/css/csskit.css">
-	<style type="text/css">
-		.view-icons label {
-			display: inline-block;
-    		width: 300px;
-    		font-size: 20px;
-    		margin-bottom: 5px;
-		}
-		.view-icons span {
-			margin: 5px;
-		}
-	</style>
-</head>
-<body>
+<style>
+	.view-icons label {
+		display: inline-block;
+		width: 300px;
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+	.view-icons span {
+		margin: 5px;
+	}
+</style>
+<template>
 	<h3> Fontawesome Icons </h3>
 	<div class="view-icons">
 <!-- start -->
@@ -654,7 +647,7 @@
 <label title="\f2b2"><i class="fa-themeisle"></i><span>fa-themeisle</span></label>
 <label title="\f2b3"><i class="fa-google-plus-official"></i><span>fa-google-plus-official</span></label>
 <label title="\f2b4"><i class="fa-font-awesome"></i><span>fa-font-awesome</span></label>
+
 <!-- end -->
 	</div>
-</body>
-</html>
+</template>

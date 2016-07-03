@@ -2,14 +2,24 @@ import Vue from 'vue'
 
 import Button from './components/Button'
 import Table from './components/Table'
+import IconPhoton from './components/IconPhoton'
+import IconFontAwesome from './components/IconFontAwesome'
 
 export default {
-    '/table': {
+    '/Table': {
         component: Table,
         title:'Table',
     },
-    '/button': {
+    '/Button': {
         component: Button,
         title:'Button',
+    },
+    '/IconPhoton': {
+        component: IconPhoton,
+        title:'IconPhoton',
+    },
+    '/IconFontAwesome': {
+        component: IconFontAwesome,
+        title:'IconFontAwesome',
     },
 }

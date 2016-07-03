@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Photon Icons</title>
-	<link rel="stylesheet" href="../dist/css/csskit.css">
-	<style type="text/css">
-		.view-icons label {
-			display: inline-block;
-    		width: 300px;
-    		font-size: 20px;
-    		margin-bottom: 5px;
-		}
-		.view-icons span {
-			margin: 5px;
-		}
-	</style>
-</head>
-<body>
+<style>
+	.view-icons label {
+		display: inline-block;
+		width: 300px;
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+	.view-icons span {
+		margin: 5px;
+	}
+</style>
+<template>
 	<h3> Photon Icons </h3>
 	<div class="view-icons">
 <!-- start -->
@@ -303,8 +296,8 @@
 <label title="\e918"><i class="pt-smashing"></i><span>pt-smashing</span></label>
 <label title="\e919"><i class="pt-sweden"></i><span>pt-sweden</span></label>
 <label title="\e91a"><i class="pt-db-shape"></i><span>pt-db-shape</span></label>
-<label title="\e91b"><i class="pt-logo-db"></i><span>pt-logo-db</span></label>		
+<label title="\e91b"><i class="pt-logo-db"></i><span>pt-logo-db</span></label>
+
 <!-- end -->
 	</div>
-</body>
-</html>
+</template>
