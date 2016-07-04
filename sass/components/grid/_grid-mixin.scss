@@ -1,0 +1,47 @@
+
+@mixin make-grid-row ($gutter) {
+	position: relative;
+	display: block;
+	margin-left: ($gutter / -2);
+	margin-right: ($gutter / -2);
+	height: auto;
+	@include clearfix;
+}
+
+@mixin make-grid-row-flex() {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	&:before,
+	&:after {
+		display: flex;
+	}
+}
+
+@mixin make-grid-cols($grid-columns, $gutter) {
+	$grid_cols: ();
+	@for $i from 1 through $grid-columns {
+		// $grid_col: selector-append('.grid-col-', $i);
+		$grid_cols: append($grid_cols, '.grid-col-#{$i}' , comma);
+		.grid-col-#{$i} {
+		    display: block;
+		    width: percentage(($i / $grid-columns));
+		}
+		.grid-offset-#{$i} {
+		    margin-left: percentage(($i / $grid-columns));
+		}
+		.grid-push-#{$i} {
+		    left: percentage(($i / $grid-columns));
+		}
+		.grid-pull-#{$i} {
+		    right: percentage(($i / $grid-columns));
+		}
+	}
+	#{$grid_cols} {
+		float: left;
+		position: relative;
+		min-height: 1px;
+		padding-right: ($gutter / 2);
+		padding-left:  ($gutter / 2);
+	}
+}
