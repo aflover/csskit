@@ -1,0 +1,14 @@
+
+// 默认色调
+@mixin make-default-variant () {
+	color: $complement-default-color;
+	background-color: $complement-default-bg-color;
+	border-color: $complement-default-bd-color;
+	&:hover {
+		background-color: $complement-default-hover-bg-color;
+	}
+	&:active,
+	&.active {
+		background-color: $complement-default-active-bg-color;
+	}
+}

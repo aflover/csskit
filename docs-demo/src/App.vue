@@ -20,7 +20,7 @@
 <template>
   <div id="app" class="ak-window">
     <div class="ak-window-content">
-      <ul class="group-col group-size-dd">
+      <ul class="group-col group-size-dd group-outline-default">
         <li v-for="route in routers" class="group-item">
           <a v-link = "{path: route.path }" >{{route.title}}</a>
         </li>

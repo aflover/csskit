@@ -32,8 +32,7 @@
 		},
 		watch:{
 			'val': function() {
-				// console.log(this.val, ':', this.prefix, ':', this.value);
-				this.value = !this.val ? '' : (this.prefix + '-' + this.val)
+				this.value = !this.val ? '' : (this.prefix + this.val)
 			}
 		}
 	}

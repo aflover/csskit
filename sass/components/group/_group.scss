@@ -12,9 +12,19 @@ $group-circle-radius : 500px;
 	@include make-group-item;
 }
 
+
+a.group-item,
+.group-item > a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .group-col {
 	.group-item {
 		display: block;
+		> a {
+			display: block;
+		}
 	}
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, true);

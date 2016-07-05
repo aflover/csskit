@@ -1,5 +1,5 @@
 <template>
-	<size-control :prefix="'table-size'" :value.sync="table_size"></size-control>
+	<size-control :prefix="'table-size-'" :value.sync="table_size"></size-control>
 
 	<label><input type="checkbox" v-model="table_hover">table-hover</label>
 	<label><input type="checkbox" v-model="table_active">table-active</label>
