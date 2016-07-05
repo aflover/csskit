@@ -65,6 +65,31 @@
 			<span class="ak-inline-icon pt-monitor"></span><span>Desktop</span>
 		</a>
 	</ul>
+
+
+	<ul class="group-col ak-menu-group {{tableSize}}">
+		<a  class="group-item" href='javascript:null'>
+			<span class="ak-inline-icon pt-home"></span><span>Home</span>
+		</a>
+		<a  class="group-item active" href='javascript:null'>
+			<span class="ak-inline-icon pt-picture"></span><span>Photo</span>
+		</a>
+		<a  class="group-item" href='javascript:null'>
+			<span class="ak-inline-icon pt-download"></span><span>Download</span>
+		</a>
+		<a  class="group-item" href='javascript:null'>
+			<span class="ak-inline-icon pt-folder"></span><span>Document</span>
+		</a>
+		<a  class="group-item" href='javascript:null'>
+			<span class="ak-inline-icon pt-window"></span><span>Application</span>
+		</a>
+		<a  class="group-item" href='javascript:null'>
+			<span class="ak-inline-icon pt-signal"></span><span>AirDrop</span>
+		</a>
+		<a  class="group-item" href='javascript:null'>
+			<span class="ak-inline-icon pt-monitor"></span><span>Desktop</span>
+		</a>
+	</ul>
 </template>
 <script type="text/javascript">
 	import ThemeControl from '../controls/ThemeControl'
