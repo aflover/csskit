@@ -9,6 +9,14 @@ $nav-group-item-padding: 3em;
 	> .group-item {
 		padding-left: $nav-group-item-padding;
 		padding-right: $nav-group-item-padding * 2 / 3 ;
+	}
+}
+
+.#{$component-prefix}group-default,
+.#{$component-prefix}menu-group,
+.#{$component-prefix}nav-group,
+{
+	> .group-item {
 		@include make-default-variant;
 	}
 }
@@ -19,7 +27,5 @@ $nav-group-item-padding: 3em;
 	> .group-item {
 		padding-left: $menu-item-padding;
 		padding-right: $menu-item-padding;
-		@include make-default-variant;
 	}
 }
-

@@ -1,14 +1,16 @@
 <style lang="scss" >
   #app {
     padding: 5px;
+    hr {
+      border-width: 1px;
+      border-color: #C7C7C7;
+      border-style: solid;
+      border-bottom: 0;
+    }
+    .group-item.v-link-active {
+      background-color: #dcdfe1;
+    }
   }
-  #app hr {
-    border-width: 1px;
-    border-color: #C7C7C7;
-    border-style: solid;
-    border-bottom: 0;
-  }
-
   .app-panel {
     width: 100%;
     margin-left: 15px;
@@ -20,10 +22,8 @@
 <template>
   <div id="app" class="ak-window">
     <div class="ak-window-content">
-      <ul class="group-col group-size-dd group-outline-default">
-        <li v-for="route in routers" class="group-item">
-          <a v-link = "{path: route.path }" >{{route.title}}</a>
-        </li>
+      <ul class="group-col group-size-dd ak-group-default">
+        <a class="group-item" v-for="route in routers"  v-link = "{path: route.path }" >{{route.title}}</a>
       </ul>
       <div class="app-panel">
         <router-view></router-view>
