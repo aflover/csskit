@@ -8,19 +8,19 @@ $component-default-radius: 2px !default;
 
 
 // 默认 文字颜色
-$complement-default-color: #333333 !default;
+$component-default-color: #333333 !default;
 
 // 默认 背景颜色
-$complement-default-bg-color: white !default;
+$component-default-bg-color: white !default;
 
 // 默认 背景活动颜色
-$complement-default-active-bg-color: #dcdfe1 !default;
+$component-default-active-bg-color: #dcdfe1 !default;
 
 // 默认 背景高亮颜色
-$complement-default-hover-bg-color: lighten($complement-default-active-bg-color, 5) !default;
+$component-default-hover-bg-color: lighten($component-default-active-bg-color, 5) !default;
 
 // 默认 边框颜色
-$complement-default-bd-color: darken($complement-default-active-bg-color, 5) !default;
+$component-default-bd-color: darken($component-default-active-bg-color, 5) !default;
 
 
 

@@ -24,16 +24,20 @@
 
 <script type="text/javascript">
 	export default {
-		props: ['prefix', 'value'],
+		props: ['prefix', 'value', 'val'],
 		data: function () {
-			return {
-				val:''
-			};
+			return {};
 		},
-		watch:{
-			'val': function() {
+		watch: {
+			'val': 'updateValue'
+		},
+		methods: {
+			updateValue: function() {
 				this.value = !this.val ? '' : (this.prefix + this.val)
 			}
+		},
+		compiled: function () {
+			this.updateValue();
 		}
 	}
 </script>

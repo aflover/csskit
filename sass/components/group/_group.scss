@@ -2,6 +2,9 @@
 
 $group-round-radius : 2px;
 $group-circle-radius : 500px;
+$group-float-padding: 2em !default;
+$group-title-padding: .5em !default;
+$group-title-color: lighten($component-default-color, 20) !default;
 
 .group-col,
 .group-row {
@@ -12,7 +15,6 @@ $group-circle-radius : 500px;
 	@include make-group-item;
 }
 
-
 a.group-item,
 .group-item > a {
 	text-decoration: none;
@@ -20,11 +22,27 @@ a.group-item,
 }
 
 .group-col {
-	.group-item {
+	> .group-item {
 		display: block;
 		> a {
 			display: block;
 		}
+		>.float-right {
+			margin-left: $group-float-padding;
+		}
+	}
+	> .group-title { // 标题
+		cursor: default;
+		display: block;
+		color: $group-title-color;
+		padding-left: $group-title-padding;
+		padding-right: $group-title-padding;
+	}
+	> .group-divider { // 分割线
+		background-color: $component-default-bd-color;
+		height: 1px;
+		margin: 0.5em 0;
+		display: block;
 	}
 	&.group-circle > {
 		@include make-group-radius($group-circle-radius, true);
@@ -33,7 +51,7 @@ a.group-item,
 		@include make-group-radius($group-round-radius, true);
 	}
 	&.group-zindex { // 有边框的情况下 需要使用zindex
-		.group-item {
+		> .group-item {
 			@include make-group-item-zindex(true);
 		}
 	}
@@ -42,7 +60,7 @@ a.group-item,
 .group-row {
 	vertical-align: middle;
 	@include clearfix;
-	.group-item {
+	> .group-item {
 		float: left;
 	}
 	&.group-circle > {
@@ -52,7 +70,7 @@ a.group-item,
 		@include make-group-radius($group-round-radius, false);
 	}
 	&.group-zindex { // 有边框的情况下 需要使用zindex
-		.group-item {
+		> .group-item {
 			@include make-group-item-zindex(false);
 		}
 	}

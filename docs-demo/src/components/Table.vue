@@ -1,5 +1,5 @@
 <template>
-	<size-control :prefix="'table-size-'" :value.sync="table_size"></size-control>
+	<size-control :prefix="'table-size-'" :value.sync="table_size" :val="'dd'"></size-control>
 
 	<label><input type="checkbox" v-model="table_hover">table-hover</label>
 	<label><input type="checkbox" v-model="table_active">table-active</label>
@@ -57,11 +57,11 @@
 		data: function () {
 			return {
 				table_size: '',
-				table_hover: false,
-				table_active: false,
-				table_lined: false,
-				table_bordered: false,
-				table_striped: false,
+				table_hover: true,
+				table_active: true,
+				table_lined: true,
+				table_bordered: true,
+				table_striped: true,
 			}
 		},
 		computed:{

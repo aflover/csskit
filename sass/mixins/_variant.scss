@@ -1,14 +1,21 @@
 
 // 默认色调
 @mixin make-default-variant () {
-	color: $complement-default-color;
-	background-color: $complement-default-bg-color;
-	border-color: $complement-default-bd-color;
+	color: $component-default-color;
+	background-color: $component-default-bg-color;
+	border-color: $component-default-bd-color;
 	&:hover {
-		background-color: $complement-default-hover-bg-color;
+		background-color: $component-default-hover-bg-color;
 	}
 	&:active,
 	&.active {
-		background-color: $complement-default-active-bg-color;
+		background-color: $component-default-active-bg-color;
 	}
+}
+
+// 默认边
+@mixin make-popup-default-border() {
+	border-radius : $component-default-radius;
+	border: 1px solid $component-default-bd-color;
+	box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
