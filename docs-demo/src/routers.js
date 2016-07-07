@@ -6,8 +6,10 @@ import IconPhoton from './components/IconPhoton'
 import IconFontAwesome from './components/IconFontAwesome'
 import Grid from './components/Grid'
 import List from './components/List'
+import Test from './components/Test'
 
 export default {
+    '/Test': { component: Test, title:'Test 测试', },
     '/Table': { component: Table, title:'Table 表格', },
     '/Button': { component: Button, title:'Button 按钮', },
     '/IconPhoton': { component: IconPhoton, title:'IconPhoton', },

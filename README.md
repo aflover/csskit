@@ -45,16 +45,26 @@ component 组件
     图标
 
 分组
-group-row
-    group-item
-    btn-group 按钮
-    tab-group 标签
-
+    group-row
+        group-title     列表标题
+        group-item      列表项
+        group-divider   列表分割
+    应用
+        btn-group  按钮
+        tab-group  标签
+        nav-group  导航
+        menu-group 菜单
 容器
 panel
     panel-header
     panel-body
     panel-footer
+
+弹出
+    dropdown
+    popup
+    tooltip
+    model
 
 布局
 主题

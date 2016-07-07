@@ -23,6 +23,25 @@ $component-default-hover-bg-color: lighten($component-default-active-bg-color, 5
 $component-default-bd-color: darken($component-default-active-bg-color, 5) !default;
 
 
+$color-default-variants : (
+	text-color  		: $component-default-color ,
+	hover-text-color    : $component-default-color ,
+	active-text-color   : $component-default-color ,
+	disable-text-color  : $component-default-color ,
+
+	bg-color 		 	: $component-default-bg-color ,
+	hover-bg-color 		: $component-default-hover-bg-color ,
+	active-bg-color 	: $component-default-active-bg-color ,
+	disable-bg-color 	: $component-default-bg-color ,
+
+	bd-color            : $component-default-bd-color,
+	hover-bd-color      : $component-default-bd-color,
+	active-bd-color     : $component-default-bd-color,
+	disable-bd-color 	: $component-default-bd-color,
+) !default;
+
+// @warn "#{$color-default-variants}";
+
 
 // 主亮色调
 $compoment-primary-color: #03A9F4 !default;
