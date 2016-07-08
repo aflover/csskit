@@ -26,9 +26,9 @@ a.group-item,
 		display: block;
 		> a {
 			display: block;
-		}
-		>.float-right {
-			margin-left: $group-float-padding;
+			>.float-right {
+				margin-left: $group-float-padding;
+			}
 		}
 	}
 	> .group-title { // 标题

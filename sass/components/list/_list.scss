@@ -27,5 +27,13 @@ $nav-group-item-padding: 3em;
 	> .group-item {
 		padding-left: $menu-item-padding;
 		padding-right: $menu-item-padding;
+		>.#{$component-prefix}menu-group {
+			display: none;
+		}
+		&:hover {
+			>.#{$component-prefix}menu-group {
+				display: inline-block;
+			}
+		}
 	}
 }
