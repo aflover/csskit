@@ -7,6 +7,7 @@ import IconFontAwesome from './components/IconFontAwesome'
 import Grid from './components/Grid'
 import List from './components/List'
 import Test from './components/Test'
+import Popup from './components/popup'
 
 export default {
     '/Test': { component: Test, title:'Test 测试', },
@@ -16,4 +17,5 @@ export default {
     '/IconFontAwesome': { component: IconFontAwesome, title:'IconFontAwesome', },
     '/Grid': { component: Grid, title:'Grid 格子系统', },
     '/List': { component: List, title:'List 列表项', },
+    '/Popup': { component: Popup, title:'Popup', },
 }
