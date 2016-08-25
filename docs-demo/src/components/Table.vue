@@ -1,14 +1,10 @@
 <template>
-	<size-control :prefix="'table-size-'" :value.sync="table_size" :val="'dd'"></size-control>
-
-	<label><input type="checkbox" v-model="table_hover">table-hover</label>
-	<label><input type="checkbox" v-model="table_active">table-active</label>
-	<label><input type="checkbox" v-model="table_lined">table-lined</label>
-	<label><input type="checkbox" v-model="table_bordered">table-bordered</label>
-	<label><input type="checkbox" v-model="table_striped">table-striped</label>
-
+	<div>
+		<size-control :prefix="'table-size-'" :value.sync="table_size" :val="''"></size-control>
+	</div>
+	<br>
 	<table 
-		class="ak-table {{tableClasses}}"
+		class="pure-table {{table_size}}"
 		>
 		<thead>
 			<tr>
@@ -28,8 +24,8 @@
 				<td>Row Cell 2</td>
 				<td>Row Cell 3</td>
 			</tr>
-			<tr class="active">
-				<td>Row Cell 1</td>
+			<tr class="selected">
+				<td>tr.selected</td>
 				<td>Row Cell 2</td>
 				<td>Row Cell 3</td>
 			</tr>
@@ -40,36 +36,14 @@
 			</tr>
 		</tbody>
 	</table>
-	{{ $data | json}}
 </template>
 
 <script type="text/javascript">
 	import SizeControl from '../controls/SizeControl'
-	let classMaps = {
-		table_hover: 'table-hover',
-		table_active: 'table-active',
-		table_lined: 'table-lined',
-		table_bordered: 'table-bordered',
-		table_striped: 'table-striped',
-	};
-	let classKeys = Object.keys(classMaps);
 	export default {
 		data: function () {
 			return {
 				table_size: '',
-				table_hover: true,
-				table_active: true,
-				table_lined: true,
-				table_bordered: true,
-				table_striped: true,
-			}
-		},
-		computed:{
-			tableClasses: function() {
-				var ret =  [this.table_size].concat(classKeys.map(function(it){
-					return this[it] ? classMaps[it] : ''
-				}.bind(this))).join(' ');
-				return ret;
 			}
 		},
 		components: {

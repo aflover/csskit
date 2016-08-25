@@ -10,12 +10,14 @@ import Test from './components/Test'
 import Popup from './components/popup'
 
 export default {
-    '/Test': { component: Test, title:'Test 测试', },
-    '/Table': { component: Table, title:'Table 表格', },
-    '/Button': { component: Button, title:'Button 按钮', },
-    '/IconPhoton': { component: IconPhoton, title:'IconPhoton', },
-    '/IconFontAwesome': { component: IconFontAwesome, title:'IconFontAwesome', },
+    '/IconPhoton': { component: IconPhoton, title:'Icon Photon', },
+    '/IconFontAwesome': { component: IconFontAwesome, title:'Icon FontAwesome', },
     '/Grid': { component: Grid, title:'Grid 格子系统', },
+    '/Table': { component: Table, title:'Table 表格', },
+    
+    '/Button': { component: Button, title:'Button 按钮', },
     '/List': { component: List, title:'List 列表项', },
     '/Popup': { component: Popup, title:'Popup', },
+    
+    '/Test': { component: Test, title:'Test 测试', },
 }

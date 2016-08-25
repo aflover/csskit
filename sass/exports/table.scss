@@ -1,7 +1,5 @@
 
 $table-on: true !default;
 
-@import "components/util";
-
-@import "components/table/table-mixin";
-@import "components/table/table";
+@import "pure/table/table-mixin";
+@import "pure/table/table";

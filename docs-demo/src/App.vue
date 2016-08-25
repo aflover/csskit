@@ -7,7 +7,12 @@
       border-style: solid;
       border-bottom: 0;
     }
-    .group-item.v-link-active {
+    .app-nav-group a {
+      color: inherit;
+      text-decoration: none;
+      min-width: 150px;
+    }
+    .app-nav-group .group-item.v-link-active {
       background-color: #dcdfe1;
     }
   }
@@ -22,7 +27,7 @@
 <template>
   <div id="app" class="window-container">
     <div class="window-content">
-      <ul class="group-col group-size-dd ak-group-default">
+      <ul class="group-col group-size-dd app-nav-group ak-group-default">
         <a class="group-item" v-for="route in routers"  v-link = "{path: route.path }" >{{route.title}}</a>
       </ul>
       <div class="app-panel">
