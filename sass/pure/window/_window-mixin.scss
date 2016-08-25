@@ -9,21 +9,23 @@
 }
 
 @mixin make-window-flex() { // flex 高度自动填充
-	display: flex;
+    box-sizing: border-box; // 盒模型
+    display: flex;
     flex-direction: column;
     background-color: #fff;
     height: 100%;
 }
 
 @mixin make-window-absolute() { // 使用绝对定位
+    box-sizing: border-box; // 盒模型
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 }
 
 @mixin make-window-content() { // 父容器需要flex支持, 内容区使用 flex填充

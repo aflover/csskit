@@ -1,3 +1,4 @@
+@import "../../mixins/clearfix";
 
 @mixin make-grid-row ($gutter) {
 	position: relative;

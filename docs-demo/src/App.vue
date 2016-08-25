@@ -20,8 +20,8 @@
 </style>
 
 <template>
-  <div id="app" class="ak-window">
-    <div class="ak-window-content">
+  <div id="app" class="window-container">
+    <div class="window-content">
       <ul class="group-col group-size-dd ak-group-default">
         <a class="group-item" v-for="route in routers"  v-link = "{path: route.path }" >{{route.title}}</a>
       </ul>
