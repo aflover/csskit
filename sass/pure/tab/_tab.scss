@@ -1,0 +1,25 @@
+// tab-inline
+
+$tab-on: false !default;
+
+@if $tab-on {
+	.tab-inlined {
+		display: block;
+		.tab-item {
+			display: inline;
+			&.selected {
+				.tab-content {
+					display: block;
+				}
+			}
+		}
+		.tab-title {
+			display: inline-block;
+		}
+		.tab-content {
+			display: none;
+			float: left;
+			width: 100%;
+		}
+	}
+}

@@ -1,9 +1,10 @@
 <template>
+<div>
 	<hr>
 		<size-control :prefix="'group-size-'" :value.sync="tableSize" :val="''"></size-control>
 	<hr>
 
-	<ul class="group-col {{tableSize}}">
+	<ul :class="['group-col', tableSize]">
 		<span class="group-title">Favorites</span>
 		<li class="group-item" >
 			<span>Home</span><span class="ak-inline-icon pt-home float-right"></span>
@@ -30,7 +31,7 @@
 		</li>
 	</ul>
 
-	<ul class="group-col ak-nav-group {{tableSize}}">
+	<ul :class="['group-col', 'ak-nav-group', tableSize]">
 		<span class="group-title">Favorites</span>
 		<li class="group-item" >
 			<span class="ak-inline-icon pt-home"></span><span>Home</span>
@@ -58,7 +59,7 @@
 	</ul>
 
 
-	<ul class="group-col ak-menu-group {{tableSize}}">
+	<ul :class="['group-col', 'ak-menu-group', tableSize]">
 		<span class="group-title">Favorites</span>
 		<li class="group-item" >
 			<span>Home</span><span class="ak-inline-icon pt-home float-right"></span>
@@ -84,7 +85,7 @@
 			<span>Desktop</span><span class="ak-inline-icon pt-monitor float-right"></span>
 		</li>
 	</ul>
-
+	</div>
 </template>
 <script type="text/javascript">
 	import SizeControl from '../controls/SizeControl'

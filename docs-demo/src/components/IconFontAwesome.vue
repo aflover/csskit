@@ -10,6 +10,7 @@
 	}
 </style>
 <template>
+<div>
 	<h3> Fontawesome Icons </h3>
 	<div class="view-icons">
 <!-- start -->
@@ -650,4 +651,5 @@
 
 <!-- end -->
 	</div>
+</div>
 </template>

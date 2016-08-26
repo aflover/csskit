@@ -46,7 +46,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.6",
     "photon": "connors/photon",
-    "vue": "^1.0.26",
-    "vue-loader": "^8.5.3"
+    "vue": "^2.0.0-rc.3",
+    "vue-loader": "^9.4.0"
   }
 }

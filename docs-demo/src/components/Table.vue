@@ -1,10 +1,11 @@
 <template>
+<div>
 	<div>
 		<size-control :prefix="'table-size-'" :value.sync="table_size" :val="''"></size-control>
 	</div>
 	<br>
 	<table 
-		class="pure-table {{table_size}}"
+		:class="['pure-table',table_size]"
 		>
 		<thead>
 			<tr>
@@ -36,6 +37,7 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
 </template>
 
 <script type="text/javascript">

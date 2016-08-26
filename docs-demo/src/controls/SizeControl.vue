@@ -26,7 +26,8 @@
 	export default {
 		props: ['prefix', 'value', 'val'],
 		data: function () {
-			return {};
+			return {
+			};
 		},
 		watch: {
 			'val': 'updateValue'

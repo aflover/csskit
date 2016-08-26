@@ -1,5 +1,5 @@
 <template>
-	
+<div>
 	<button class="ak-btn">Button</button>
 	<button class="ak-btn" disabled>Button</button>
 	<button class="ak-btn btn-meta-tick">Button tick</button>
@@ -78,7 +78,7 @@
 	</div>
 
 
-
+</div>
 </template>
 
 <script type="text/javascript">

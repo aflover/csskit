@@ -8,8 +8,27 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-let router = new VueRouter()
+var newRouters = Object.keys(routers).map(function (path) {
+	return {
+		path: path,
+		component: routers[path].component,
+	}
+});
 
-router.map(routers)
+// newRouters.unshift({
+// 	path: '/',
+// 	component: App,
+// })
 
-router.start(App, '#app')
+let router = new VueRouter({
+	routes: newRouters
+});
+
+let app = new Vue({
+	router: router,
+	render: function (h) {
+		return h(App)
+	}
+});
+
+app.$mount('#app');

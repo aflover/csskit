@@ -1,4 +1,5 @@
 <template>
+<div>
 	<div id="button-wrapper" @click="clicked=!clicked" :class="[clicked&&'clicked', clicked&&success&&'success']">
 	  <button>
 	      <p>Upload Something</p>
@@ -17,7 +18,7 @@
 			<li>bbx</li>
 		</ul>
 	</div>
-	{{this|json}}
+</div>
 </template>
 
 <script type="text/javascript">

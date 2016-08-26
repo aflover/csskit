@@ -12,14 +12,15 @@
 	}
 </style>
 <template>
+<div>
 	<hr>
 	浮动格子
 	<hr>
 	<div class="grid-row grid-demo"
 		v-for="x in gridSize"
 		>
-		<div class="grid-col-{{x+1}}">col-{{x+1}}</div>
-		<div class="grid-col-{{gridSize-x-1}}" v-if="x!=gridSize-1">col-{{gridSize-x-1}}</div>
+		<div :class="['grid-col-'+(x)]">col-{{x}}</div>
+		<div :class="['grid-col-'+(gridSize-x)]" v-if="x!=gridSize">col-{{gridSize-x}}</div>
 	</div>
 
 	<hr>
@@ -28,34 +29,34 @@
 	<div class="grid-row grid-demo"
 		v-for="x in gridSize-1"
 		>
-		<div class="grid-offset-{{x+1}} grid-col-{{gridSize-x-1}} " v-if="x!=gridSize-1">offset-{{x+1}}</div>
+		<div :class="['grid-offset-'+(x), 'grid-col-'+(gridSize-x)]" v-if="x!=gridSize">offset-{{x}}</div>
 	</div>
-
+ 
 	<hr>
-	反序排列，掣肘明显
+	反序排列，掣肘明显,不方便使用
 	<hr>
 	<div class="grid-row grid-demo"
 		v-for="x in gridSize-1"
 		>
-		<div class="grid-col-{{gridSize-x-1}} grid-push-{{x+1}} " v-if="x!=gridSize-1">push-{{x+1}}</div>
-		<div class="grid-col-{{x+1}} grid-pull-{{gridSize-x-1}} ">pull-{{gridSize-x-1}}</div>
+		<div :class="['grid-col-'+(gridSize-x), 'grid-push-'+(x)]" v-if="x!=gridSize">push-{{x}}</div>
+		<div :class="['grid-col-'+(x), 'grid-pull-'+(gridSize-x)]">pull-{{gridSize-x}}</div>
 	</div>
 
 	<hr>
 	<label>
 		<span>flex 对齐</span>
 		<select v-model='flex'>
-			<option v-for="opt in flexAligns" value="{{$key}}">{{opt}}</option>
+			<option v-for="(opt, id) in flexAligns" :value="id" >{{opt}} {{id}}</option>
 		</select>
 	</label>
 
 	<hr>
-	<div class="grid-row-flex grid-demo {{flex}}"
+	<div :class="['grid-row-flex','grid-demo',flex]"
 		v-for="i in 1"
 		>
-		<div class="grid-col-{{gridSize/6}}" v-for="x in 4">flex-{{gridSize/6}}</div>
+		<div :class="['grid-col-'+(gridSize/6)]" v-for="x in 4">flex-{{gridSize/6}}</div>
 	</div>
-
+</div>
 </template>
 
 <script type="text/javascript">

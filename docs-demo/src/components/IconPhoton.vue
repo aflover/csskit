@@ -10,6 +10,7 @@
 	}
 </style>
 <template>
+<div>
 	<h3> Photon Icons </h3>
 	<div class="view-icons">
 <!-- start -->
@@ -300,4 +301,5 @@
 
 <!-- end -->
 	</div>
+</div>
 </template>
