@@ -1,7 +1,11 @@
 <template>
 <div>
 	<div>
-		<size-control :prefix="'table-size-'" :value.sync="table_size" :val="''"></size-control>
+		<size-control 
+			:prefix="'table-size-'" 
+			:suffix="''"
+			v-model="table_size"
+			></size-control>
 	</div>
 	<br>
 	<table 

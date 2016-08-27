@@ -1,7 +1,10 @@
 <template>
 	<label>
 		<span>大小</span>
-		<select v-model="val" >
+		<select 
+			:value="suffix"
+			@change='updateVal'
+			>
 			<option value="">无</option>
 			<optgroup label="小尺寸">
 				<option value="ss">ss</option>
@@ -24,21 +27,20 @@
 
 <script type="text/javascript">
 	export default {
-		props: ['prefix', 'value', 'val'],
-		data: function () {
-			return {
-			};
-		},
-		watch: {
-			'val': 'updateValue'
+		name:'size-control',
+		props: {
+			prefix: {
+				type:String
+			},
+			suffix: {
+		      type: String,
+			},
 		},
 		methods: {
-			updateValue: function() {
-				this.value = !this.val ? '' : (this.prefix + this.val)
+			updateVal(e) {
+				var newVal = e.target.value;
+				this.$emit('input', this.prefix + newVal)
 			}
 		},
-		compiled: function () {
-			this.updateValue();
-		}
 	}
 </script>

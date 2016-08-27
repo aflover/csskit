@@ -1,7 +1,10 @@
 <template>
 <div>
 	<hr>
-		<size-control :prefix="'group-size-'" :value.sync="tableSize" :val="''"></size-control>
+		<size-control
+			:prefix="'group-size-'" 
+			:suffix="''"
+			v-model="tableSize"></size-control>
 	<hr>
 
 	<ul :class="['group-col', tableSize]">
