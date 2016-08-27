@@ -5,6 +5,7 @@ $size-selectors
 	,'.group-size-{iter} > .group-title'
 	,'.table-size-{iter} th'
 	,'.table-size-{iter} td'
+	,'.tab-size-{iter} .tab-title'
 	!default;
 
 @include make-size($size-selectors);

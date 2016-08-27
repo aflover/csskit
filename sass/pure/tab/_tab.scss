@@ -2,24 +2,121 @@
 
 $tab-on: false !default;
 
+$tab-selected-color: #3ea4d2 !default;	  // 高亮颜色
+$tab-bd-color: #dcdcdc !default;	  	  // 边框颜色
+$tab-title-radius: 4px !default;  		  // 圆角
+$tab-pad-size: .5em !default; 			  // 补白
+$tab-bg-color: white !default; 			  // 容器背景颜色
+
+@import "../../mixins/size-control";
+@import "../../mixins/clearfix";
+
+@mixin make-tab-title-default () {
+	@include make-size-default;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	user-select: none;
+	border: 1px solid transparent;
+}
+
 @if $tab-on {
 	.tab-inlined {
 		display: block;
-		.tab-item {
-			display: inline;
+		@include clearfix;
+
+		.tab-title {
+			@include make-tab-title-default;
+			margin-bottom: -1px;
+			border-radius: $tab-title-radius $tab-title-radius 0 0;
+		}
+
+		.tab-content {
+			text-align: left;
+			display: none;
+			width: 100%;
+			float: left;
+			
+			background-color: $tab-bg-color;
+			padding: $tab-pad-size;
+			border-top: 1px solid $tab-bd-color;
+		}
+
+		> .tab-item {
+	    	display: inline;
 			&.selected {
+				.tab-title {
+			        border-color: $tab-bd-color;
+			        border-bottom-color: $tab-bg-color;
+			        background-color: $tab-bg-color;
+				}
 				.tab-content {
 					display: block;
 				}
+		    }
+	  	}
+	}
+
+	.tab-nav {
+		margin-bottom: -1px;
+		> .tab-title {
+			@include make-tab-title-default;
+			border-radius: $tab-title-radius $tab-title-radius 0 0;
+
+
+			
+			&.selected {
+				background-color: $tab-bg-color;
+		        border-color: $tab-bd-color;
+		        border-bottom-color: $tab-bg-color;
 			}
 		}
-		.tab-title {
-			display: inline-block;
-		}
-		.tab-content {
+	}
+
+	.tab-container {
+		> .tab-content {
 			display: none;
-			float: left;
-			width: 100%;
+			background-color: $tab-bg-color;
+			padding: $tab-pad-size;
+			border-top: 1px solid $tab-bd-color;
+			&.selected {
+				display: block;
+			}
 		}
 	}
+// 表头偏移样式 tab-offseted
+	.tab-offseted.tab-inlined > .tab-item
+	,.tab-offseted.tab-nav > .tab-title 
+	{
+		&:first-child { margin-left: $tab-pad-size; }
+		&:last-child { margin-right: $tab-pad-size; }
+	}
+
+// 有边框样式 tab-bordered
+	.tab-bordered.tab-inlined .tab-content
+	,.tab-bordered.tab-nav + .tab-container > .tab-content 
+	{
+		border: 1px solid $tab-bd-color;
+		border-radius: 0 0 $tab-title-radius $tab-title-radius;
+	}
+
+	.tab-bordered.tab-inlined.text-center .tab-content
+	,.tab-bordered.tab-nav.text-center + .tab-container > .tab-content 
+	{
+		border-radius:$tab-title-radius;
+	}
+// tab-offseted + tab-bordered 合并样式
+	.tab-bordered.tab-offseted.tab-inlined .tab-content
+	,.tab-bordered.tab-offseted.tab-nav + .tab-container > .tab-content 
+	{
+		border-radius:$tab-title-radius;
+	}
+
+// 表头
+	.tab-titled.tab-inlined > .tab-item.selected .tab-title
+	,.tab-titled.tab-nav > .tab-title.selected 
+	{
+		border-top: 3px solid $tab-selected-color;
+	}
+
 }

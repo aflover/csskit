@@ -6,7 +6,7 @@ function makeItem(val, index) {
 	return val;
 }
 
-export default function makeObject(fields, index) {
+export function makeObject(fields, index) {
 	var ret = {};
 	Object.keys(fields).forEach(function (key, i) {
 		ret[key] = makeItem(fields[key], index);
@@ -14,10 +14,15 @@ export default function makeObject(fields, index) {
 	return ret;
 }
 
-export default function makeArray(count, fields) {
+export function makeArray(count, fields) {
 	var ret = [];
 	for(var i=0; i<count; ++i) {
 		ret.push(makeObject(fields, i));
 	}
 	return ret;
 }
+
+// export default {
+// 	makeObject,
+// 	makeArray,
+// }
