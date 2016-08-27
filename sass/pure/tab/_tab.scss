@@ -4,7 +4,7 @@ $tab-on: false !default;
 
 $tab-selected-color: #3ea4d2 !default;	  // 高亮颜色
 $tab-bd-color: #dcdcdc !default;	  	  // 边框颜色
-$tab-title-radius: 4px !default;  		  // 圆角
+$tab-radius: 4px !default;  		  	  // 圆角
 $tab-pad-size: .5em !default; 			  // 补白
 $tab-bg-color: white !default; 			  // 容器背景颜色
 
@@ -20,6 +20,16 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 	border: 1px solid transparent;
 }
 
+@mixin make-flex-container() {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	&:before,
+	&:after {
+		display: flex;
+	}
+}
+
 @if $tab-on {
 	.tab-inlined {
 		display: block;
@@ -28,7 +38,7 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 		.tab-title {
 			@include make-tab-title-default;
 			margin-bottom: -1px;
-			border-radius: $tab-title-radius $tab-title-radius 0 0;
+			border-radius: $tab-radius $tab-radius 0 0;
 		}
 
 		.tab-content {
@@ -58,13 +68,11 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 	}
 
 	.tab-nav {
+		display: block;
 		margin-bottom: -1px;
 		> .tab-title {
 			@include make-tab-title-default;
-			border-radius: $tab-title-radius $tab-title-radius 0 0;
-
-
-			
+			border-radius: $tab-radius $tab-radius 0 0;		
 			&.selected {
 				background-color: $tab-bg-color;
 		        border-color: $tab-bd-color;
@@ -85,38 +93,40 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 		}
 	}
 // 表头偏移样式 tab-offseted
-	.tab-offseted.tab-inlined > .tab-item
-	,.tab-offseted.tab-nav > .tab-title 
-	{
+	.tab-offseted.tab-inlined > .tab-item,
+	.tab-offseted.tab-nav > .tab-title {
 		&:first-child { margin-left: $tab-pad-size; }
 		&:last-child { margin-right: $tab-pad-size; }
 	}
 
 // 有边框样式 tab-bordered
-	.tab-bordered.tab-inlined .tab-content
-	,.tab-bordered.tab-nav + .tab-container > .tab-content 
-	{
+	.tab-bordered.tab-inlined .tab-content,
+	.tab-bordered.tab-nav + .tab-container > .tab-content {
 		border: 1px solid $tab-bd-color;
-		border-radius: 0 0 $tab-title-radius $tab-title-radius;
+		border-radius: 0 0 $tab-radius $tab-radius;
 	}
 
-	.tab-bordered.tab-inlined.text-center .tab-content
-	,.tab-bordered.tab-nav.text-center + .tab-container > .tab-content 
-	{
-		border-radius:$tab-title-radius;
+	.tab-bordered.tab-inlined.text-center .tab-content,
+	.tab-bordered.tab-nav.text-center + .tab-container > .tab-content {
+		border-radius:$tab-radius;
 	}
 // tab-offseted + tab-bordered 合并样式
-	.tab-bordered.tab-offseted.tab-inlined .tab-content
-	,.tab-bordered.tab-offseted.tab-nav + .tab-container > .tab-content 
-	{
-		border-radius:$tab-title-radius;
+	.tab-bordered.tab-offseted.tab-inlined .tab-content,
+	.tab-bordered.tab-offseted.tab-nav + .tab-container > .tab-content {
+		border-radius:$tab-radius;
 	}
 
 // 表头
-	.tab-titled.tab-inlined > .tab-item.selected .tab-title
-	,.tab-titled.tab-nav > .tab-title.selected 
-	{
+	.tab-titled.tab-inlined > .tab-item.selected .tab-title,
+	.tab-titled.tab-nav > .tab-title.selected {
 		border-top: 3px solid $tab-selected-color;
 	}
-
+// flex 平铺
+	.tab-flex.tab-nav {
+		@include make-flex-container;
+		.tab-title {
+			flex: 1;
+			text-align: center;
+		}
+	}
 }

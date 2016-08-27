@@ -1,20 +1,19 @@
 <template>
 	<div>
 		<div>
-			<select v-model="textAlign">
-				<option value="">对齐方式</option>
-				<option value="text-left">text-left</option>
-				<option value="text-center">text-center</option>
-				<option value="text-right">text-right</option>
-			</select>
+			<align-control v-model="textAlign"></align-control>
 			<size-control 
 				:prefix="'tab-size-'" 
 				:suffix="''"
 				v-model="tab_size"
 				></size-control>
+			<label><input type="checkbox" v-model="tabTitled"></input>.tab-titled</label>
+			<label><input type="checkbox" v-model="tabBordered"></input>.tab-bordered</label>
+			<label><input type="checkbox" v-model="tabOffseted"></input>.tab-offseted</label>
+			<label><input type="checkbox" v-model="tabFlex"></input>.tab-flex</label>
 		</div>
 <br>
-		<div :class="['tab-inlined', textAlign, tab_size, tabTitled && 'tab-titled', tabBordered && 'tab-bordered', tabOffseted && 'tab-offseted']">
+		<div :class="['tab-inlined', textAlign, tab_size, tabTitled && 'tab-titled', tabBordered && 'tab-bordered', tabOffseted && 'tab-offseted', tabFlex &&'tab-flex', tabFlex && flexAlign]">
 			<div :class="['tab-item', (it == current) && 'selected']" v-for="it in tabdata">
 				<span class="tab-title" @click="current = it">
 					{{it.title}}
@@ -24,7 +23,7 @@
 			</div>
 		</div>
 <br>
-		<div :class="['tab-nav', textAlign, tab_size, tabTitled && 'tab-titled', tabBordered && 'tab-bordered', tabOffseted && 'tab-offseted']">
+		<div :class="['tab-nav', textAlign, tab_size, tabTitled && 'tab-titled', tabBordered && 'tab-bordered', tabOffseted && 'tab-offseted', tabFlex &&'tab-flex', tabFlex && flexAlign]">
 			<div :class="['tab-title', (it == current) && 'selected']" v-for="it in tabdata"  @click="current = it">
 				{{it.title}}
 			</div>
@@ -46,6 +45,8 @@
 <script type="text/javascript">
 	import { makeArray } from './help'
 	import SizeControl from '../controls/SizeControl'
+	import FlexControl from '../controls/FlexControl'
+	import AlignControl from '../controls/AlignControl'
 
 	export default {
 		data: function () {
@@ -60,14 +61,18 @@
 				tab_size: '',
 				tabTitled: true,
 				tabBordered: true,
-				tabOffseted: true,
+				tabOffseted: false,
+				tabFlex: false,
+				flexAlign:'',
 			};
 		},
 		created: function () {
 			this.current = this.tabdata[0];
 		},
 		components: {
-			SizeControl : SizeControl
+			SizeControl,
+			AlignControl,
+			FlexControl,
 		}
 	}
 </script>
