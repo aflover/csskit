@@ -1,0 +1,26 @@
+
+@import "icons-photon";
+@import "icon-mixin";
+
+@mixin make-photon() {
+
+	$icon-font-photon-class:    'pt';
+	$icon-font-photon-family:   'photon-entypo';
+	$icon-font-photon-file:     'photon-entypo';
+	$icon-font-photon-version:  '0.1.2';
+	$icon-font-photon-path: 	'../fonts' !default;
+
+	// 添加字体
+	@include make-icon-font-face(
+		$icon-font-photon-family, 
+		$icon-font-photon-path, 
+		$icon-font-photon-file, 
+		$icon-font-photon-version
+	);	
+
+	// 添加类前缀, 关联字体
+	@include make-icon-class($icon-font-photon-class, $icon-font-photon-family);
+
+	// 导出字体文件
+	@include make-icons-photon();
+}

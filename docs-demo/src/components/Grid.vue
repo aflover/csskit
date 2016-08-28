@@ -33,16 +33,6 @@
 	</div>
  
 	<hr>
-	反序排列，掣肘明显,不方便使用
-	<hr>
-	<div class="grid-row grid-demo"
-		v-for="x in gridSize-1"
-		>
-		<div :class="['grid-col-'+(gridSize-x), 'grid-push-'+(x)]" v-if="x!=gridSize">push-{{x}}</div>
-		<div :class="['grid-col-'+(x), 'grid-pull-'+(gridSize-x)]">pull-{{gridSize-x}}</div>
-	</div>
-
-	<hr>
 	<label>
 		<span>flex 对齐</span>
 		<select v-model='flex'>

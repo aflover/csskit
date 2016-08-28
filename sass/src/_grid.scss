@@ -31,12 +31,6 @@
 		.grid-offset-#{$i} {
 		    margin-left: percentage(($i / $grid-columns));
 		}
-		.grid-push-#{$i} {
-		    left: percentage(($i / $grid-columns));
-		}
-		.grid-pull-#{$i} {
-		    right: percentage(($i / $grid-columns));
-		}
 	}
 	#{$grid_cols} {
 		float: left;

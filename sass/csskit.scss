@@ -1,36 +1,36 @@
 @import "vars"; // 全局变量
 
 
-@import "exports/reset";
+@import "pure/reset";
 
-@import "exports/base";
+@import "pure/base";
 
 $icon-font-photon-path: 	'../fonts' !default;
 $icon-font-fontawesome-path: '../fonts' !default;
 
-@import "exports/icon-photon";
-@import "exports/icon-font-awesome";
-@import "exports/icon";
+@import "pure/icon-photon";
+@import "pure/icon-font-awesome";
+@import "pure/icon";
 
-@import "exports/grid";
-// @import "exports/button";
+@import "pure/grid";
+// @import "pure/button";
 
-@import "exports/btn";
-@import "exports/tab";
-@import "exports/table";
-@import "exports/panel";
-@import "exports/radio";
-@import "exports/check";
-@import "exports/input";
+@import "pure/btn";
+@import "pure/tab";
+@import "pure/table";
+@import "pure/panel";
+@import "pure/radio";
+@import "pure/check";
+@import "pure/input";
 
-@import "exports/window";
-
-
-@import "exports/theme";
-@import "exports/group";
-@import "exports/size";
+@import "pure/window";
 
 
-@import "exports/list";
+@import "pure/theme";
+@import "pure/group";
+@import "pure/size";
+
+
+@import "pure/list";
 
 

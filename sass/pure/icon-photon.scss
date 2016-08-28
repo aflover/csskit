@@ -1,0 +1,4 @@
+$icon-font-photon-path: 	'../../fonts' !default;
+
+@import "src/icons/photon";
+@include make-photon;
