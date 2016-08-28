@@ -65,7 +65,7 @@ function makeIconSassTask (name) {
                 .pipe(sicon.gulpContentFilter(function (file) {
                     file.contents = new Buffer(item.toSass(file.contents.toString('utf8')));
                 }))
-                .pipe(gulp.dest("./sass/pure/icon/"))
+                .pipe(gulp.dest("./sass/src/icons/"))
             ;
     }
 }

@@ -2,18 +2,17 @@
 $default-prefix						: '' !default;					// 默认前缀
 
 // 形状尺寸
-$default-bd-radius					: 0 !default;					// 默认圆角
-$default-pad-size					: 1em !default;					// 容器内补白基量
+$default-bd-radius					: 0 !default;					// 容器或元素圆角
+$default-pad-size					: 1em !default;					// 容器或元素内补白基量
 
 // 颜色
 $default-bd-color					: #C6C6C6 !default;				// 边框颜色
-$default-bg-color					: white !default;				// 容器背景色
+$default-bg-color					: white !default;				// 背景色
 
-$default-light-color				: white !default;				// 默认亮色调
-$default-dark-color					: black !default;				// 默认暗色调
-
-$default-primary-color				: #3ea4d2 !default;				// 主题颜色
-$default-disabled-color				: #ccc !default;				// 禁用状态
+$default-light-color				: white !default;				// 亮色调
+$default-dark-color					: black !default;				// 暗色调
+$default-primary-color				: #3ea4d2 !default;				// 主色调
+$default-disabled-color				: #ccc !default;				// 禁用色调
 
 // 访问颜色
 $default-access-color				: #26A69A !default;				// 可访问

@@ -1,5 +1,4 @@
 
-@import "components/util";
-
-@import "components/icon/icon-mixin";
-@import "components/icon/icon";
+@import "vars";
+@import "src/icon";
+@include make-icon;

@@ -1,0 +1,128 @@
+// inline样式
+
+@mixin make-icon-inline() { // 行内ICON
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    height: 1em;
+    width: 1.15em; // 近正方形, 会造成 after内元素的 宽度比高度大
+}
+
+// 一些特殊的ICON
+
+@mixin make-icon-caret($color: #B3A9A9) { // 下三角
+    border: .45em solid transparent;
+    border-top-color: $color;
+    position: absolute;
+    top: 45%;
+    content: '';
+    transition: all .3s;
+}
+
+@mixin make-icon-right($color) { // 对号
+    border: 2px solid transparent;
+    border-left-color: $color;
+    border-bottom-color: $color;
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    top: 15%;
+    min-height: 8px;
+    content: '';
+    transform: rotate(-55deg);
+}
+
+@mixin make-icon-arrow($color) { // 下箭头
+    border: 2px solid transparent;
+    border-right-color: $color;
+    border-bottom-color: $color;
+    position: absolute;
+    width: .70em;
+    height: .75em;
+    content: '';
+    border-radius: 2px;
+    transform: rotate(43deg);
+    transition: all 0.3s;
+}
+
+@mixin make-icon-wrap() {
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    width: 1em;
+    height: 1em;
+}
+
+@mixin make-icon() {
+    //@VAR icon
+    $icon-prefix             : $default-prefix !default;
+    $icon-class              : '.#{$icon-prefix}icon' !default;
+
+    $icon-default-bd-color   : $default-bd-color !default;
+
+    $icon-primary-color      : $default-primary-color !default;              // 主样式
+    $icon-info-color         : $default-info-color !default;                 // 信息
+    $icon-warn-color         : $default-warn-color !default;                 // 警告
+    $icon-success-color      : $default-success-color !default;              // 成功
+    $icon-error-color        : $default-error-color !default;                // 失败
+
+    $icon-inline-margin         : 5px !default;                             // inline边距
+    $icon-inline-selector       : span !default;                            // inline兄弟选择器
+    //!VAR icon
+    
+    // inline图标样式,
+    #{$icon-class}-inline { // 按钮内嵌inline风格的IOCN
+        @include make-icon-inline;
+    }
+    
+    // inline 间距
+    #{$icon-inline-selector} + #{$icon-class}-inline,
+    #{$icon-class}-inline + #{$icon-inline-selector} {
+        margin-left: $icon-inline-margin;
+    }
+
+    // 特殊icon 容器
+    #{$icon-class}-wrap,
+    #{$icon-class}-caret,
+    #{$icon-class}-right,
+    #{$icon-class}-arrow, {
+        @include make-icon-wrap;
+    }
+    
+    // 垂直三角
+    #{$icon-class}-caret {
+        &:after { @include make-icon-caret($icon-default-bd-color); }
+        &.primary { &:after { border-top-color: $icon-primary-color; } }
+        &.info { &:after { border-top-color: $icon-info-color; } }
+        &.warn { &:after { border-top-color: $icon-warn-color; } }
+        &.success { &:after { border-top-color: $icon-success-color; } }
+        &.error { &:after { border-top-color: $icon-error-color; } }
+    }
+
+    // 对号
+    #{$icon-class}-right {
+        &:after { @include make-icon-right($icon-default-bd-color); }
+        &.primary { &:after { border-left-color: $icon-primary-color; border-bottom-color: $icon-primary-color; } }
+        &.info { &:after { border-left-color: $icon-info-color; border-bottom-color: $icon-info-color; } }
+        &.warn { &:after { border-left-color: $icon-warn-color; border-bottom-color: $icon-warn-color; } }
+        &.success { &:after { border-left-color: $icon-success-color; border-bottom-color: $icon-success-color; } }
+        &.error { &:after { border-left-color: $icon-error-color; border-bottom-color: $icon-error-color; } }
+    }
+
+    // 下箭头
+    #{$icon-class}-arrow {
+        &:after { @include make-icon-arrow($icon-default-bd-color); }
+        &.primary { &:after { border-right-color: $icon-primary-color; border-bottom-color: $icon-primary-color; } }
+        &.info { &:after { border-right-color: $icon-info-color; border-bottom-color: $icon-info-color; } }
+        &.warn { &:after { border-right-color: $icon-warn-color; border-bottom-color: $icon-warn-color; } }
+        &.success { &:after { border-right-color: $icon-success-color; border-bottom-color: $icon-success-color; } }
+        &.error { &:after { border-right-color: $icon-error-color; border-bottom-color: $icon-error-color; } }
+    }
+
+    // 三角箭头翻转
+    .icon-open,
+    #{$icon-class}-hover:hover {
+        #{$icon-class}-caret:after { transform: rotate(180deg) translateY(50%); }
+        #{$icon-class}-arrow:after { transform: rotate(-133deg) translateX(-40%) translateY(-29%); }
+    }
+}

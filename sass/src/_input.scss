@@ -31,16 +31,22 @@
 		border-radius: $input-bd-radius;
 		outline: none;
 		
+		// 先写默认样式
+		&:hover,
+		&:focus {
+			background-color: lighten($input-bd-color, 20);
+			border-color: darken($input-bd-color, 30);
+		}
+
 		// 这些放到前面
 		&.primary { @include make-input-variant($input-primary-color); } 
 		&.access { @include make-input-variant($input-access-color); }
 		&.required { @include make-input-variant($input-required-color); }
 		&.success { @include make-input-variant($input-success-color); }
 		&.error { @include make-input-variant($input-error-color); }
-
-		&:hover,
+		
+		// 再覆盖一次
 		&:focus {
-			background-color: lighten($input-bd-color, 20);
 			border-color: darken($input-bd-color, 30);
 		}
 
