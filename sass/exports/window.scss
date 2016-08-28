@@ -1,5 +1,4 @@
 
-$window-on: true !default;
-
-@import "pure/window/window-mixin";
-@import "pure/window/window";
+@import "vars";
+@import "src/window";
+@include make-window;

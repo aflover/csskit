@@ -1,0 +1,56 @@
+@import "mixins/size-control";
+
+@mixin make-input-variant($color) {
+	box-shadow: 0 0 0 1px $color;
+	border-color: $color;
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+@mixin make-input() {
+	//@VAR input
+	$input-prefix				: $default-prefix !default;
+	$input-class				: '.#{$input-prefix}input' !default;
+	$input-bd-radius			: $default-bd-radius !default;
+	$input-bd-color			    : $default-bd-color !default;
+	$input-disabled-color		: $default-disabled-color !default;
+
+	$input-primary-color		: $default-primary-color !default;				// 主样式
+	$input-access-color			: $default-access-color !default;				// 可访问
+	$input-required-color		: $default-required-color !default;				// 必须
+	$input-success-color		: $default-success-color !default;				// 成功
+	$input-error-color			: $default-error-color !default;				// 失败
+
+	//!VAR input
+	
+	#{$input-class} {
+		@include make-size-default;
+		border: 1px solid $input-bd-color;
+		border-radius: $input-bd-radius;
+		outline: none;
+		
+		// 这些放到前面
+		&.primary { @include make-input-variant($input-primary-color); } 
+		&.access { @include make-input-variant($input-access-color); }
+		&.required { @include make-input-variant($input-required-color); }
+		&.success { @include make-input-variant($input-success-color); }
+		&.error { @include make-input-variant($input-error-color); }
+
+		&:hover,
+		&:focus {
+			background-color: lighten($input-bd-color, 20);
+			border-color: darken($input-bd-color, 30);
+		}
+
+		&:disabled {
+			background-color: lighten($input-disabled-color, 15);
+			color: darken($input-disabled-color, 30);
+			border-color: $input-disabled-color;
+			box-shadow: none;
+		}
+
+
+	}
+}

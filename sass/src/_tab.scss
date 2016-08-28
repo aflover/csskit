@@ -1,15 +1,6 @@
-// tab-inline
 
-$tab-on: false !default;
-
-$tab-selected-color: #3ea4d2 !default;	  // 高亮颜色
-$tab-bd-color: #dcdcdc !default;	  	  // 边框颜色
-$tab-radius: 4px !default;  		  	  // 圆角
-$tab-pad-size: .5em !default; 			  // 补白
-$tab-bg-color: white !default; 			  // 容器背景颜色
-
-@import "../../mixins/size-control";
-@import "../../mixins/clearfix";
+@import "mixins/size-control";
+@import "mixins/clearfix";
 
 @mixin make-tab-title-default () {
 	@include make-size-default;
@@ -30,15 +21,32 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 	}
 }
 
-@if $tab-on {
-	.tab-inlined {
+@mixin make-tab() {
+	//@VAR tab
+	$tab-prefix				: $default-prefix !default;
+	$tab-inlined-class		: '.#{$tab-prefix}tab-inlined' !default;
+	$tab-nav-class			: '.#{$tab-prefix}tab-nav' !default;
+	$tab-container-class	: '.#{$tab-prefix}tab-container' !default;
+	$tab-bd-radius			: $default-bd-radius !default;
+	$tab-bd-color			: $default-bd-color !default;
+	$tab-disabled-color		: $default-disabled-color !default;
+	$tab-primary-color		: $default-primary-color !default;				// 主样式
+	
+	$tab-title-radius		: 4px !default;									// 标题圆角
+	$tab-offseted-margin	: 10px !default;								// 偏移尺寸
+	$tab-pad-size			: $default-pad-size !default; 			  		// 补白
+	$tab-bg-color			: $default-bg-color !default; 			  		// 容器背景颜色
+	//!VAR tab
+
+// 自包含
+	#{$tab-inlined-class} {
 		display: block;
 		@include clearfix;
 
 		.tab-title {
 			@include make-tab-title-default;
 			margin-bottom: -1px;
-			border-radius: $tab-radius $tab-radius 0 0;
+			border-radius: $tab-title-radius $tab-title-radius 0 0;
 		}
 
 		.tab-content {
@@ -66,13 +74,13 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 		    }
 	  	}
 	}
-
-	.tab-nav {
+// 分离
+	#{$tab-nav-class} {
 		display: block;
 		margin-bottom: -1px;
 		> .tab-title {
 			@include make-tab-title-default;
-			border-radius: $tab-radius $tab-radius 0 0;		
+			border-radius: $tab-title-radius $tab-title-radius 0 0;		
 			&.selected {
 				background-color: $tab-bg-color;
 		        border-color: $tab-bd-color;
@@ -80,8 +88,7 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 			}
 		}
 	}
-
-	.tab-container {
+	#{$tab-container-class} {
 		> .tab-content {
 			display: none;
 			background-color: $tab-bg-color;
@@ -92,34 +99,32 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 			}
 		}
 	}
+
 // 表头偏移样式 tab-offseted
 	.tab-offseted.tab-inlined > .tab-item,
 	.tab-offseted.tab-nav > .tab-title {
-		&:first-child { margin-left: $tab-pad-size; }
-		&:last-child { margin-right: $tab-pad-size; }
+		&:first-child { margin-left: $tab-offseted-margin; }
+		&:last-child { margin-right: $tab-offseted-margin; }
 	}
 
 // 有边框样式 tab-bordered
 	.tab-bordered.tab-inlined .tab-content,
 	.tab-bordered.tab-nav + .tab-container > .tab-content {
 		border: 1px solid $tab-bd-color;
-		border-radius: 0 0 $tab-radius $tab-radius;
 	}
 
 	.tab-bordered.tab-inlined.text-center .tab-content,
 	.tab-bordered.tab-nav.text-center + .tab-container > .tab-content {
-		border-radius:$tab-radius;
 	}
 // tab-offseted + tab-bordered 合并样式
 	.tab-bordered.tab-offseted.tab-inlined .tab-content,
 	.tab-bordered.tab-offseted.tab-nav + .tab-container > .tab-content {
-		border-radius:$tab-radius;
 	}
 
 // 表头
 	.tab-titled.tab-inlined > .tab-item.selected .tab-title,
 	.tab-titled.tab-nav > .tab-title.selected {
-		border-top: 3px solid $tab-selected-color;
+		border-top: 3px solid $tab-primary-color;
 	}
 // flex 平铺
 	.tab-flex.tab-nav {
@@ -129,4 +134,5 @@ $tab-bg-color: white !default; 			  // 容器背景颜色
 			text-align: center;
 		}
 	}
+
 }

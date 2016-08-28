@@ -12,7 +12,7 @@
       text-decoration: none;
       min-width: 150px;
     }
-    .app-nav-group .group-item.v-link-active {
+    .app-nav-group .group-item.router-link-active {
       background-color: #dcdfe1;
     }
   }

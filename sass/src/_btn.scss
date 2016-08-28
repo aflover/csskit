@@ -1,0 +1,96 @@
+@import "mixins/size-control";
+
+@mixin make-button-default() {
+	position: relative;				// 需要设成相对的, 方便内嵌或定位
+	display: inline-block;			// 块定义
+	text-decoration: none;			// 去除A下划线
+	// http://wf.uisdc.com/cn/input/touch-input/touchevents/
+	touch-action: manipulation; 	// 允许浏览器双方向滚动，也允许双指缩放；但忽略其他手势。
+	cursor: pointer;            	// 鼠标样式
+	background-image: none; 		// Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	white-space: nowrap;			// 文本不进行换行
+	border: 1px solid transparent;  // 去除 Button的默认边框样式 + 去除 Border宽度
+	user-select: none;
+	text-transform: none;			// 
+	outline: none;
+}
+
+@mixin make-button-variant($text-color, $color ) {
+	color: $text-color;
+	border-color: darken($color, 4);
+	background-color: $color;
+	&:hover,
+	&:focus {
+		background-color: darken($color, 2);
+	}
+	&:active {
+		background-color: darken($color, 6);
+	}
+}
+
+@mixin make-btn() {
+	//@VAR btn
+	$btn-prefix				: $default-prefix !default;
+	$btn-class				: '.#{$btn-prefix}btn' !default;
+
+	$btn-default-bd-color	: $default-bd-color !default;
+	$btn-default-bg-color	: $default-bg-color !default;
+	$btn-bd-radius			: $default-bd-radius !default;
+	$btn-disabled-color		: $default-disabled-color !default;
+
+	$btn-primary-color		: $default-primary-color !default;				// 主样式
+	$btn-info-color			: $default-info-color !default;					// 信息
+	$btn-warn-color			: $default-warn-color !default;					// 警告
+	$btn-success-color		: $default-success-color !default;				// 成功
+	$btn-error-color		: $default-error-color !default;				// 失败
+	
+	$btn-light-color		: $default-light-color !default;				// 亮色调
+
+	//!VAR btn
+	
+	#{$btn-class} {
+		@include make-button-default;
+		@include make-size-default;
+
+		// 这些放到前面
+		&.primary { @include make-button-variant($btn-light-color, $btn-primary-color); } 
+		&.info { @include make-button-variant($btn-light-color, $btn-info-color); }
+		&.warn { @include make-button-variant($btn-light-color, $btn-warn-color); }
+		&.success { @include make-button-variant($btn-light-color, $btn-success-color); }
+		&.error { @include make-button-variant($btn-light-color, $btn-error-color); }
+
+		background-color: $btn-default-bg-color;
+		border-color: $btn-default-bd-color;
+		border-radius: $btn-bd-radius;
+
+		&:hover,
+		&:focus {
+			background-color: darken($btn-default-bg-color, 5);
+		}
+		&:active {
+			background-color: darken($btn-default-bg-color, 10);
+			// box-shadow: inset 0 .2em .5em rgba(0, 0, 0, 0.2); // 内阴影
+		}
+
+		&.disabled,
+		&:disabled {
+			cursor: default;
+			background-color: lighten($btn-disabled-color, 15) !important;
+			color: darken($btn-disabled-color, 30);
+			border-color: $btn-disabled-color;
+			box-shadow: none;
+		}
+
+
+		&.meta-tick { // 按下移动效果
+			&:not(:disabled):not(.disabled) {
+				top: 0;
+				&:active {
+					top: 1px;
+					left: 1px;
+				}
+			}
+		}
+
+	}
+}

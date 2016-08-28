@@ -37,7 +37,7 @@ gulp.task("sass", function() {
     return gulp.src(paths.scss)
         .pipe(sass({ includePaths: includePaths }))
         .on('error', handleSassError)
-        .pipe(autoprefix("last 2 versions"))
+        // .pipe(autoprefix("last 2 versions"))
         .pipe(gulp.dest("./dist/css"))
         // .pipe(connect.reload()) // 不监视了
         ;

@@ -1,4 +1,4 @@
-@import "../../mixins/clearfix";
+@import "mixins/clearfix";
 
 @mixin make-grid-row ($gutter) {
 	position: relative;
@@ -45,4 +45,26 @@
 		padding-right: ($gutter / 2);
 		padding-left:  ($gutter / 2);
 	}
+}
+
+@mixin make-grid() {
+	//@VAR grid
+	$grid-prefix				: $default-prefix !default;
+	$grid-row-class				: '.#{$grid-prefix}grid-row' !default;
+	$grid-row-flex-class		: '.#{$grid-prefix}grid-row-flex' !default;
+
+	$grid-gutter-width			: 0 !default;
+	$grid-size					: 12 !default;
+	//!VAR grid
+	
+	// float 布局
+	#{$grid-row-class} {
+		@include make-grid-row($grid-gutter-width);
+	}
+	// flex 布局
+	#{$grid-row-flex-class} {
+		@include make-grid-row-flex;
+	}
+	// 格子
+	@include make-grid-cols($grid-size, $grid-gutter-width);
 }

@@ -1,5 +1,4 @@
 
-$table-on: true !default;
-
-@import "pure/table/table-mixin";
-@import "pure/table/table";
+@import "vars";
+@import "src/table";
+@include make-table;

@@ -9,7 +9,7 @@
 	</div>
 	<br>
 	<table 
-		:class="['pure-table',table_size]"
+		:class="['table',table_size]"
 		>
 		<thead>
 			<tr>

@@ -1,0 +1,25 @@
+// 前缀
+$default-prefix						: '' !default;					// 默认前缀
+
+// 形状尺寸
+$default-bd-radius					: 0 !default;					// 默认圆角
+$default-pad-size					: 1em !default;					// 容器内补白基量
+
+// 颜色
+$default-bd-color					: #C6C6C6 !default;				// 边框颜色
+$default-bg-color					: white !default;				// 容器背景色
+
+$default-light-color				: white !default;				// 默认亮色调
+$default-dark-color					: black !default;				// 默认暗色调
+
+$default-primary-color				: #3ea4d2 !default;				// 主题颜色
+$default-disabled-color				: #ccc !default;				// 禁用状态
+
+// 访问颜色
+$default-access-color				: #26A69A !default;				// 可访问
+$default-required-color				: #f79e20 !default;				// 必须
+$default-success-color				: #4CAE4C !default;				// 成功
+$default-error-color				: #F44006 !default;				// 失败
+$default-warn-color					: $default-required-color !default;	// 警告
+$default-info-color					: $default-access-color !default;	// 信息
+

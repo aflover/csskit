@@ -1,5 +1,4 @@
 
-$grid-on: true !default;
-
-@import "pure/grid/grid-mixin";
-@import "pure/grid/grid";
+@import "vars";
+@import "src/grid";
+@include make-grid;

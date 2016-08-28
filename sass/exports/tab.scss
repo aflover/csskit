@@ -1,5 +1,4 @@
 
-$tab-on: true;
-
-@import "pure/tab/tab-mixin";
-@import "pure/tab/tab";
+@import "vars";
+@import "src/tab";
+@include make-tab;

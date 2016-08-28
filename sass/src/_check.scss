@@ -1,0 +1,91 @@
+@import "mixins/size-control";
+
+
+@mixin make-check-default() {
+	position: relative;
+	display: inline-block;
+	@include make-size-default;
+	> input {
+		margin: 0 8px 0 0;
+		padding: 0;
+		opacity: 0;
+	}
+}
+
+@mixin make-check-icon() {
+    box-sizing: content-box;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    border: 2px solid transparent;
+    transition: 0.28s ease;
+}
+
+@mixin make-check-icon-right($color) { // 对号
+    position: absolute;
+    left: 0;
+    box-sizing: content-box;
+    border: 3px solid transparent;
+    border-left-color: $color;
+    border-bottom-color: $color;
+    width: 1em;
+    height: .5em;
+    border-bottom-left-radius: 4px;
+    content: '';
+    transform: rotate(-52deg) scale(0.7) translateX(-1px) translateY(-1px);
+}
+
+
+@mixin make-check() {
+	//@VAR check
+	$check-prefix				: $default-prefix !default;
+	$check-class				: '.#{$check-prefix}check' !default;
+
+	$check-disabled-color		: $default-disabled-color !default;
+	$check-primary-color		: $default-primary-color !default;				// 主样式
+	//!VAR check
+	
+	#{$check-class} {
+		@include make-check-default;
+		.check-text {
+			&::before {
+				@include make-check-icon;
+	            border-color: $check-primary-color;
+				border-radius: 2px;
+			}
+	        &::after {
+	        	@include make-check-icon-right(white);
+	        	opacity: 0;
+	        }
+		}
+	}
+
+	// 选中
+	input:checked + .check-text::before {
+		background-color: $check-primary-color;
+	}
+	input:checked + .check-text::after {
+		opacity: 1; 
+	}
+
+	// 获得焦点
+	input:focus + .check-text::before {
+		transform: scale(1.1); 
+	}
+
+	// 禁用
+	input:disabled + .check-text {
+		color: darken($check-disabled-color, 30);
+	}
+	input:disabled + .check-text:before {
+		background-color: transparent;
+		border-color: $check-disabled-color;
+	}
+	input:disabled:checked + .check-text:after {
+		border-left-color: $check-disabled-color;
+		border-bottom-color: $check-disabled-color;
+	}
+
+}

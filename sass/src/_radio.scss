@@ -1,0 +1,74 @@
+@import "mixins/size-control";
+
+
+@mixin make-radio-default() {
+	position: relative;
+	display: inline-block;
+	@include make-size-default;
+	> input {
+		margin: 0 8px 0 0;
+		padding: 0;
+		opacity: 0;
+	}
+}
+
+@mixin make-radio-icon() {
+    box-sizing: content-box;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    border: 2px solid transparent;
+    transition: 0.28s ease;
+}
+
+@mixin make-radio() {
+	//@VAR radio
+	$radio-prefix				: $default-prefix !default;
+	$radio-class				: '.#{$radio-prefix}radio' !default;
+
+	$radio-disabled-color		: $default-disabled-color !default;
+	$radio-primary-color		: $default-primary-color !default;				// 主样式
+	//!VAR radio
+	
+	#{$radio-class} {
+		@include make-radio-default;
+		.radio-text {
+			&::before,
+			&::after {
+				@include make-radio-icon;
+				border-radius: 1em;
+			}
+			&::before {
+	            border-color: $radio-primary-color;
+	        }
+	        &::after {
+	            transform: scale(0);
+	        }
+		}
+	}
+
+	// 选中
+	input:checked + .radio-text::after {
+		background-color: $radio-primary-color;
+		transform: scale(0.5);
+	}
+
+	// 获得焦点
+	input:focus + .radio-text::before {
+		transform: scale(1.1); 
+	}
+
+	// 禁用
+	input:disabled + .radio-text {
+		color: darken($radio-disabled-color, 30);
+	}
+	input:disabled + .radio-text:before {
+	    border-color: $radio-disabled-color;
+	}
+	input:disabled:checked + .radio-text:after {
+		background-color: $radio-disabled-color;
+	}
+
+}
