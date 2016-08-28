@@ -1,8 +1,10 @@
+@import "mixins/size-control";
+
 //--------------------------------------------------------- 盒子
 
-$size_items : ('s', 'd', 'l');
 
-@mixin make-size($selectors) {
+@mixin make-size-items($selectors) {
+	$size_items : ('s', 'd', 'l');
 	@if type-of($selectors) == 'list' {
 		$selectors : to-string($selectors, ',');
 	}
@@ -44,4 +46,18 @@ $size_items : ('s', 'd', 'l');
 @mixin make-size-item-font-size-pad($font-type, $pad-type) {
 	@include make-size-item-font-size($font-type);
 	@include make-size-item-pad($pad-type);
+}
+
+@mixin make-size() {
+	
+	$size-selectors 
+		:'.size-{iter}'
+		,'.group-size-{iter} > .group-item'
+		,'.group-size-{iter} > .group-title'
+		,'.table-size-{iter} th'
+		,'.table-size-{iter} td'
+		,'.tab-size-{iter} .tab-title'
+		!default;
+	
+	@include make-size-items($size-selectors);
 }

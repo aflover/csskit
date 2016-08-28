@@ -1,0 +1,129 @@
+@import "mixins/size-control";
+@import "mixins/clearfix";
+
+@mixin make-text-select ( $sel : true, $cur : default) { // 文本可选择性
+	@if $sel == true {
+		cursor: text;
+		user-select: text;
+	}
+	@else {
+		cursor: $cur;
+		user-select: none;
+	}
+}
+
+// 基础辅助功能 主要用于覆盖和全局控制，一般具有高权重
+//------------------------------------------------------- 浮动
+@mixin make-base-float() {
+	.clearfix {
+		@include clearfix;
+	}
+	.float-left {
+		float: left !important;
+	}
+
+	.float-right {
+		float: right !important;
+	}
+}
+
+//------------------------------------------------------- 文本
+@mixin make-base-text() {
+	.text-center {
+		text-align: center !important;
+	}
+
+	.text-left {
+		text-align: left !important;
+	}
+
+	.text-right {
+		text-align: right !important;
+	}
+
+	.text-selectable {
+		@include make-text-select;
+	}
+
+	.text-noselectable {
+		@include make-text-select(false);
+	}
+}
+
+//------------------------------------------------------- 边框
+@mixin make-base-border() {
+	.border-hidden {
+		border-color : transparent !important;
+	}
+	.border-none {
+		border-width : 0 !important;
+	}
+	.border-hidden-vertical {
+		border-top-color : transparent !important;
+		border-bottom-color : transparent !important;
+	}
+	.border-none-vertical {
+		border-top-width : 0 !important;
+		border-bottom-width : 0 !important;
+	}
+}
+//------------------------------------------------------- 字体
+@mixin make-base-font-size() {
+	.font-default {
+	    @include make-font-size-default;
+	}
+
+	.font-sm {
+	    @include make-font-size-sm;
+	}
+
+	.font-lg {
+	    @include make-font-size-lg;
+	}
+}
+//------------------------------------------------------- 内补白
+@mixin make-base-pad() {
+	.pad-default {
+		@include make-pad-default;
+	}
+
+	.pad-lg {
+		@include make-pad-lg;
+	}
+
+	.pad-sm {
+		@include make-pad-sm;
+	}
+}
+//------------------------------------------------------- flex 对齐方式
+@mixin make-base-flex() {
+	.flex-start { // x轴原点 左对齐
+		justify-content: flex-start;
+	}
+
+	.flex-center { // x轴居中 居中对齐
+		justify-content: center;
+	}
+
+	.flex-end { // x轴结束点 右对齐
+		justify-content: flex-end;
+	}
+
+	.flex-space-between { // x轴平铺 中间补空
+		justify-content: space-between;
+	}
+
+	.flex-space-around { // x轴平铺 元素居中
+		justify-content: space-around;
+	}
+}
+
+@mixin make-base() {
+	@include make-base-float;
+	@include make-base-text;
+	@include make-base-font-size;
+	@include make-base-pad;
+	@include make-base-border;
+	@include make-base-flex;
+
+}
