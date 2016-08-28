@@ -10,3 +10,9 @@
 	    box-sizing: inherit;
 	}
 }
+
+
+@mixin make-reset() {
+	
+	@include reset-box-sizing;
+}
