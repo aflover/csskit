@@ -48,19 +48,11 @@
 		&:disabled, {
 			margin-left: 0;
 			border-left-width: 0;
-			// z-index: 0;
 		};
 	}
-
-	&:hover,
-	&:focus {
-		// z-index: 2;
-	}
-
 	&:active {
 		z-index: 4;
 	}
-
 	&.selected {
 		z-index: 6;
 	}
@@ -70,9 +62,12 @@
 	
 	//@VAR group
 	$group-divider-bg-color				: #DDD !default;
-	$group-round-radius 				: 2px !default;
-	$group-circle-radius 				: 500px !default;
 	$group-title-color					: #666 !default;
+
+	$group-item-active-bg-color			: $default-active-bg-color !default;
+	$group-item-hover-bg-color			: $default-hover-bg-color !default;
+	$group-item-disabled-bg-color		: $default-disabled-bg-color !default;
+
 	//!VAR group
 	
 	// 基础部分
@@ -81,6 +76,20 @@
 		@include make-group-default;
 		> .group-item {
 			@include make-size-default;
+			cursor: default;
+			&:focus,
+			&:hover {
+				background-color: $group-item-hover-bg-color;
+			}
+			&:active,
+			&.active {
+				background-color: $group-item-active-bg-color;
+			}
+			&.disabled,
+			&:disabled {
+				color: darken($group-item-disabled-bg-color, 30);
+				background-color: transparent;
+			}
 		}
 	}
 
@@ -102,6 +111,7 @@
 		> .group-title { // 标题
 			@include make-size-default;
 			display: block;
+			cursor: default;
 			color: $group-title-color;
 		}
 		> .group-divider { // 分割线
@@ -110,35 +120,12 @@
 			margin: 0.5em 0;
 			display: block;
 		}
-		&.group-circle > {
-			@include make-group-radius($group-circle-radius, true);
-		}
-		&.group-round > {
-			@include make-group-radius($group-round-radius, true);
-		}
-
-		&.group-zindex { // 有边框的情况下 需要使用zindex
-			> .group-item {
-				@include make-group-item-zindex(true);
-			}
-		}
 	}
 	.group-row {
 		> {
 			.group-title,
 			.group-divider { // 行模式 不支持这些
 				display: none;
-			}
-		}
-		&.group-circle > {
-			@include make-group-radius($group-circle-radius, false);
-		}
-		&.group-round > {
-			@include make-group-radius($group-round-radius, false);
-		}
-		&.group-zindex { // 有边框的情况下 需要使用zindex
-			> .group-item {
-				@include make-group-item-zindex(false);
 			}
 		}
 	}

@@ -17,7 +17,7 @@ $nav-group-item-padding: 3em;
 .#{$component-prefix}nav-group,
 {
 	> .group-item {
-		@include make-default-variant;
+		// @include make-default-variant;
 	}
 }
 

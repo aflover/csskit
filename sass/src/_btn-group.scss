@@ -18,6 +18,7 @@
 		display: inline-block; 
 		> #{$btn-class} {
 			display: block;
+			width: 100%;
 			@include make-group-item-zindex(true);
 		}
 	}

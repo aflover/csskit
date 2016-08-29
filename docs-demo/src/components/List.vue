@@ -10,54 +10,81 @@
 	<ul :class="['group-col', tableSize]">
 		<span class="group-title">Favorites</span>
 		<li class="group-item" >
-			<span>Home</span><span class="ak-inline-icon pt-home float-right"></span>
+			<span class="icon-inline pt-home"></span><span>Home</span>
 		</li>
 		<li class="group-item active">
-			<span>Photo</span><span class="ak-inline-icon pt-picture float-right"></span>
+			<span class="icon-inline pt-picture"></span><span>Photo</span>
 		</li>
 		<li class="group-item" >
-			<span>Download</span><span class="ak-inline-icon pt-download float-right"></span>
+			<span class="icon-inline pt-download"></span><span>Download</span>
 		</li>
 		<span class="group-title">Others</span>
 		<li class="group-item" >
-			<span>Document</span><span class="ak-inline-icon pt-folder float-right"></span>
+			<span class="icon-inline pt-folder"></span><span>Document</span>
+		</li>
+		<li class="group-item disabled" >
+			<span class="icon-inline pt-window"></span><span>Application</span>
 		</li>
 		<li class="group-item" >
-			<span>Application</span><span class="ak-inline-icon pt-window float-right"></span>
-		</li>
-		<li class="group-item" >
-			<span>AirDrop</span><span class="ak-inline-icon pt-signal float-right"></span>
+			<span class="icon-inline pt-signal"></span><span>AirDrop</span>
 		</li>
 		<span class="group-divider"></span>
 		<li class="group-item">
-			<span>Desktop</span><span class="ak-inline-icon pt-monitor float-right"></span>
+			<span class="icon-inline pt-monitor"></span><span>Desktop</span>
+		</li>
+	</ul>
+
+	<ul :class="['group-col', tableSize]">
+		<span class="group-title">Favorites</span>
+		<li class="group-item" >
+			<span>Home</span><span class="icon-inline pt-home float-right"></span>
+		</li>
+		<li class="group-item active">
+			<span>Photo</span><span class="icon-inline pt-picture float-right"></span>
+		</li>
+		<li class="group-item" >
+			<span>Download</span><span class="icon-inline pt-download float-right"></span>
+		</li>
+		<span class="group-title">Others</span>
+		<li class="group-item" >
+			<span>Document</span><span class="icon-inline pt-folder float-right"></span>
+		</li>
+		<li class="group-item disabled" >
+			<span>Application</span><span class="icon-inline pt-window float-right"></span>
+		</li>
+		<li class="group-item" >
+			<span>AirDrop</span><span class="icon-inline pt-signal float-right"></span>
+		</li>
+		<span class="group-divider"></span>
+		<li class="group-item">
+			<span>Desktop</span><span class="icon-inline pt-monitor float-right"></span>
 		</li>
 	</ul>
 
 	<ul :class="['group-col', 'ak-nav-group', tableSize]">
 		<span class="group-title">Favorites</span>
 		<li class="group-item" >
-			<span class="ak-inline-icon pt-home"></span><span>Home</span>
+			<span class="icon-inline pt-home"></span><span>Home</span>
 		</li>
 		<li class="group-item active">
-			<span class="ak-inline-icon pt-picture"></span><span>Photo</span>
+			<span class="icon-inline pt-picture"></span><span>Photo</span>
 		</li>
 		<li class="group-item" >
-			<span class="ak-inline-icon pt-download"></span><span>Download</span>
+			<span class="icon-inline pt-download"></span><span>Download</span>
 		</li>
 		<span class="group-title">Others</span>
 		<li class="group-item" >
-			<span class="ak-inline-icon pt-folder"></span><span>Document</span>
+			<span class="icon-inline pt-folder"></span><span>Document</span>
+		</li>
+		<li class="group-item disabled" >
+			<span class="icon-inline pt-window"></span><span>Application</span>
 		</li>
 		<li class="group-item" >
-			<span class="ak-inline-icon pt-window"></span><span>Application</span>
-		</li>
-		<li class="group-item" >
-			<span class="ak-inline-icon pt-signal"></span><span>AirDrop</span>
+			<span class="icon-inline pt-signal"></span><span>AirDrop</span>
 		</li>
 		<span class="group-divider"></span>
 		<li class="group-item" >
-			<span class="ak-inline-icon pt-monitor"></span><span>Desktop</span>
+			<span class="icon-inline pt-monitor"></span><span>Desktop</span>
 		</li>
 	</ul>
 
@@ -65,27 +92,27 @@
 	<ul :class="['group-col', 'ak-menu-group', tableSize]">
 		<span class="group-title">Favorites</span>
 		<li class="group-item" >
-			<span>Home</span><span class="ak-inline-icon pt-home float-right"></span>
+			<span>Home</span><span class="icon-inline pt-home float-right"></span>
 		</li>
 		<li class="group-item active">
-			<span>Photo</span><span class="ak-inline-icon pt-picture float-right"></span>
+			<span>Photo</span><span class="icon-inline pt-picture float-right"></span>
 		</li>
 		<li class="group-item" >
-			<span>Download</span><span class="ak-inline-icon pt-download float-right"></span>
+			<span>Download</span><span class="icon-inline pt-download float-right"></span>
 		</li>
 		<span class="group-title">Others</span>
 		<li class="group-item" >
-			<span>Document</span><span class="ak-inline-icon pt-folder float-right"></span>
+			<span>Document</span><span class="icon-inline pt-folder float-right"></span>
+		</li>
+		<li class="group-item disabled" >
+			<span>Application</span><span class="icon-inline pt-window float-right"></span>
 		</li>
 		<li class="group-item" >
-			<span>Application</span><span class="ak-inline-icon pt-window float-right"></span>
-		</li>
-		<li class="group-item" >
-			<span>AirDrop</span><span class="ak-inline-icon pt-signal float-right"></span>
+			<span>AirDrop</span><span class="icon-inline pt-signal float-right"></span>
 		</li>
 		<span class="group-divider"></span>
 		<li class="group-item">
-			<span>Desktop</span><span class="ak-inline-icon pt-monitor float-right"></span>
+			<span>Desktop</span><span class="icon-inline pt-monitor float-right"></span>
 		</li>
 	</ul>
 	</div>
