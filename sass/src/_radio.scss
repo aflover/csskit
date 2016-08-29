@@ -28,7 +28,7 @@
 	$radio-prefix				: $default-prefix !default;
 	$radio-class				: '.#{$radio-prefix}radio' !default;
 
-	$radio-disabled-color		: $default-disabled-color !default;
+	$radio-disabled-bg-color	: $default-disabled-bg-color !default;
 	$radio-primary-color		: $default-primary-color !default;				// 主样式
 	//!VAR radio
 	
@@ -62,13 +62,13 @@
 
 	// 禁用
 	input:disabled + .radio-text {
-		color: darken($radio-disabled-color, 30);
+		color: darken($radio-disabled-bg-color, 30);
 	}
 	input:disabled + .radio-text:before {
-	    border-color: $radio-disabled-color;
+	    border-color: darken($radio-disabled-bg-color, 15);
 	}
 	input:disabled:checked + .radio-text:after {
-		background-color: $radio-disabled-color;
+		background-color: darken($radio-disabled-bg-color, 15);
 	}
 
 }

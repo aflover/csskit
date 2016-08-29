@@ -7,7 +7,7 @@
 				v-model="size"
 				></size-control>
 			<label><input type="checkbox" v-model="tick"/>按下移动</label>
-			图标 <color-control v-model="iconColor"></color-control>
+			图标 <color-control v-model="colorTheme"></color-control>
 		</div>
 <br>
 	<label :class="['radio', size]"><input type="radio" name="group1" ><span class="radio-text">Radio Demo</span></label>
@@ -65,24 +65,40 @@
 	</button>
 	<button :class="['btn icon-hover', size, tick && 'meta-tick']" >
 		<span>btn icon-caret</span>
-		<i :class="['icon-inline', 'icon-caret', iconColor]"></i>
+		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
 	</button>
 	<button :class="['btn', size, tick && 'meta-tick']" >
 		<span>btn icon-right</span>
-		<i :class="['icon-inline', 'icon-right', iconColor]"></i>
+		<i :class="['icon-inline', 'icon-right', colorTheme]"></i>
 	</button>
 	<button :class="['btn icon-hover', size, tick && 'meta-tick']" >
 		<span>btn icon-arrow</span>
-		<i :class="['icon-inline', 'icon-arrow', iconColor]"></i>
+		<i :class="['icon-inline', 'icon-arrow', colorTheme]"></i>
 	</button>
 <br>
 <br>
 	<button :class="['btn', size, tick && 'meta-tick']" >
 		<i class="icon-inline fa-microphone"></i><span>btn icon</span><i class="icon-inline fa-apple"></i>
 	</button>
-	<button :class="['btn icon-open', size, tick && 'meta-tick']" ><span>btn icon-caret</span><i :class="['icon-inline', 'icon-caret', iconColor]"></i></button>
-	<button :class="['btn', size, tick && 'meta-tick']" ><span>btn icon-right</span><i :class="['icon-inline', 'icon-right', iconColor]"></i></button>
-	<button :class="['btn icon-open', size, tick && 'meta-tick']" ><span>btn icon-arrow</span><i :class="['icon-inline', 'icon-arrow', iconColor]"></i></button>
+	<button :class="['btn icon-open', size, tick && 'meta-tick']" ><span>btn icon-caret</span><i :class="['icon-inline', 'icon-caret', colorTheme]"></i></button>
+	<button :class="['btn', size, tick && 'meta-tick']" ><span>btn icon-right</span><i :class="['icon-inline', 'icon-right', colorTheme]"></i></button>
+	<button :class="['btn icon-open', size, tick && 'meta-tick']" ><span>btn icon-arrow</span><i :class="['icon-inline', 'icon-arrow', colorTheme]"></i></button>
+<br>
+<br>
+	<div :class="['btn-group-col']">
+		<button :class="['btn', btnSelected == 1 && ('selected ' + colorTheme)]" @click="btnSelected=1">btn1</button>
+		<button :class="['btn', btnSelected == 2 && ('selected ' + colorTheme)]" @click="btnSelected=2">btn1</button>
+		<button :class="['btn', btnSelected == 3 && ('selected ' + colorTheme)]" @click="btnSelected=3">btn1</button>
+		<button :class="['btn', btnSelected == 4 && ('selected ' + colorTheme)]" @click="btnSelected=4">btn1</button>
+		<button :class="['btn', btnSelected == 5 && ('selected ' + colorTheme)]" @click="btnSelected=5">btn1</button>
+	</div>
+	<div :class="['btn-group-row']">
+		<button :class="['btn', btnSelected == 1 && ('selected ' + colorTheme)]" @click="btnSelected=1">btn1</button>
+		<button :class="['btn', btnSelected == 2 && ('selected ' + colorTheme)]" @click="btnSelected=2">btn1</button>
+		<button :class="['btn', btnSelected == 3 && ('selected ' + colorTheme)]" @click="btnSelected=3">btn1</button>
+		<button :class="['btn', btnSelected == 4 && ('selected ' + colorTheme)]" @click="btnSelected=4">btn1</button>
+		<button :class="['btn', btnSelected == 5 && ('selected ' + colorTheme)]" @click="btnSelected=5">btn1</button>
+	</div>
 </div>
 </template>
 
@@ -94,7 +110,8 @@
 			return {
 				size: '',
 				tick: true,
-				iconColor: '',
+				colorTheme: '',
+				btnSelected: '',
 			};
 		},
 		components: {

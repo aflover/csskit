@@ -43,7 +43,7 @@
 	$check-prefix				: $default-prefix !default;
 	$check-class				: '.#{$check-prefix}check' !default;
 
-	$check-disabled-color		: $default-disabled-color !default;
+	$check-disabled-bg-color		: $default-disabled-bg-color !default;
 	$check-primary-color		: $default-primary-color !default;				// 主样式
 	//!VAR check
 	
@@ -77,15 +77,15 @@
 
 	// 禁用
 	input:disabled + .check-text {
-		color: darken($check-disabled-color, 30);
+		color: darken($check-disabled-bg-color, 30);
 	}
 	input:disabled + .check-text:before {
 		background-color: transparent;
-		border-color: $check-disabled-color;
+		border-color: darken($check-disabled-bg-color, 15);
 	}
 	input:disabled:checked + .check-text:after {
-		border-left-color: $check-disabled-color;
-		border-bottom-color: $check-disabled-color;
+		border-left-color: darken($check-disabled-bg-color, 15);
+		border-bottom-color: darken($check-disabled-bg-color, 15);
 	}
 
 }

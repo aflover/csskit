@@ -23,6 +23,8 @@
 	&:focus {
 		background-color: darken($color, 2);
 	}
+
+	&.selected,
 	&:active {
 		background-color: darken($color, 6);
 	}
@@ -31,12 +33,12 @@
 @mixin make-btn() {
 	//@VAR btn
 	$btn-prefix				: $default-prefix !default;
-	$btn-class				: '.#{$btn-prefix}btn' !default;
+	$btn-class				: '.#{$btn-prefix}btn' !default !global;
 
 	$btn-default-bd-color	: $default-bd-color !default;
 	$btn-default-bg-color	: $default-bg-color !default;
 	$btn-bd-radius			: $default-bd-radius !default;
-	$btn-disabled-color		: $default-disabled-color !default;
+	$btn-disabled-bg-color	: $default-disabled-bg-color !default;
 
 	$btn-primary-color		: $default-primary-color !default;				// 主样式
 	$btn-info-color			: $default-info-color !default;					// 信息
@@ -67,6 +69,8 @@
 		&:focus {
 			background-color: darken($btn-default-bg-color, 5);
 		}
+		
+		&.selected,
 		&:active {
 			background-color: darken($btn-default-bg-color, 10);
 			// box-shadow: inset 0 .2em .5em rgba(0, 0, 0, 0.2); // 内阴影
@@ -75,9 +79,9 @@
 		&.disabled,
 		&:disabled {
 			cursor: default;
-			background-color: lighten($btn-disabled-color, 15) !important;
-			color: darken($btn-disabled-color, 30);
-			border-color: $btn-disabled-color;
+			background-color: $btn-disabled-bg-color !important;
+			color: darken($btn-disabled-bg-color, 30);
+			border-color: darken($btn-disabled-bg-color, 15) !important;
 			box-shadow: none;
 		}
 

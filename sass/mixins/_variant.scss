@@ -3,6 +3,7 @@
 @mixin make-default-variant () {
 	color: $component-default-color;
 	// border-color: $component-default-bd-color;
+	&:focus,
 	&:hover {
 		background-color: $component-default-hover-bg-color;
 	}

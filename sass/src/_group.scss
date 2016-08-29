@@ -48,15 +48,21 @@
 		&:disabled, {
 			margin-left: 0;
 			border-left-width: 0;
-			z-index: 0;
+			// z-index: 0;
 		};
 	}
+
 	&:hover,
 	&:focus {
-		z-index: 2;
+		// z-index: 2;
 	}
+
 	&:active {
 		z-index: 4;
+	}
+
+	&.selected {
+		z-index: 6;
 	}
 }
 

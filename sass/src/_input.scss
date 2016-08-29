@@ -15,7 +15,7 @@
 	$input-class				: '.#{$input-prefix}input' !default;
 	$input-bd-radius			: $default-bd-radius !default;
 	$input-bd-color			    : $default-bd-color !default;
-	$input-disabled-color		: $default-disabled-color !default;
+	$input-disabled-bg-color		: $default-disabled-bg-color !default;
 
 	$input-primary-color		: $default-primary-color !default;				// 主样式
 	$input-access-color			: $default-access-color !default;				// 可访问
@@ -51,9 +51,9 @@
 		}
 
 		&:disabled {
-			background-color: lighten($input-disabled-color, 15);
-			color: darken($input-disabled-color, 30);
-			border-color: $input-disabled-color;
+			background-color: $input-disabled-bg-color;
+			color: darken($input-disabled-bg-color, 30);
+			border-color: darken($input-disabled-bg-color, 15);
 			box-shadow: none;
 		}
 

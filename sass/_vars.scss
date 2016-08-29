@@ -7,12 +7,17 @@ $default-pad-size					: 1em !default;					// 容器或元素内补白基量
 
 // 颜色
 $default-bd-color					: #C6C6C6 !default;				// 边框颜色
-$default-bg-color					: white !default;				// 背景色
 
+// 背景色
+$default-bg-color					: white !default;				// 背景色
+$default-active-bg-color			: #DCDCDC !default;				// 活动背景色
+$default-hover-bg-color				: #EAEAEA !default; 			// 悬停背景色
+$default-disabled-bg-color			: #F2F2F2 !default; 			// 禁用背景色
+
+// 颜色常量
+$default-primary-color				: #3ea4d2 !default;				// 主色调
 $default-light-color				: white !default;				// 亮色调
 $default-dark-color					: black !default;				// 暗色调
-$default-primary-color				: #3ea4d2 !default;				// 主色调
-$default-disabled-color				: #ccc !default;				// 禁用色调
 
 // 访问颜色
 $default-access-color				: #26A69A !default;				// 可访问

@@ -1,0 +1,24 @@
+@import "group";
+
+@mixin make-btn-group() {
+	//@VAR btn-group
+	$btn-group-prefix				: $default-prefix !default;
+	$btn-group-class				: '.#{$btn-group-prefix}btn-group' !default;
+	//!VAR btn-group
+	
+	#{$btn-group-class}-row {
+		display: inline-block; 
+		> #{$btn-class} {
+			float: left;
+			@include make-group-item-zindex(false);
+		}
+	}
+
+	#{$btn-group-class}-col {
+		display: inline-block; 
+		> #{$btn-class} {
+			display: block;
+			@include make-group-item-zindex(true);
+		}
+	}
+}
