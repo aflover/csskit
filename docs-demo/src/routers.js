@@ -5,7 +5,7 @@ import Table from './components/Table'
 import IconPhoton from './components/IconPhoton'
 import IconFontAwesome from './components/IconFontAwesome'
 import Grid from './components/Grid'
-import List from './components/List'
+import Group from './components/Group'
 import Test from './components/Test'
 import Popup from './components/popup'
 import Tab from './components/Tab'
@@ -18,10 +18,11 @@ export default {
     '/Table/': { component: Table, title:'Table 表格', },
     
     '/Button/': { component: Button, title:'Button 按钮', },
-    '/List/': { component: List, title:'List 列表项', },
+    '/Group/': { component: Group, title:'Group 分组', },
     '/Popup/': { component: Popup, title:'Popup', },
     
     '/Tab/': { component: Tab, title:'Tab', },
     '/Form/': { component: Form, title:'Form', },
     '/Test/': { component: Test, title:'Test 测试', },
 }
+

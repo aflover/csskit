@@ -76,7 +76,7 @@
 		@include make-group-default;
 		> .group-item {
 			@include make-size-default;
-			cursor: default;
+			cursor: pointer;
 			&:focus,
 			&:hover {
 				background-color: $group-item-hover-bg-color;
