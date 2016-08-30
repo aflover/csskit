@@ -49,6 +49,7 @@
 	<button :class="['btn','warn', size, tick && 'meta-tick']" >warn</button>
 	<button :class="['btn','success', size, tick && 'meta-tick']" >success</button>
 	<button :class="['btn','error', size, tick && 'meta-tick']" >error</button>
+
 <br>
 <br>
 	<button :class="['btn','primary', size, tick && 'meta-tick']" disabled >primary</button>
@@ -56,6 +57,22 @@
 	<button :class="['btn','warn', size, tick && 'meta-tick']" disabled >warn</button>
 	<button :class="['btn','success', size, tick && 'meta-tick']" disabled >success</button>
 	<button :class="['btn','error', size, tick && 'meta-tick']" disabled >error</button>
+
+<br>
+<br>
+	<button :class="['btn drop-menu', size, dropMenu &&'open']" @click.prevent="dropMenu=!dropMenu">
+		<span>btn drop-menu</span>
+		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+		<ul :class="['group-col', 'menu-group', size]">
+			<li class="group-item" >
+				<span>选项1</span>
+			</li>
+			<li class="group-item">
+				<span>选项2</span>
+			</li>
+		</ul>
+	</button>
+	
 <br>
 <br>
 	<button :class="['btn', size, tick && 'meta-tick']" >
@@ -99,6 +116,8 @@
 		<button :class="['btn', btnSelected == 4 && ('selected ' + colorTheme)]" @click="btnSelected=4">btn1</button>
 		<button :class="['btn', btnSelected == 5 && ('selected ' + colorTheme)]" @click="btnSelected=5">btn1</button>
 	</div>
+
+
 </div>
 </template>
 
@@ -112,6 +131,7 @@
 				tick: true,
 				colorTheme: '',
 				btnSelected: '',
+				dropMenu: false,
 			};
 		},
 		components: {

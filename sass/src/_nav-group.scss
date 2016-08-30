@@ -1,0 +1,10 @@
+
+@mixin make-nav-group() {
+	//@VAR nav-group
+	$nav-group-prefix					: $default-prefix !default;
+	$nav-group-class					: '.#{$nav-group-prefix}nav-group' !default;
+
+	$nav-group-padding				: 5px !default;
+	$nav-group-item-padding			: 1.5em !default;
+	//!VAR nav-group
+}

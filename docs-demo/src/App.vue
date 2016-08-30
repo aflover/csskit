@@ -27,7 +27,7 @@
 <template>
   <div id="app" class="window-container">
     <div class="window-content">
-      <ul class="group-col group-size-dd app-nav-group ak-group-default">
+      <ul class="group-col app-nav-group">
         <router-link  v-for="route in routers" class="group-item" :to="{ path: route.path }">{{route.title}}</router-link>
       </ul>
       <div class="app-panel">

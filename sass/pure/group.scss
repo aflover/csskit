@@ -2,3 +2,7 @@
 @import "vars";
 @import "src/group";
 @include make-group;
+
+@import "src/menu-group";
+@include make-menu-group;
+

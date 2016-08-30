@@ -59,7 +59,6 @@
 }
 
 @mixin make-group() {
-	
 	//@VAR group
 	$group-divider-bg-color				: #DDD !default;
 	$group-title-color					: #666 !default;
@@ -81,7 +80,6 @@
 			&:hover {
 				background-color: $group-item-hover-bg-color;
 			}
-			&:active,
 			&.active {
 				background-color: $group-item-active-bg-color;
 			}

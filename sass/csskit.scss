@@ -31,10 +31,7 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @import "pure/size";
 
 
-@import "pure/list";
-@import "src/menu";
-
-
+// @import "pure/list";
 
 @import "src/btn-group";
 @include make-btn-group;
