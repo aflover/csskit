@@ -65,16 +65,24 @@
 
 	#{$menu-group-drop-class} {
 		position: relative;
-		#{$menu-group-class} {
-			display: none;
+		.group-col {
+			// display: none;
 			position: absolute;
 			z-index: 1000;
 			top: 100%;
-			left: 0;
+			min-width: 100%;
+			left: -1px;
+			box-sizing: content-box;
+			text-align: left;
+			padding: 0;
+			visibility: hidden;
+			opacity: 0;
 		}
 		&.open {
-			> #{$menu-group-class} {
+			> .group-col {
 				display: inline-block;
+				visibility: visible;
+				opacity: 1;
 				
 			}
 		}
