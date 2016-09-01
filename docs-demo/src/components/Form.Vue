@@ -60,10 +60,10 @@
 
 <br>
 <br>
-	<button :class="['btn drop-menu', size, dropMenu &&'open']" @click.prevent="dropMenu=!dropMenu">
-		<span>btn drop-menu</span>
+	<button :class="['btn btn-drop', size, dropMenu &&'open icon-open']" @click.prevent="dropMenu=!dropMenu">
+		<span>btn btn-drop</span>
 		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
-		<ul :class="['group-col', 'menu-group', size]">
+		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
 			<li class="group-item" >
 				<span>选项1</span>
 			</li>
@@ -72,6 +72,21 @@
 			</li>
 		</ul>
 	</button>
+
+	<div :class="['drop-group', dropMenu &&'open']">
+		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
+			<span>drop-group</span>
+			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+		</button>
+		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
+			<li class="group-item" @click="dropMenu=!dropMenu">
+				<span>选项1</span>
+			</li>
+			<li class="group-item" @click="dropMenu=!dropMenu">
+				<span>选项2</span>
+			</li>
+		</ul>
+	</div>
 	
 <br>
 <br>

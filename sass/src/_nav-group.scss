@@ -1,10 +1,36 @@
 
 @mixin make-nav-group() {
 	//@VAR nav-group
-	$nav-group-prefix					: $default-prefix !default;
-	$nav-group-class					: '.#{$nav-group-prefix}nav-group' !default;
+	$nav-group-prefix				: $default-prefix !default;
+	$nav-group-class				: '.#{$nav-group-prefix}nav-group' !default;
+
+	$nav-group-bd-radius			: $default-bd-radius !default;
+	$nav-group-bd-color				: $default-bd-color !default;
+	$nav-group-bg-color				: $default-bg-color !default;
 
 	$nav-group-padding				: 5px !default;
-	$nav-group-item-padding			: 1.5em !default;
+	$nav-group-item-padding			: 2em !default;
 	//!VAR nav-group
+	
+	#{$nav-group-class} {
+		// 容器
+		background-color: $nav-group-bg-color;
+
+		&.group-col {
+			padding: $nav-group-padding 0 ;
+			> .group-item {
+				position: relative;
+				padding-left: $nav-group-item-padding;
+				padding-right: $nav-group-item-padding * 2 / 3 ;
+			}
+		}
+
+		&.group-row {
+			padding: 0 $nav-group-padding ;
+			> .group-item {
+				position: relative;
+				padding: $nav-group-item-padding /2 $nav-group-item-padding;
+			}
+		}
+	}
 }

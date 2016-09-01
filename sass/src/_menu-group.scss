@@ -3,87 +3,40 @@
 	//@VAR menu-group
 	$menu-group-prefix				: $default-prefix !default;
 	$menu-group-class				: '.#{$menu-group-prefix}menu-group' !default;
-	$menu-group-drop-class			: '.#{$menu-group-prefix}drop-menu' !default;
 
 	$menu-group-bd-radius			: $default-bd-radius !default;
 	$menu-group-bd-color			: $default-bd-color !default;
 	$menu-group-bg-color			: $default-bg-color !default;
-	$menu-group-disabled-bg-color	: $default-disabled-bg-color !default;
 
 	$menu-group-padding				: 5px !default;
 	$menu-group-item-padding		: 1.5em !default;
 	//!VAR menu-group
 	
 	#{$menu-group-class} {
-		padding: $menu-group-padding 0 ;
 		// 容器
 		background-color: $menu-group-bg-color;
 		border-radius : $menu-group-bd-radius;
 		border: 1px solid $menu-group-bd-color;
 		// 阴影
 		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
 		> .group-item {
 			position: relative;
-			padding-left: $menu-group-item-padding;
-			padding-right: $menu-group-item-padding;
-			> #{$menu-group-class} {
-				display: none;
-				position: absolute;
-				top: 0;
-				left: 100%;
-				margin-left: - $menu-group-padding;
-				width: 100%;
-			}
-			&:hover {
-				> #{$menu-group-class} {
-					display: inline-block;
-				}
-			}
-			&.has-sub {
-				&:after {
-					border: .3em solid transparent;
-					border-top-color: darken($menu-group-bd-color, 20);
-					position: absolute;
-					top: 40%;
-					right: $menu-group-padding;
-					content: '';
-					transform: rotate(-90deg);
-				}
-			}
+			background-color: $menu-group-bg-color;
+		}
 
-			&:disabled,
-			&.disabled {
-				> #{$menu-group-class} {
-					display: none;
-				}
-				&:after {
-					border-top-color: darken($menu-group-disabled-bg-color, 20);
-				}
+		&.group-col {
+			padding: $menu-group-padding 0 ;
+			> .group-item {
+				padding-left: $menu-group-item-padding;
+				padding-right: $menu-group-item-padding;
 			}
 		}
-	}
 
-	#{$menu-group-drop-class} {
-		position: relative;
-		.group-col {
-			// display: none;
-			position: absolute;
-			z-index: 1000;
-			top: 100%;
-			min-width: 100%;
-			left: -1px;
-			box-sizing: content-box;
-			text-align: left;
-			padding: 0;
-			visibility: hidden;
-			opacity: 0;
-		}
-		&.open {
-			> .group-col {
-				display: inline-block;
-				visibility: visible;
-				opacity: 1;
-				
+		&.group-row {
+			padding: 0 $menu-group-padding ;
+			> .group-item {
+				padding: $menu-group-item-padding /2 $menu-group-item-padding;
 			}
 		}
 	}

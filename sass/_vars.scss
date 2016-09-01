@@ -27,3 +27,6 @@ $default-error-color				: #F44006 !default;				// 失败
 $default-warn-color					: $default-required-color !default;	// 警告
 $default-info-color					: $default-access-color !default;	// 信息
 
+// 其他
+$default-active-cursor				: default !default;				// 默认激活光标
+$default-base-zindex				: 1000 !default;				// 默认zindex参考值

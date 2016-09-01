@@ -47,12 +47,14 @@
 	$btn-error-color		: $default-error-color !default;				// 失败
 	
 	$btn-light-color		: $default-light-color !default;				// 亮色调
-
+	
+	$btn-active-cursor		: $default-active-cursor !default;
 	//!VAR btn
 	
 	#{$btn-class} {
 		@include make-button-default;
 		@include make-size-default;
+		cursor: $btn-active-cursor;
 
 		// 这些放到前面
 		&.primary { @include make-button-variant($btn-light-color, $btn-primary-color); } 

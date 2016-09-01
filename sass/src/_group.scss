@@ -36,16 +36,14 @@
 @mixin make-group-item-zindex($vertical) { // 需要使用z-index的自行调用
 	@if $vertical {
 		margin-top: -1px ;
-		&.disabled,
-		&:disabled, {
+		&.disabled {
 			margin-top: 0;
 			border-top-width: 0;
 			z-index: 0;
 		};
 	} @else {
 		margin-left: -1px ;
-		&.disabled,
-		&:disabled, {
+		&.disabled {
 			margin-left: 0;
 			border-left-width: 0;
 		};
@@ -63,10 +61,14 @@
 	$group-divider-bg-color				: #DDD !default;
 	$group-title-color					: #666 !default;
 
+	$group-arrow-bd-color				: $default-bd-color !default;
+
 	$group-item-active-bg-color			: $default-active-bg-color !default;
 	$group-item-hover-bg-color			: $default-hover-bg-color !default;
 	$group-item-disabled-bg-color		: $default-disabled-bg-color !default;
 
+	$group-active-cursor				: $default-active-cursor !default;
+	$group-base-zindex					: $default-base-zindex !default;
 	//!VAR group
 	
 	// 基础部分
@@ -75,7 +77,7 @@
 		@include make-group-default;
 		> .group-item {
 			@include make-size-default;
-			cursor: pointer;
+			cursor: $group-active-cursor;
 			&:focus,
 			&:hover {
 				background-color: $group-item-hover-bg-color;
@@ -83,8 +85,7 @@
 			&.active {
 				background-color: $group-item-active-bg-color;
 			}
-			&.disabled,
-			&:disabled {
+			&.disabled {
 				color: darken($group-item-disabled-bg-color, 30);
 				background-color: transparent;
 			}
@@ -119,12 +120,66 @@
 			display: block;
 		}
 	}
-	.group-row {
-		> {
-			.group-title,
-			.group-divider { // 行模式 不支持这些
+
+	.group-row { // 列模式增加 标题 和 分割线
+		> .group-title,
+		> .group-divider { // 标题
+			display: none;
+		}
+	}
+
+	// 子组件
+	.group-row  > .group-item.has-sub,
+	.group-col  > .group-item.has-sub,
+	{
+		position: relative;
+		> .group-col {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			margin-left: -5px;
+			width: 100%;
+			z-index: $group-base-zindex;
+		}
+		&:hover {
+			> .group-col {
+				display: inline-block;
+			}
+		}
+		&.disabled {
+			> .group-col {
 				display: none;
 			}
+		}
+		&::after {
+			border: .3em solid transparent;
+			border-top-color: darken($group-arrow-bd-color, 20);  // 右箭头
+			position: absolute;
+			top: 40%;
+			right: 5px;
+			content: '';
+			transform: rotate(-90deg);
+		}
+		&.disabled {
+			&::after {
+				border-top-color: darken($group-item-disabled-bg-color, 20);
+			}
+		}
+	}
+	
+	// 行模式
+	.group-row  > .group-item.has-sub {
+		>.group-col {
+			top: 100%;
+			left: 0;
+			margin-left: 0;
+			width: auto;
+			min-width: 100%;
+		}
+		&::after {  // 下箭头
+			transform: rotate(0);
+			top: 45%;
 		}
 	}
 }
