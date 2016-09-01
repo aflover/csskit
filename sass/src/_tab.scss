@@ -5,7 +5,6 @@
 @mixin make-tab-title-default () {
 	@include make-size-default;
 	display: inline-block;
-	cursor: pointer;
 	position: relative;
 	user-select: none;
 	border: 1px solid transparent;
@@ -35,6 +34,8 @@
 	$tab-offseted-margin	: 10px !default;								// 偏移尺寸
 	$tab-pad-size			: $default-pad-size !default; 			  		// 补白
 	$tab-bg-color			: $default-bg-color !default; 			  		// 容器背景颜色
+
+	$tab-active-cursor		: $default-active-cursor !default;
 	//!VAR tab
 
 // 自包含
@@ -44,6 +45,7 @@
 
 		.tab-title {
 			@include make-tab-title-default;
+			cursor: $tab-active-cursor;
 			margin-bottom: -1px;
 			border-radius: $tab-title-radius $tab-title-radius 0 0;
 		}
@@ -79,6 +81,7 @@
 		margin-bottom: -1px;
 		> .tab-title {
 			@include make-tab-title-default;
+			cursor: $tab-active-cursor;
 			border-radius: $tab-title-radius $tab-title-radius 0 0;		
 			&.selected {
 				background-color: $tab-bg-color;

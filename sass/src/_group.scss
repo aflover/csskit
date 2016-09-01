@@ -77,6 +77,7 @@
 		@include make-group-default;
 		> .group-item {
 			@include make-size-default;
+			white-space: nowrap;
 			cursor: $group-active-cursor;
 			&:focus,
 			&:hover {
@@ -139,12 +140,11 @@
 			top: 0;
 			left: 100%;
 			margin-left: -5px;
-			width: 100%;
 			z-index: $group-base-zindex;
 		}
 		&:hover {
 			> .group-col {
-				display: inline-block;
+				display: block;
 			}
 		}
 		&.disabled {
@@ -174,8 +174,8 @@
 			top: 100%;
 			left: 0;
 			margin-left: 0;
-			width: auto;
 			min-width: 100%;
+			text-align: left;
 		}
 		&::after {  // 下箭头
 			transform: rotate(0);
