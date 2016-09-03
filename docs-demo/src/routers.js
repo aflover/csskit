@@ -1,6 +1,5 @@
 import Vue from 'vue'
 
-import Button from './components/Button'
 import Table from './components/Table'
 import IconPhoton from './components/IconPhoton'
 import IconFontAwesome from './components/IconFontAwesome'
@@ -17,7 +16,6 @@ export default {
     '/Grid/': { component: Grid, title:'Grid 格子系统', },
     '/Table/': { component: Table, title:'Table 表格', },
     
-    '/Button/': { component: Button, title:'Button 按钮', },
     '/Group/': { component: Group, title:'Group 分组', },
     '/Popup/': { component: Popup, title:'Popup', },
     
