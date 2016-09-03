@@ -23,6 +23,9 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @import "pure/check";
 @import "pure/input";
 
+@import "src/select";
+@include make-select;
+
 @import "pure/window";
 
 
@@ -35,3 +38,6 @@ $icon-font-fontawesome-path: '../fonts' !default;
 
 @import "src/btn-group";
 @include make-btn-group;
+
+@import "src/select-group";
+@include make-select-group;

@@ -1,0 +1,52 @@
+
+@mixin make-select-group() {
+	//@VAR select-group
+	$select-group-prefix			: $default-prefix !default;
+	$select-group-class				: '.#{$select-group-prefix}select-group' !default;
+
+	$select-group-bd-radius			: $default-bd-radius !default;
+	$select-group-bd-color			: $default-bd-color !default;
+	$select-group-bg-color			: $default-bg-color !default;
+
+
+    $select-group-primary-color      : $default-primary-color !default;              // 主样式
+    $select-group-info-color         : $default-info-color !default;                 // 信息
+    $select-group-warn-color         : $default-warn-color !default;                 // 警告
+    $select-group-success-color      : $default-success-color !default;              // 成功
+    $select-group-error-color        : $default-error-color !default;                // 失败
+
+
+	$select-group-item-padding		: 1.5em !default;
+	//!VAR select-group
+	
+	#{$select-group-class} {
+		// 容器
+		background-color: $select-group-bg-color;
+		border-radius : $select-group-bd-radius;
+		border: 1px solid $select-group-bd-color;
+		// 阴影
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		> .group-item {
+			position: relative;
+			background-color: $select-group-bg-color;
+			padding-left: $select-group-item-padding;
+			padding-right: $select-group-item-padding;
+
+			&.checked {
+				&::before {
+					@include make-icon-right($select-group-bd-color);
+					width: 1em;
+					height: .55em;
+					top: 25%;
+					right: .5em;
+				}
+				&.primary { &:before { border-left-color: $select-group-primary-color; border-bottom-color: $select-group-primary-color; } }
+				&.info { &:before { border-left-color: $select-group-info-color; border-bottom-color: $select-group-info-color; } }
+				&.warn { &:before { border-left-color: $select-group-warn-color; border-bottom-color: $select-group-warn-color; } }
+				&.success { &:before { border-left-color: $select-group-success-color; border-bottom-color: $select-group-success-color; } }
+				&.error { &:before { border-left-color: $select-group-error-color; border-bottom-color: $select-group-error-color; } }
+			}
+		}
+	}
+
+}

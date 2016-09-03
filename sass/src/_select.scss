@@ -1,0 +1,59 @@
+@import "mixins/size-control";
+
+@mixin make-select-variant($color) {
+	box-shadow: 0 0 0 1px $color;
+	border-color: $color;
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+@mixin make-select() {
+	//@VAR select
+	$select-prefix				: $default-prefix !default;
+	$select-class				: '.#{$select-prefix}select' !default;
+	$select-bd-radius			: $default-bd-radius !default;
+	$select-bd-color			    : $default-bd-color !default;
+	$select-disabled-bg-color		: $default-disabled-bg-color !default;
+
+	$select-primary-color		: $default-primary-color !default;				// 主样式
+	$select-access-color			: $default-access-color !default;				// 可访问
+	$select-required-color		: $default-required-color !default;				// 必须
+	$select-success-color		: $default-success-color !default;				// 成功
+	$select-error-color			: $default-error-color !default;				// 失败
+
+	//!VAR select
+	
+	select#{$select-class} {
+		@include make-size-default;
+		border: 1px solid $select-bd-color;
+		border-radius: $select-bd-radius;
+
+		// 先写默认样式
+		&:hover,
+		&:focus {
+			background-color: lighten($select-bd-color, 20);
+			border-color: darken($select-bd-color, 30);
+		}
+
+		// 这些放到前面
+		&.primary { @include make-select-variant($select-primary-color); } 
+		&.access { @include make-select-variant($select-access-color); }
+		&.required { @include make-select-variant($select-required-color); }
+		&.success { @include make-select-variant($select-success-color); }
+		&.error { @include make-select-variant($select-error-color); }
+		
+		// 再覆盖一次
+		&:focus {
+			border-color: darken($select-bd-color, 30);
+		}
+
+		&:disabled {
+			background-color: $select-disabled-bg-color;
+			color: darken($select-disabled-bg-color, 30);
+			border-color: darken($select-disabled-bg-color, 15);
+			box-shadow: none;
+		}
+	}
+}

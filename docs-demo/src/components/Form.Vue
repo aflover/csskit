@@ -10,16 +10,16 @@
 			图标 <color-control v-model="colorTheme"></color-control>
 		</div>
 <br>
+	<label :class="['radio', size]"><input type="radio" name="group1" checked><span class="radio-text">Radio Demo</span></label>
 	<label :class="['radio', size]"><input type="radio" name="group1" ><span class="radio-text">Radio Demo</span></label>
-	<label :class="['radio', size]"><input type="radio" name="group1" ><span class="radio-text">Radio Demo</span></label>
-	<label :class="['radio', size]"><input type="radio" name="group1"  disabled><span class="radio-text">Radio Demo</span></label>
-	<label :class="['radio', size]"><input type="radio" name="group1"  checked disabled><span class="radio-text">Radio Demo</span></label>
+	<label :class="['radio', size]"><input type="radio" name="group2"  disabled><span class="radio-text">Radio Demo</span></label>
+	<label :class="['radio', size]"><input type="radio" name="group2"  checked disabled><span class="radio-text">Radio Demo</span></label>
 <br>
 <br>
-	<label :class="['check', size]"><input type="checkbox" name="group1" ><span class="check-text">Check Demo</span></label>
-	<label :class="['check', size]"><input type="checkbox" name="group1" ><span class="check-text">Check Demo</span></label>
-	<label :class="['check', size]"><input type="checkbox" name="group1"  disabled><span class="check-text">Check Demo</span></label>
-	<label :class="['check', size]"><input type="checkbox" name="group1"  checked disabled><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size]"><input type="checkbox"><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size]"><input type="checkbox" checked><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size]"><input type="checkbox" disabled><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size]"><input type="checkbox" checked disabled><span class="check-text">Check Demo</span></label>
 <br>
 <br>
 	<input :class="['input', size]" type="text" placeholder="default" />
@@ -38,6 +38,36 @@
 	<input :class="['input','required', size]" type="text" placeholder="required" disabled />
 	<input :class="['input','success', size]" type="text" placeholder="success" disabled />
 	<input :class="['input','error', size]" type="text" placeholder="error" disabled />
+
+<br>
+<br>
+	<select :class="['select', size, colorTheme]" value= "2">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+	<select :class="['select', size, colorTheme]" disabled value="3">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+<br>
+<br>
+	<select :class="['select primary ', size, colorTheme]">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+	<select :class="['select access ', size, colorTheme]">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+	<select :class="['select required ', size, colorTheme]">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+	<select :class="['select success ', size, colorTheme]">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+	<select :class="['select error ', size, colorTheme]">
+		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
+	</select>
+<br>
+<br>
+
+
 <br>
 <br>
 	<button :class="['btn', size, tick && 'meta-tick']" >Default Button</button>
@@ -61,33 +91,89 @@
 <br>
 <br>
 	<button :class="['btn btn-drop', size, dropMenu &&'open icon-open']" @click.prevent="dropMenu=!dropMenu">
-		<span>btn btn-drop</span>
+		<span>btn-drop + menu-group</span>
 		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
 		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
-			<li class="group-item" >
-				<span>选项1</span>
-			</li>
-			<li class="group-item">
-				<span>选项2</span>
+			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
+				<span>{{it.text}}</span>
 			</li>
 		</ul>
 	</button>
 
 	<div :class="['drop-group', dropMenu &&'open']">
 		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
-			<span>drop-group</span>
+			<span>drop-group + menu-group</span>
 			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
 		</button>
 		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
-			<li class="group-item" @click="dropMenu=!dropMenu">
-				<span>选项1</span>
-			</li>
-			<li class="group-item" @click="dropMenu=!dropMenu">
-				<span>选项2</span>
+			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
+				<span>{{it.text}}</span>
 			</li>
 		</ul>
 	</div>
 	
+	<button :class="['btn btn-drop', size, dropMenu &&'open icon-open']" @click.prevent="dropMenu=!dropMenu">
+		<span>btn-drop + select-group</span>
+		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+		<ul :class="['group-col', 'select-group', size && ('group-' + size)]">
+			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
+				<span>{{it.text}}</span>
+			</li>
+		</ul>
+	</button>
+
+	<div :class="['drop-group', dropMenu &&'open']">
+		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
+			<span>drop-group + select-group</span>
+			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+		</button>
+		<ul :class="['group-col', 'select-group', size && ('group-' + size)]">
+			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
+				<span>{{it.text}}</span>
+			</li>
+			<li :class="['group-item', colorTheme]" >
+				<label :class="['radio', size]">
+					<input type="radio" name="select-radio1" checked>
+					<span class="radio-text">Radio Demo</span>
+				</label>
+			</li>
+			<li :class="['group-item', colorTheme]" >
+				<label :class="['radio', size]">
+					<input type="radio" name="select-radio1" >
+					<span class="radio-text">Radio Demo</span>
+				</label>
+			</li>
+			<label :class="['group-item radio', colorTheme]" >
+				<input type="radio" name="select-radio1" >
+				<span class="radio-text">Radio Demo</span>
+			</label>
+			<label :class="['group-item radio', colorTheme]" >
+				<input type="radio" name="select-radio1" >
+				<span class="radio-text">Radio Demo</span>
+			</label>
+			<li :class="['group-item', colorTheme]" >
+				<label :class="['check', size]">
+					<input type="checkbox" name="select-check1" >
+					<span class="check-text">Radio Demo</span>
+				</label>
+			</li>
+			<li :class="['group-item', colorTheme]" >
+				<label :class="['check', size]">
+					<input type="checkbox" name="select-check1" checked>
+					<span class="check-text">Radio Demo</span>
+				</label>
+			</li>
+			<label :class="['group-item check', colorTheme]" >
+				<input type="checkbox" name="select-check1" >
+				<span class="check-text">Radio Demo</span>
+			</label>
+			<label :class="['group-item check', colorTheme]" >
+				<input type="checkbox" name="select-check1" >
+				<span class="check-text">Radio Demo</span>
+			</label>
+		</ul>
+	</div>
+
 <br>
 <br>
 	<button :class="['btn', size, tick && 'meta-tick']" >
@@ -139,6 +225,7 @@
 <script type="text/javascript">
 	import SizeControl from '../controls/SizeControl'
 	import ColorControl from '../controls/ColorControl'
+	import { makeArray } from './help'
 	export default {
 		data: function () {
 			return {
@@ -147,7 +234,22 @@
 				colorTheme: '',
 				btnSelected: '',
 				dropMenu: false,
+				defaultSelectOptions : makeArray(5, {
+					text: '默认选择框--测试选项',
+					value: 0,
+				}),
+				selectData : makeArray(5, {
+					text: '选项',
+					value: 0,
+				}),
+				selectValue: null,
 			};
+		},
+		methods: {
+			changeValue : function (it) {
+				this.selectValue = it.value;
+				this.dropMenu = false;
+			}
 		},
 		components: {
 			SizeControl,

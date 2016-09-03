@@ -78,14 +78,18 @@
 		> .group-item {
 			@include make-size-default;
 			white-space: nowrap;
+			user-select: none;
 			cursor: $group-active-cursor;
 			&:focus,
 			&:hover {
 				background-color: $group-item-hover-bg-color;
 			}
+
+			// &:active, // 树状会影响到父级
 			&.active {
 				background-color: $group-item-active-bg-color;
 			}
+
 			&.disabled {
 				color: darken($group-item-disabled-bg-color, 30);
 				background-color: transparent;
@@ -180,6 +184,30 @@
 		&::after {  // 下箭头
 			transform: rotate(0);
 			top: 45%;
+		}
+	}
+
+	// group + radio
+	// group + check 组合
+	.group-col {
+		>.group-item.radio {
+			.radio-text::before,
+			.radio-text::after {
+				left: 1.5em;
+			}
+		}
+		>.group-item.check {
+			.check-text::before,
+			.check-text::after {
+				left: 1.5em;
+			}
+		}
+		>.group-item {
+			> .check,
+			> .radio {
+				display: block;
+				padding: 0;
+			}
 		}
 	}
 }

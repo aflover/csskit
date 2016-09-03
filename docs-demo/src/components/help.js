@@ -1,6 +1,6 @@
 
 function makeItem(val, index) {
-	if (typeof val === 'string') {
+	if ( (typeof val === 'string') || (typeof val === 'number' && !isNaN(val)) ) {
 		return val + index;
 	}
 	return val;
