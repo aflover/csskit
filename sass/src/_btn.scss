@@ -50,13 +50,7 @@
 		@include make-size-default;
 		cursor: $btn-active-cursor;
 
-		// 这些放到前面
 
-		@each $theme-type, $theme-color in $default-theme-color {
-		    &.#{$theme-type} {
-		        @include make-button-variant($btn-light-color, $theme-color);
-		    }
-		}
 
 		background-color: $btn-default-bg-color;
 		border-color: $btn-default-bd-color;
@@ -77,9 +71,9 @@
 		&:disabled {
 			cursor: default;
 			background-color: $btn-disabled-bg-color !important;
-			color: darken($btn-disabled-bg-color, 30);
+			color: darken($btn-disabled-bg-color, 30) !important;
 			border-color: darken($btn-disabled-bg-color, 15) !important;
-			box-shadow: none;
+			box-shadow: none !important;
 		}
 
 
@@ -93,5 +87,13 @@
 			}
 		}
 
+
+		// 这些放到前面
+
+		@each $theme-type, $theme-color in $default-theme-color {
+		    &.#{$theme-type} {
+		        @include make-button-variant($btn-light-color, $theme-color);
+		    }
+		}
 	}
 }
