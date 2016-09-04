@@ -43,8 +43,8 @@
 	$check-prefix				: $default-prefix !default;
 	$check-class				: '.#{$check-prefix}check' !default;
 
+	$check-bd-color			    	: darken($default-bd-color, 20) !default;
 	$check-disabled-bg-color		: $default-disabled-bg-color !default;
-	$check-primary-color		: $default-primary-color !default;				// 主样式
 	//!VAR check
 	
 	#{$check-class} {
@@ -52,7 +52,7 @@
 		.check-text {
 			&::before {
 				@include make-check-icon;
-	            border-color: $check-primary-color;
+	            border-color: $check-bd-color;
 				border-radius: 2px;
 			}
 	        &::after {
@@ -64,7 +64,7 @@
 
 	// 选中
 	input:checked + .check-text::before {
-		background-color: $check-primary-color;
+		background-color: $check-bd-color;
 	}
 	input:checked + .check-text::after {
 		opacity: 1; 
@@ -77,15 +77,31 @@
 
 	// 禁用
 	input:disabled + .check-text {
-		color: darken($check-disabled-bg-color, 30);
+		color: darken($check-disabled-bg-color, 30) !important;
 	}
 	input:disabled + .check-text:before {
-		background-color: transparent;
-		border-color: darken($check-disabled-bg-color, 15);
+		background-color: transparent !important;
+		border-color: darken($check-disabled-bg-color, 15) !important;
 	}
 	input:disabled:checked + .check-text:after {
-		border-left-color: darken($check-disabled-bg-color, 15);
-		border-bottom-color: darken($check-disabled-bg-color, 15);
+		border-left-color: darken($check-disabled-bg-color, 15) !important;
+		border-bottom-color: darken($check-disabled-bg-color, 15) !important;
+	}
+
+	// 主题
+	@each $theme-type, $theme-color in $default-theme-color {
+		#{$check-class}.#{$theme-type} {
+			.check-text {
+				&::before {
+		            border-color: $theme-color;
+		        }
+			}
+			> input:checked + .check-text {
+				&::before {
+		            background-color: $theme-color;
+		        }
+			}
+		}
 	}
 
 }

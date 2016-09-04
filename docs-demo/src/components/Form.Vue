@@ -10,16 +10,16 @@
 			图标 <color-control v-model="colorTheme"></color-control>
 		</div>
 <br>
-	<label :class="['radio', size]"><input type="radio" name="group1" checked><span class="radio-text">Radio Demo</span></label>
-	<label :class="['radio', size]"><input type="radio" name="group1" ><span class="radio-text">Radio Demo</span></label>
-	<label :class="['radio', size]"><input type="radio" name="group2"  disabled><span class="radio-text">Radio Demo</span></label>
-	<label :class="['radio', size]"><input type="radio" name="group2"  checked disabled><span class="radio-text">Radio Demo</span></label>
+	<label :class="['radio', size, colorTheme]"><input type="radio" name="group1" checked><span class="radio-text">Radio Demo</span></label>
+	<label :class="['radio', size, colorTheme]"><input type="radio" name="group1" ><span class="radio-text">Radio Demo</span></label>
+	<label :class="['radio', size, colorTheme]"><input type="radio" name="group2"  disabled><span class="radio-text">Radio Demo</span></label>
+	<label :class="['radio', size, colorTheme]"><input type="radio" name="group2"  checked disabled><span class="radio-text">Radio Demo</span></label>
 <br>
 <br>
-	<label :class="['check', size]"><input type="checkbox"><span class="check-text">Check Demo</span></label>
-	<label :class="['check', size]"><input type="checkbox" checked><span class="check-text">Check Demo</span></label>
-	<label :class="['check', size]"><input type="checkbox" disabled><span class="check-text">Check Demo</span></label>
-	<label :class="['check', size]"><input type="checkbox" checked disabled><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size, colorTheme]"><input type="checkbox"><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size, colorTheme]"><input type="checkbox" checked><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size, colorTheme]"><input type="checkbox" disabled><span class="check-text">Check Demo</span></label>
+	<label :class="['check', size, colorTheme]"><input type="checkbox" checked disabled><span class="check-text">Check Demo</span></label>
 <br>
 <br>
 	<input :class="['input', size]" type="text" placeholder="default" />
@@ -27,41 +27,41 @@
 <br>
 <br>
 	<input :class="['input','primary', size]" type="text" placeholder="primary" />
-	<input :class="['input','access', size]" type="text" placeholder="access" />
-	<input :class="['input','required', size]" type="text" placeholder="required" />
+	<input :class="['input','secondary', size]" type="text" placeholder="secondary" />
+	<input :class="['input','warn', size]" type="text" placeholder="warn" />
 	<input :class="['input','success', size]" type="text" placeholder="success" />
 	<input :class="['input','error', size]" type="text" placeholder="error" />
 <br>
 <br>
 	<input :class="['input','primary', size]" type="text" placeholder="primary" disabled />
-	<input :class="['input','access', size]" type="text" placeholder="access" disabled />
-	<input :class="['input','required', size]" type="text" placeholder="required" disabled />
+	<input :class="['input','secondary', size]" type="text" placeholder="secondary" disabled />
+	<input :class="['input','warn', size]" type="text" placeholder="warn" disabled />
 	<input :class="['input','success', size]" type="text" placeholder="success" disabled />
 	<input :class="['input','error', size]" type="text" placeholder="error" disabled />
 
 <br>
 <br>
-	<select :class="['select', size, colorTheme]" value= "2">
+	<select :class="['select', size]" value= "2">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
-	<select :class="['select', size, colorTheme]" disabled value="3">
+	<select :class="['select', size]" disabled value="3">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
 <br>
 <br>
-	<select :class="['select primary ', size, colorTheme]">
+	<select :class="['select primary ', size]">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
-	<select :class="['select access ', size, colorTheme]">
+	<select :class="['select secondary ', size]">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
-	<select :class="['select required ', size, colorTheme]">
+	<select :class="['select warn ', size]">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
-	<select :class="['select success ', size, colorTheme]">
+	<select :class="['select success ', size]">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
-	<select :class="['select error ', size, colorTheme]">
+	<select :class="['select error ', size]">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>
 <br>
@@ -75,7 +75,7 @@
 <br>
 <br>
 	<button :class="['btn','primary', size, tick && 'meta-tick']" >primary</button>
-	<button :class="['btn','info', size, tick && 'meta-tick']" >info</button>
+	<button :class="['btn','secondary', size, tick && 'meta-tick']" >secondary</button>
 	<button :class="['btn','warn', size, tick && 'meta-tick']" >warn</button>
 	<button :class="['btn','success', size, tick && 'meta-tick']" >success</button>
 	<button :class="['btn','error', size, tick && 'meta-tick']" >error</button>
@@ -83,7 +83,7 @@
 <br>
 <br>
 	<button :class="['btn','primary', size, tick && 'meta-tick']" disabled >primary</button>
-	<button :class="['btn','info', size, tick && 'meta-tick']" disabled >info</button>
+	<button :class="['btn','secondary', size, tick && 'meta-tick']" disabled >secondary</button>
 	<button :class="['btn','warn', size, tick && 'meta-tick']" disabled >warn</button>
 	<button :class="['btn','success', size, tick && 'meta-tick']" disabled >success</button>
 	<button :class="['btn','error', size, tick && 'meta-tick']" disabled >error</button>

@@ -19,7 +19,7 @@
 				opts: {
 					'': '无',
 					'primary': '主色调',
-					'info': '信息',
+					'secondary': '次色调',
 					'warn': '警告',
 					'success': '成功',
 					'error': '错误',

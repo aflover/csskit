@@ -39,12 +39,6 @@
 	$btn-default-bg-color	: $default-bg-color !default;
 	$btn-bd-radius			: $default-bd-radius !default;
 	$btn-disabled-bg-color	: $default-disabled-bg-color !default;
-
-	$btn-primary-color		: $default-primary-color !default;				// 主样式
-	$btn-info-color			: $default-info-color !default;					// 信息
-	$btn-warn-color			: $default-warn-color !default;					// 警告
-	$btn-success-color		: $default-success-color !default;				// 成功
-	$btn-error-color		: $default-error-color !default;				// 失败
 	
 	$btn-light-color		: $default-light-color !default;				// 亮色调
 	
@@ -57,11 +51,12 @@
 		cursor: $btn-active-cursor;
 
 		// 这些放到前面
-		&.primary { @include make-button-variant($btn-light-color, $btn-primary-color); } 
-		&.info { @include make-button-variant($btn-light-color, $btn-info-color); }
-		&.warn { @include make-button-variant($btn-light-color, $btn-warn-color); }
-		&.success { @include make-button-variant($btn-light-color, $btn-success-color); }
-		&.error { @include make-button-variant($btn-light-color, $btn-error-color); }
+
+		@each $theme-type, $theme-color in $default-theme-color {
+		    &.#{$theme-type} {
+		        @include make-button-variant($btn-light-color, $theme-color);
+		    }
+		}
 
 		background-color: $btn-default-bg-color;
 		border-color: $btn-default-bd-color;

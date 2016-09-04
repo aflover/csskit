@@ -1,38 +1,64 @@
 @import "vars"; // 全局变量
 
+@import "src/reset";
+@include make-reset;
 
-@import "pure/reset";
-
-@import "pure/base";
+@import "src/base";
+@include make-base;
 
 $icon-font-photon-path: 	'../fonts' !default;
 $icon-font-fontawesome-path: '../fonts' !default;
 
-@import "pure/icon-photon";
-@import "pure/icon-font-awesome";
-@import "pure/icon";
+@import "src/icons/font-awesome";
+@include make-font-awesome;
 
-@import "pure/grid";
-// @import "pure/button";
+@import "src/icons/photon";
+@include make-photon;
 
-@import "pure/btn";
-@import "pure/tab";
-@import "pure/table";
-@import "pure/radio";
-@import "pure/check";
-@import "pure/input";
+@import "src/icon";
+@include make-icon;
+
+@import "src/grid";
+@include make-grid;
+
+@import "src/btn";
+@include make-btn;
+
+@import "src/tab";
+@include make-tab;
+
+@import "src/table";
+@include make-table;
+
+@import "src/radio";
+@include make-radio;
+
+@import "src/check";
+@include make-check;
+
+@import "src/input";
+@include make-input;
 
 @import "src/select";
 @include make-select;
 
-@import "pure/window";
+@import "src/window";
+@include make-window;
 
+@import "src/group";
+@include make-group;
 
-@import "pure/group";
-@import "pure/size";
+@import "src/menu-group";
+@include make-menu-group;
 
+@import "src/nav-group";
+@include make-nav-group;
 
-// @import "pure/list";
+@import "src/drop-group";
+@include make-drop-group;
+
+@import "src/size";
+@include make-size;
 
 @import "src/btn-group";
 @include make-btn-group;

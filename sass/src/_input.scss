@@ -15,13 +15,7 @@
 	$input-class				: '.#{$input-prefix}input' !default;
 	$input-bd-radius			: $default-bd-radius !default;
 	$input-bd-color			    : $default-bd-color !default;
-	$input-disabled-bg-color		: $default-disabled-bg-color !default;
-
-	$input-primary-color		: $default-primary-color !default;				// 主样式
-	$input-access-color			: $default-access-color !default;				// 可访问
-	$input-required-color		: $default-required-color !default;				// 必须
-	$input-success-color		: $default-success-color !default;				// 成功
-	$input-error-color			: $default-error-color !default;				// 失败
+	$input-disabled-bg-color	: $default-disabled-bg-color !default;
 
 	//!VAR input
 	
@@ -38,17 +32,17 @@
 			border-color: darken($input-bd-color, 30);
 		}
 
-		// 这些放到前面
-		&.primary { @include make-input-variant($input-primary-color); } 
-		&.access { @include make-input-variant($input-access-color); }
-		&.required { @include make-input-variant($input-required-color); }
-		&.success { @include make-input-variant($input-success-color); }
-		&.error { @include make-input-variant($input-error-color); }
+		// 主题颜色 放到前面
+		@each $theme-type, $theme-color in $default-theme-color {
+			&.#{$theme-type} {
+				@include make-input-variant($theme-color);
+			}
+		}
 		
 		// 再覆盖一次
-		&:focus {
-			border-color: darken($input-bd-color, 30);
-		}
+		// &:focus {
+		// 	border-color: darken($input-bd-color, 30);
+		// }
 
 		&:disabled {
 			background-color: $input-disabled-bg-color;

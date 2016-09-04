@@ -8,14 +8,6 @@
 	$select-group-bd-color			: $default-bd-color !default;
 	$select-group-bg-color			: $default-bg-color !default;
 
-
-    $select-group-primary-color      : $default-primary-color !default;              // 主样式
-    $select-group-info-color         : $default-info-color !default;                 // 信息
-    $select-group-warn-color         : $default-warn-color !default;                 // 警告
-    $select-group-success-color      : $default-success-color !default;              // 成功
-    $select-group-error-color        : $default-error-color !default;                // 失败
-
-
 	$select-group-item-padding		: 1.5em !default;
 	//!VAR select-group
 	
@@ -40,11 +32,12 @@
 					top: 25%;
 					right: .5em;
 				}
-				&.primary { &:before { border-left-color: $select-group-primary-color; border-bottom-color: $select-group-primary-color; } }
-				&.info { &:before { border-left-color: $select-group-info-color; border-bottom-color: $select-group-info-color; } }
-				&.warn { &:before { border-left-color: $select-group-warn-color; border-bottom-color: $select-group-warn-color; } }
-				&.success { &:before { border-left-color: $select-group-success-color; border-bottom-color: $select-group-success-color; } }
-				&.error { &:before { border-left-color: $select-group-error-color; border-bottom-color: $select-group-error-color; } }
+				@each $theme-type, $theme-color in $default-theme-color {
+				    &.#{$theme-type} {
+				        border-left-color: $theme-color; 
+				        border-bottom-color: $theme-color; 
+				    }
+				}
 			}
 		}
 	}

@@ -28,8 +28,8 @@
 	$radio-prefix				: $default-prefix !default;
 	$radio-class				: '.#{$radio-prefix}radio' !default;
 
+	$radio-bd-color			    : darken($default-bd-color, 20) !default;
 	$radio-disabled-bg-color	: $default-disabled-bg-color !default;
-	$radio-primary-color		: $default-primary-color !default;				// 主样式
 	//!VAR radio
 	
 	#{$radio-class} {
@@ -41,7 +41,7 @@
 				border-radius: 1em;
 			}
 			&::before {
-	            border-color: $radio-primary-color;
+	            border-color: $radio-bd-color;
 	        }
 	        &::after {
 	            transform: scale(0);
@@ -51,7 +51,7 @@
 
 	// 选中
 	input:checked + .radio-text::after {
-		background-color: $radio-primary-color;
+		background-color: $radio-bd-color;
 		transform: scale(0.5);
 	}
 
@@ -62,13 +62,28 @@
 
 	// 禁用
 	input:disabled + .radio-text {
-		color: darken($radio-disabled-bg-color, 30);
+		color: darken($radio-disabled-bg-color, 30) !important;
 	}
 	input:disabled + .radio-text:before {
-	    border-color: darken($radio-disabled-bg-color, 15);
+	    border-color: darken($radio-disabled-bg-color, 15) !important;
 	}
 	input:disabled:checked + .radio-text:after {
-		background-color: darken($radio-disabled-bg-color, 15);
+		background-color: darken($radio-disabled-bg-color, 15) !important;
 	}
-
+	
+	// 主题
+	@each $theme-type, $theme-color in $default-theme-color {
+		#{$radio-class}.#{$theme-type} {
+			.radio-text {
+				&::before {
+		            border-color: $theme-color;
+		        }
+			}
+			> input:checked + .radio-text {
+				&::after {
+					background-color: $theme-color;
+				}
+			}
+		}
+	}
 }

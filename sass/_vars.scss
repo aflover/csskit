@@ -15,18 +15,26 @@ $default-hover-bg-color				: #EAEAEA !default; 			// 悬停背景色
 $default-disabled-bg-color			: #F2F2F2 !default; 			// 禁用背景色
 
 // 颜色常量
-$default-primary-color				: #3ea4d2 !default;				// 主色调
 $default-light-color				: white !default;				// 亮色调
 $default-dark-color					: black !default;				// 暗色调
 
 // 访问颜色
-$default-access-color				: #26A69A !default;				// 可访问
-$default-required-color				: #f79e20 !default;				// 必须
+$default-primary-color				: #3ea4d2 !default;				// 主色调
+$default-secondary-color			: #26A69A !default;				// 次色调
+
 $default-success-color				: #4CAE4C !default;				// 成功
 $default-error-color				: #F44006 !default;				// 失败
-$default-warn-color					: $default-required-color !default;	// 警告
-$default-info-color					: $default-access-color !default;	// 信息
+$default-warn-color					: #f79e20 !default;				// 警告
 
 // 其他
 $default-active-cursor				: default !default;				// 默认激活光标
 $default-base-zindex				: 1000 !default;				// 默认zindex参考值
+
+// 主题颜色
+$default-theme-color : (
+	"primary": $default-primary-color,
+	"secondary": $default-secondary-color,
+	"warn": $default-warn-color,
+	"success": $default-success-color,
+	"error": $default-error-color,
+) !default;

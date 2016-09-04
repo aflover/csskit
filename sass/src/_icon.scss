@@ -61,12 +61,6 @@
 
     $icon-default-bd-color   : $default-bd-color !default;
 
-    $icon-primary-color      : $default-primary-color !default;              // 主样式
-    $icon-info-color         : $default-info-color !default;                 // 信息
-    $icon-warn-color         : $default-warn-color !default;                 // 警告
-    $icon-success-color      : $default-success-color !default;              // 成功
-    $icon-error-color        : $default-error-color !default;                // 失败
-
     $icon-inline-margin         : 5px !default;                             // inline边距
     $icon-inline-selector       : span !default;                            // inline兄弟选择器
     //!VAR icon
@@ -93,31 +87,35 @@
     // 垂直三角
     #{$icon-class}-caret {
         &:after { @include make-icon-caret($icon-default-bd-color); }
-        &.primary { &:after { border-top-color: $icon-primary-color; } }
-        &.info { &:after { border-top-color: $icon-info-color; } }
-        &.warn { &:after { border-top-color: $icon-warn-color; } }
-        &.success { &:after { border-top-color: $icon-success-color; } }
-        &.error { &:after { border-top-color: $icon-error-color; } }
+
+        @each $theme-type, $theme-color in $default-theme-color {
+            &.#{$theme-type}::after {
+                border-top-color: $theme-color;
+            }
+        }
     }
 
     // 对号
     #{$icon-class}-right {
         &:after { @include make-icon-right($icon-default-bd-color); }
-        &.primary { &:after { border-left-color: $icon-primary-color; border-bottom-color: $icon-primary-color; } }
-        &.info { &:after { border-left-color: $icon-info-color; border-bottom-color: $icon-info-color; } }
-        &.warn { &:after { border-left-color: $icon-warn-color; border-bottom-color: $icon-warn-color; } }
-        &.success { &:after { border-left-color: $icon-success-color; border-bottom-color: $icon-success-color; } }
-        &.error { &:after { border-left-color: $icon-error-color; border-bottom-color: $icon-error-color; } }
+        @each $theme-type, $theme-color in $default-theme-color {
+            &.#{$theme-type}::after {
+                border-left-color: $theme-color;
+                border-bottom-color: $theme-color;
+            }
+        }
     }
 
     // 下箭头
     #{$icon-class}-arrow {
         &:after { @include make-icon-arrow($icon-default-bd-color); }
-        &.primary { &:after { border-right-color: $icon-primary-color; border-bottom-color: $icon-primary-color; } }
-        &.info { &:after { border-right-color: $icon-info-color; border-bottom-color: $icon-info-color; } }
-        &.warn { &:after { border-right-color: $icon-warn-color; border-bottom-color: $icon-warn-color; } }
-        &.success { &:after { border-right-color: $icon-success-color; border-bottom-color: $icon-success-color; } }
-        &.error { &:after { border-right-color: $icon-error-color; border-bottom-color: $icon-error-color; } }
+
+        @each $theme-type, $theme-color in $default-theme-color {
+            &.#{$theme-type}::after {
+                border-right-color: $theme-color;
+                border-bottom-color: $theme-color;
+            }
+        }
     }
 
     // 三角箭头翻转
