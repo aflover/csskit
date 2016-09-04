@@ -1,0 +1,75 @@
+@mixin make-button-variant($text-color, $color ) {
+	color: $text-color;
+	border-color: darken($color, 4);
+	background-color: $color;
+	&:hover,
+	&:focus {
+		background-color: darken($color, 2);
+	}
+
+	&.selected,
+	&:active {
+		background-color: darken($color, 6);
+	}
+}
+
+@mixin make-input-variant($color) {
+	box-shadow: 0 0 0 1px $color;
+	border-color: $color;
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+@mixin make-select-variant($color) {
+	box-shadow: 0 0 0 1px $color;
+	border-color: $color;
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+@mixin make-base-theme() {
+	@each $theme-type, $theme-color in $default-theme-color {
+		// 单选
+		#{$radio-class}.#{$theme-type} {
+			> .radio-text {
+				&::before {
+		            border-color: $theme-color;
+		        }
+			}
+			> input:checked + .radio-text {
+				&::after {
+					background-color: $theme-color;
+				}
+			}
+		}
+		// check 选择框
+		#{$check-class}.#{$theme-type} {
+			.check-text {
+				&::before {
+		            border-color: $theme-color;
+		        }
+			}
+			> input:checked + .check-text {
+				&::before {
+		            background-color: $theme-color;
+		        }
+			}
+		}
+		// 按钮
+		#{$btn-class}.#{$theme-type} {
+			@include make-button-variant($default-light-color, $theme-color);
+		}
+		// 输入框
+		#{$input-class}.#{$theme-type} {
+			@include make-input-variant($theme-color);
+		}
+		// 选择框
+		#{$select-class}.#{$theme-type} {
+			@include make-select-variant($theme-color);
+		}
+	}
+}

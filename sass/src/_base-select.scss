@@ -1,0 +1,26 @@
+//@VAR select
+$select-class					: '.#{$default-prefix}select' !default;
+$select-bd-radius				: $default-bd-radius !default;
+$select-bd-color			    : $default-bd-color !default;
+$select-disabled-bg-color		: $default-disabled-bg-color !default;
+//!VAR select
+
+@mixin make-base-select() {
+	select#{$select-class} {
+		@include make-size-default;
+		border: 1px solid $select-bd-color;
+		border-radius: $select-bd-radius;
+		outline: none;
+		&:hover,
+		&:focus {
+			background-color: lighten($select-bd-color, 20);
+			border-color: darken($select-bd-color, 30);
+		}
+		&:disabled {
+			background-color: $select-disabled-bg-color  !important;
+			color: darken($select-disabled-bg-color, 30)  !important;
+			border-color: darken($select-disabled-bg-color, 15)  !important;
+			box-shadow: none  !important;
+		}
+	}
+}

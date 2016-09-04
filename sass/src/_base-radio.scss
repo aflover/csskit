@@ -1,0 +1,60 @@
+
+//@VAR radio
+
+$radio-class				: '.#{$default-prefix}radio' !default;
+$radio-bd-color			    : darken($default-bd-color, 20) !default;
+$radio-disabled-bg-color	: $default-disabled-bg-color !default;
+
+//!VAR radio
+
+@mixin make-base-radio() {	
+	#{$radio-class} {
+		position: relative;
+		display: inline-block;
+		@include make-size-default;
+		> input {
+			margin: 0 8px 0 0;
+			padding: 0;
+			opacity: 0;
+			// 选中
+			&:checked + .radio-text::after {
+				background-color: $radio-bd-color;
+				transform: scale(0.5);
+			}
+			// 获得焦点
+			&:focus + .radio-text::before {
+				transform: scale(1.1); 
+			}
+			// 禁用
+			&:disabled + .radio-text {
+				color: darken($radio-disabled-bg-color, 30) !important;
+			}
+			&:disabled + .radio-text:before {
+			    border-color: darken($radio-disabled-bg-color, 15) !important;
+			}
+			&:disabled:checked + .radio-text:after {
+				background-color: darken($radio-disabled-bg-color, 15) !important;
+			}
+		}
+		> .radio-text {
+			&::before,
+			&::after {
+				box-sizing: content-box;
+				content: '';
+				position: absolute;
+				left: 0;
+				width: 1em;
+				height: 1em;
+				border: 2px solid transparent;
+				transition: 0.28s ease;
+				border-radius: 1em;
+			}
+			&::before {
+	            border-color: $radio-bd-color;
+	        }
+	        &::after {
+	            transform: scale(0);
+	        }
+		}
+	}
+}

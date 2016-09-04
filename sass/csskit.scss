@@ -9,38 +9,23 @@
 $icon-font-photon-path: 	'../fonts' !default;
 $icon-font-fontawesome-path: '../fonts' !default;
 
-@import "src/icons/font-awesome";
-@include make-font-awesome;
-
-@import "src/icons/photon";
-@include make-photon;
-
 @import "src/icon";
 @include make-icon;
+	
+	@import "src/icons/font-awesome";
+	@include make-font-awesome;
+
+	@import "src/icons/photon";
+	@include make-photon;
 
 @import "src/grid";
 @include make-grid;
-
-@import "src/btn";
-@include make-btn;
 
 @import "src/tab";
 @include make-tab;
 
 @import "src/table";
 @include make-table;
-
-@import "src/radio";
-@include make-radio;
-
-@import "src/check";
-@include make-check;
-
-@import "src/input";
-@include make-input;
-
-@import "src/select";
-@include make-select;
 
 @import "src/window";
 @include make-window;
@@ -60,8 +45,29 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @import "src/size";
 @include make-size;
 
-@import "src/btn-group";
-@include make-btn-group;
-
 @import "src/select-group";
 @include make-select-group;
+
+
+@import "src/base-input";
+@include make-base-input;
+
+@import "src/base-select";
+@include make-base-select;
+
+@import "src/base-radio";
+@include make-base-radio;
+
+@import "src/base-check";
+@include make-base-check;
+
+@import "src/base-btn";
+@include make-base-btn;
+
+	@import "src/meta-btn";
+	@include make-meta-btn;
+
+
+@import "src/base-theme";
+@include make-base-theme;
+
