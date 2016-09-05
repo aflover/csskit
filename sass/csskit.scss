@@ -1,34 +1,56 @@
 @import "vars"; // 全局变量
 
-@import "src/reset";
-@include make-reset;
+// 功能函数
+@import "mixins/size-control";
+@import "functions/to-string";
+@import "functions/str-replace";
 
-@import "src/base";
-@include make-base;
+// 基础库
+@import "src/base-reset";
+@import "src/base-util";
+@import "src/base-grid";
+@import "src/base-window";
+@import "src/base-input";
+@import "src/base-select";
+@import "src/base-radio";
+@import "src/base-check";
+@import "src/base-btn";
+@import "src/base-icon";
+@import "src/base-tab";
+@import "src/base-table";
 
+@include make-base-reset;
+@include make-base-util;
+@include make-base-grid;
+@include make-base-window;
+@include make-base-input;
+@include make-base-select;
+@include make-base-radio;
+@include make-base-check;
+@include make-base-btn;
+@include make-base-icon;
+@include make-base-tab;
+@include make-base-table;
+
+// 三方图标
 $icon-font-photon-path: 	'../fonts' !default;
 $icon-font-fontawesome-path: '../fonts' !default;
 
-@import "src/icon";
-@include make-icon;
-	
-	@import "src/icons/font-awesome";
-	@include make-font-awesome;
+@import "src/icons/font-awesome";
+@import "src/icons/photon";
 
-	@import "src/icons/photon";
-	@include make-photon;
+@include make-font-awesome;
+@include make-photon;
 
-@import "src/grid";
-@include make-grid;
 
-@import "src/tab";
-@include make-tab;
+// 尺寸
+@import "src/base-size";
+@include make-base-size;
 
-@import "src/table";
-@include make-table;
+// 主题
+@import "src/base-theme";
+@include make-base-theme;
 
-@import "src/window";
-@include make-window;
 
 @import "src/group";
 @include make-group;
@@ -42,32 +64,8 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @import "src/drop-group";
 @include make-drop-group;
 
-@import "src/size";
-@include make-size;
-
 @import "src/select-group";
 @include make-select-group;
 
-
-@import "src/base-input";
-@include make-base-input;
-
-@import "src/base-select";
-@include make-base-select;
-
-@import "src/base-radio";
-@include make-base-radio;
-
-@import "src/base-check";
-@include make-base-check;
-
-@import "src/base-btn";
-@include make-base-btn;
-
-	@import "src/meta-btn";
-	@include make-meta-btn;
-
-
-@import "src/base-theme";
-@include make-base-theme;
-
+@import "src/btn-group";
+@include make-btn-group;

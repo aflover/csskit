@@ -71,5 +71,19 @@
 		#{$select-class}.#{$theme-type} {
 			@include make-select-variant($theme-color);
 		}
+		// ICON 下三角
+	    #{$icon-class}-caret.#{$theme-type}::after {
+	        border-top-color: $theme-color;
+	    }
+	    // ICON 对号
+	    #{$icon-class}-right.#{$theme-type}::after {
+            border-left-color: $theme-color;
+            border-bottom-color: $theme-color;
+        }
+        // ICON 下箭头
+        #{$icon-class}-arrow.#{$theme-type}::after {
+            border-right-color: $theme-color;
+            border-bottom-color: $theme-color;
+        }
 	}
 }

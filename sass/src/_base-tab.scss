@@ -1,42 +1,21 @@
+//@VAR tab
+$tab-prefix				: $default-prefix !default;
+$tab-inlined-class		: '.#{$tab-prefix}tab-inlined' !default;
+$tab-nav-class			: '.#{$tab-prefix}tab-nav' !default;
+$tab-container-class	: '.#{$tab-prefix}tab-container' !default;
+$tab-bd-radius			: $default-bd-radius !default;
+$tab-bd-color			: $default-bd-color !default;
+$tab-primary-color		: $default-primary-color !default;				// 主样式
 
-@import "mixins/size-control";
-@import "mixins/clearfix";
+$tab-title-radius		: 4px !default;									// 标题圆角
+$tab-offseted-margin	: 10px !default;								// 偏移尺寸
+$tab-pad-size			: $default-pad-size !default; 			  		// 补白
+$tab-bg-color			: $default-bg-color !default; 			  		// 容器背景颜色
 
-@mixin make-tab-title-default () {
-	@include make-size-default;
-	display: inline-block;
-	position: relative;
-	user-select: none;
-	border: 1px solid transparent;
-}
+$tab-active-cursor		: $default-active-cursor !default;
+//!VAR tab
 
-@mixin make-flex-container() {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	&:before,
-	&:after {
-		display: flex;
-	}
-}
-
-@mixin make-tab() {
-	//@VAR tab
-	$tab-prefix				: $default-prefix !default;
-	$tab-inlined-class		: '.#{$tab-prefix}tab-inlined' !default;
-	$tab-nav-class			: '.#{$tab-prefix}tab-nav' !default;
-	$tab-container-class	: '.#{$tab-prefix}tab-container' !default;
-	$tab-bd-radius			: $default-bd-radius !default;
-	$tab-bd-color			: $default-bd-color !default;
-	$tab-primary-color		: $default-primary-color !default;				// 主样式
-	
-	$tab-title-radius		: 4px !default;									// 标题圆角
-	$tab-offseted-margin	: 10px !default;								// 偏移尺寸
-	$tab-pad-size			: $default-pad-size !default; 			  		// 补白
-	$tab-bg-color			: $default-bg-color !default; 			  		// 容器背景颜色
-
-	$tab-active-cursor		: $default-active-cursor !default;
-	//!VAR tab
+@mixin make-base-tab() {
 
 // 自包含
 	#{$tab-inlined-class} {
@@ -130,11 +109,24 @@
 	}
 // flex 平铺
 	.tab-flex.tab-nav {
-		@include make-flex-container;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		&::before,
+		&::after {
+			display: flex;
+		}
 		.tab-title {
 			flex: 1;
 			text-align: center;
 		}
 	}
+}
 
+@mixin make-tab-title-default () {
+	@include make-size-default;
+	display: inline-block;
+	position: relative;
+	user-select: none;
+	border: 1px solid transparent;
 }

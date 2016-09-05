@@ -1,6 +1,5 @@
 // 重置盒模型
-
-@mixin reset-box-sizing () {
+@mixin make-base-reset() {
 	html {
 		box-sizing: border-box;
 	}
@@ -9,10 +8,4 @@
 	*::before {
 	    box-sizing: inherit;
 	}
-}
-
-
-@mixin make-reset() {
-	
-	@include reset-box-sizing;
 }

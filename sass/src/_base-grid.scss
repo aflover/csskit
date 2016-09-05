@@ -1,4 +1,3 @@
-@import "mixins/clearfix";
 
 @mixin make-grid-row ($gutter) {
 	position: relative;
@@ -22,7 +21,6 @@
 @mixin make-grid-cols($grid-columns, $gutter) {
 	$grid_cols: ();
 	@for $i from 1 through $grid-columns {
-		// $grid_col: selector-append('.grid-col-', $i);
 		$grid_cols: append($grid_cols, '.grid-col-#{$i}' , comma);
 		.grid-col-#{$i} {
 		    display: block;
@@ -41,16 +39,14 @@
 	}
 }
 
-@mixin make-grid() {
-	//@VAR grid
-	$grid-prefix				: $default-prefix !default;
-	$grid-row-class				: '.#{$grid-prefix}grid-row' !default;
-	$grid-row-flex-class		: '.#{$grid-prefix}grid-row-flex' !default;
+//@VAR grid
+$grid-row-class				: '.#{$default-prefix}grid-row' !default;
+$grid-row-flex-class		: '.#{$default-prefix}grid-row-flex' !default;
+$grid-gutter-width			: 0 !default;
+$grid-size					: 12 !default;
+//!VAR grid
 
-	$grid-gutter-width			: 0 !default;
-	$grid-size					: 12 !default;
-	//!VAR grid
-	
+@mixin make-base-grid() {
 	// float 布局
 	#{$grid-row-class} {
 		@include make-grid-row($grid-gutter-width);

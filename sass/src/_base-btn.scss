@@ -31,6 +31,7 @@ $btn-active-cursor		: $default-active-cursor !default;		// 光标
 			background-color: darken($btn-default-bg-color, 5);
 		}
 		
+		&.selected,
 		&:active {
 			background-color: darken($btn-default-bg-color, 10);
 		}
@@ -42,6 +43,16 @@ $btn-active-cursor		: $default-active-cursor !default;		// 光标
 			color: darken($btn-disabled-bg-color, 30) !important;
 			border-color: darken($btn-disabled-bg-color, 15) !important;
 		}
+	}
 
+	// 按下移动效果
+	#{$btn-class}.meta-tick {
+		&:not(:disabled):not(.disabled) {
+			top: 0;
+			&:active {
+				top: 1px;
+				left: 1px;
+			}
+		}
 	}
 }

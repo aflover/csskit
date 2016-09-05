@@ -1,16 +1,13 @@
-// inline样式
-
-@mixin make-icon-inline() { // 行内ICON
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    height: 1em;
-    width: 1.15em; // 近正方形, 会造成 after内元素的 宽度比高度大
-}
+//@VAR icon
+$icon-class              : '.#{$default-prefix}icon' !default;
+$icon-default-bd-color   : $default-bd-color !default;
+$icon-inline-margin         : 5px !default;                             // inline边距
+$icon-inline-selector       : span !default;                            // inline兄弟选择器
+//!VAR icon
 
 // 一些特殊的ICON
 
-@mixin make-icon-caret($color: #B3A9A9) { // 下三角
+@mixin make-icon-caret($color) { // 下三角
     border: .45em solid transparent;
     border-top-color: $color;
     position: absolute;
@@ -46,7 +43,7 @@
     transition: all 0.3s;
 }
 
-@mixin make-icon-wrap() {
+@mixin make-icon-wrap() { // 特殊ICON容器
     text-align: left;
     display: inline-block;
     position: relative;
@@ -54,20 +51,15 @@
     height: 1em;
 }
 
-@mixin make-icon() {
-    //@VAR icon
-    $icon-prefix             : $default-prefix !default;
-    $icon-class              : '.#{$icon-prefix}icon' !default;
+@mixin make-base-icon() {
 
-    $icon-default-bd-color   : $default-bd-color !default;
-
-    $icon-inline-margin         : 5px !default;                             // inline边距
-    $icon-inline-selector       : span !default;                            // inline兄弟选择器
-    //!VAR icon
-    
     // inline图标样式,
     #{$icon-class}-inline { // 按钮内嵌inline风格的IOCN
-        @include make-icon-inline;
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        height: 1em;
+        width: 1.15em; // 近正方形, 会造成 after内元素的 宽度比高度大
     }
     
     // inline 间距
@@ -86,38 +78,22 @@
     
     // 垂直三角
     #{$icon-class}-caret {
-        &:after { @include make-icon-caret($icon-default-bd-color); }
-
-        @each $theme-type, $theme-color in $default-theme-color {
-            &.#{$theme-type}::after {
-                border-top-color: $theme-color;
-            }
+        &:after { 
+            @include make-icon-caret($icon-default-bd-color);
         }
     }
-
     // 对号
     #{$icon-class}-right {
-        &:after { @include make-icon-right($icon-default-bd-color); }
-        @each $theme-type, $theme-color in $default-theme-color {
-            &.#{$theme-type}::after {
-                border-left-color: $theme-color;
-                border-bottom-color: $theme-color;
-            }
+        &:after {
+            @include make-icon-right($icon-default-bd-color);
         }
     }
-
     // 下箭头
     #{$icon-class}-arrow {
-        &:after { @include make-icon-arrow($icon-default-bd-color); }
-
-        @each $theme-type, $theme-color in $default-theme-color {
-            &.#{$theme-type}::after {
-                border-right-color: $theme-color;
-                border-bottom-color: $theme-color;
-            }
+        &:after {
+            @include make-icon-arrow($icon-default-bd-color);
         }
     }
-
     // 三角箭头翻转
     .icon-open,
     #{$icon-class}-hover:hover {

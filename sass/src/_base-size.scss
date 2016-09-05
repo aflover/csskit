@@ -1,0 +1,49 @@
+//@VAR size
+$size-selectors 
+	:'.size-{iter}'
+	,'.group-size-{iter} > .group-item'
+	,'.group-size-{iter} > .group-title'
+	,'.table-size-{iter} th'
+	,'.table-size-{iter} td'
+	,'.tab-size-{iter} .tab-title'
+	!default;
+//!VAR size
+
+@mixin make-base-size() {
+	@include make-size-items($size-selectors);
+}
+
+@mixin make-size-items($size-selectors) {
+	$size_items : ('s', 'd', 'l') !default;
+	@if type-of($size-selectors) == 'list' {
+		$size-selectors : to-string($size-selectors, ',');
+	}
+	@each $size_font in $size_items {
+	    @each $size_pad in $size_items {
+	    	$size_key : #{$size_font}#{$size_pad};
+	    	$size_key : str-replace($size-selectors, '{iter}', $size_key);
+	    	#{$size_key} {
+	    		// 字体
+	    		@if $size_font == 's' {
+	    			@include make-font-size-sm;
+	    		}
+	    		@else if $size_font == 'd' {
+	    			@include make-font-size-default;
+	    		}
+	    		@else if $size_font == 'l' {
+	    			@include make-font-size-lg;
+	    		}
+	    		// 补白
+	    		@if $size_pad == 's' {
+	    			@include make-pad-sm;
+	    		}
+	    		@else if $size_pad == 'd' {
+	    			@include make-pad-default;
+	    		}
+	    		@else if $size_pad == 'l' {
+	    			@include make-pad-lg;
+	    		}
+	    	}
+	    }
+	}
+}

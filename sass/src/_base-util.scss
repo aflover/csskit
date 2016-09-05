@@ -118,7 +118,7 @@
 	}
 }
 
-@mixin make-base() {
+@mixin make-base-util() {
 	@include make-base-float;
 	@include make-base-text;
 	@include make-base-font-size;
