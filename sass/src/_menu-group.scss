@@ -5,7 +5,7 @@ $menu-group-bd-radius			: $default-bd-radius !default;
 $menu-group-bd-color			: $default-bd-color !default;
 $menu-group-bg-color			: $default-bg-color !default;
 $menu-group-padding				: 5px !default;
-$menu-group-item-padding		: 1em !default;
+$menu-group-item-padding		: 1.5em !default;
 //!VAR menu-group
 
 @mixin make-menu-group() {	
@@ -57,7 +57,7 @@ $menu-group-item-padding		: 1em !default;
 				}
 			}
 			// 右对齐
-			&.align-right {
+			&.align-right{
 			    right: 0;
 			    margin-right: 0;
 			    min-width: auto;
@@ -98,7 +98,31 @@ $menu-group-item-padding		: 1em !default;
 			}
 		}
 	}
-	
+
+	// 子组件
+	#{$group-row-class}  > #{$group-item-class}.has-sub,
+	#{$group-col-class}  > #{$group-item-class}.has-sub,
+	{
+		> #{$group-col-class} {
+			// 右对齐
+			&.align-right{
+			    right: 0;
+			    margin-right: 0;
+			    min-width: auto;
+			    left: auto;
+			    margin-left: auto;
+			}
+			// 左对齐
+			&.align-left {
+			    left: 0;
+			    margin-left: 0;
+			    min-width: auto;
+			    right: auto;
+			    margin-right: auto,
+			}
+		}
+	}
+
 	// 菜单弹出容器
 	#{$menu-drop-class}	{
 		position: relative;

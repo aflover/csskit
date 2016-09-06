@@ -111,7 +111,7 @@ $group-arrow-bd-color				: $default-bd-color !default;
 			border-top-color: darken($group-arrow-bd-color, 20);  // 右箭头
 			position: absolute;
 			top: 40%;
-			right: 5px;
+			right: .15em;
 			content: '';
 			transform: rotate(-90deg);
 		}

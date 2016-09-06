@@ -40,7 +40,7 @@
 			<span class="group-divider"></span>
 			<li class="group-item has-sub">
 				<span>Desktop</span><span class="icon-inline pt-monitor float-right"></span>
-				<ul :class="['group-col', 'menu-group left', tableSize]">
+				<ul :class="['group-col', 'menu-group align-right', tableSize]">
 					<li class="group-item" >
 						<span>选项1-这是一段很长的测试文字</span>
 					</li>
