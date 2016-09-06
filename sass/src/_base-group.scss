@@ -1,0 +1,140 @@
+//@VAR group
+$group-class						: '.#{$default-prefix}group' !default;
+$group-col-class					: '#{$group-class}-col' !default;
+$group-row-class					: '#{$group-class}-row' !default;
+$group-item-class					: '#{$group-class}-item' !default;
+$group-item-active-bg-color			: $default-active-bg-color !default;
+$group-item-hover-bg-color			: $default-hover-bg-color !default;
+$group-item-disabled-bg-color		: $default-disabled-bg-color !default;
+$group-active-cursor				: $default-active-cursor !default;
+// 标题和分割线
+$group-title-class					: '#{$group-class}-title' !default;
+$group-divider-class				: '#{$group-class}-divider' !default;
+$group-divider-bg-color				: #DDD !default;
+$group-title-color					: #666 !default;
+// 子项
+$group-base-zindex					: $default-base-zindex !default;
+$group-arrow-bd-color				: $default-bd-color !default;
+//!VAR group
+
+@mixin make-base-group() {
+	
+	// 通用分组
+	#{$group-col-class},
+	#{$group-row-class} {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: inline-block; 
+		> #{$group-item-class} {
+			@include make-size-default;
+			white-space: nowrap;
+			user-select: none;
+			cursor: $group-active-cursor;
+			&:focus,
+			&:hover {
+				background-color: $group-item-hover-bg-color;
+			}
+			&.active {
+				background-color: $group-item-active-bg-color;
+			}
+			&.disabled {
+				cursor: default;
+				color: darken($group-item-disabled-bg-color, 30);
+				background-color: transparent;
+			}
+		}
+	}
+
+	// 列分组
+	#{$group-col-class} {
+		> #{$group-item-class} {
+			display: block;
+		}
+	}
+
+	// 行分组
+	#{$group-row-class} {
+		@include clearfix;
+		> #{$group-item-class} {
+			float: left;
+		}
+	}
+	
+	// 标题和分割线
+	#{$group-col-class} {
+		> #{$group-title-class} { // 标题
+			@include make-size-default;
+			display: block;
+			cursor: default;
+			color: $group-title-color;
+		}
+		> #{$group-divider-class} { // 分割线
+			background-color: $group-divider-bg-color;
+			height: 1px;
+			margin: 0.5em 0;
+			display: block;
+		}
+	}
+	#{$group-row-class} { // 行模式下不可见
+		> #{$group-title-class},
+		> #{$group-divider-class} {
+			display: none;
+		}
+	}
+
+	// 子组件
+	#{$group-row-class}  > #{$group-item-class}.has-sub,
+	#{$group-col-class}  > #{$group-item-class}.has-sub,
+	{
+		position: relative;
+		> #{$group-col-class} {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			margin-left: -5px;
+			z-index: $group-base-zindex;
+		}
+		&:hover {
+			> #{$group-col-class} {
+				display: block;
+			}
+		}
+		&.disabled {
+			> #{$group-col-class} {
+				display: none;
+			}
+		}
+		&::after {
+			border: .3em solid transparent;
+			border-top-color: darken($group-arrow-bd-color, 20);  // 右箭头
+			position: absolute;
+			top: 40%;
+			right: 5px;
+			content: '';
+			transform: rotate(-90deg);
+		}
+		&.disabled {
+			&::after {
+				border-top-color: darken($group-item-disabled-bg-color, 20);
+			}
+		}
+	}
+	
+	// 行模式
+	#{$group-row-class}  > #{$group-item-class}.has-sub {
+		>#{$group-col-class} {
+			top: 100%;
+			left: 0;
+			margin-left: 0;
+			min-width: 100%;
+			text-align: left;
+		}
+		&::after {  // 下箭头
+			transform: rotate(0);
+			top: 45%;
+		}
+	}
+
+}

@@ -18,6 +18,7 @@
 @import "src/base-icon";
 @import "src/base-tab";
 @import "src/base-table";
+@import "src/base-group";
 
 @include make-base-reset;
 @include make-base-util;
@@ -31,6 +32,7 @@
 @include make-base-icon;
 @include make-base-tab;
 @include make-base-table;
+@include make-base-group;
 
 // 三方图标
 $icon-font-photon-path: 	'../fonts' !default;
@@ -52,20 +54,20 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @include make-base-theme;
 
 
-@import "src/group";
-@include make-group;
+// @import "src/group";
+// @include make-group;
 
-@import "src/menu-group";
-@include make-menu-group;
+// @import "src/menu-group";
+// @include make-menu-group;
 
-@import "src/nav-group";
-@include make-nav-group;
+// @import "src/nav-group";
+// @include make-nav-group;
 
-@import "src/drop-group";
-@include make-drop-group;
+// @import "src/drop-group";
+// @include make-drop-group;
 
-@import "src/select-group";
-@include make-select-group;
+// @import "src/select-group";
+// @include make-select-group;
 
-@import "src/btn-group";
-@include make-btn-group;
+// @import "src/btn-group";
+// @include make-btn-group;
