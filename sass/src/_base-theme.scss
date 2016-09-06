@@ -85,5 +85,10 @@
             border-right-color: $theme-color;
             border-bottom-color: $theme-color;
         }
+        // 菜单
+        #{$menu-group-class} > #{$group-item-class}.#{$theme-type}.checked::before {
+            border-left-color: $theme-color; 
+            border-bottom-color: $theme-color; 
+        }
 	}
 }

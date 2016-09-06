@@ -1,0 +1,19 @@
+
+@mixin make-group-form() {
+	// .group-col>.group-item.radio
+	// .group-col>.group-item.check
+	#{$group-col-class} {
+		>#{$group-item-class}#{$radio-class} {
+			> .radio-text::before,
+			> .radio-text::after {
+				left: 1.5em;
+			}
+		}
+		>#{$group-item-class}#{$check-class} {
+			> .check-text::before,
+			> .check-text::after {
+				left: 1.5em;
+			}
+		}
+	}
+}

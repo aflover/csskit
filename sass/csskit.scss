@@ -34,6 +34,13 @@
 @include make-base-table;
 @include make-base-group;
 
+// 分组元素
+@import "src/group-form";
+@include make-group-form;
+
+@import "src/btn-group";
+@include make-btn-group;
+
 // 三方图标
 $icon-font-photon-path: 	'../fonts' !default;
 $icon-font-fontawesome-path: '../fonts' !default;
@@ -44,30 +51,13 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @include make-font-awesome;
 @include make-photon;
 
-
 // 尺寸
 @import "src/base-size";
 @include make-base-size;
 
+@import "src/menu-group";
+@include make-menu-group;
+
 // 主题
 @import "src/base-theme";
 @include make-base-theme;
-
-
-// @import "src/group";
-// @include make-group;
-
-// @import "src/menu-group";
-// @include make-menu-group;
-
-// @import "src/nav-group";
-// @include make-nav-group;
-
-// @import "src/drop-group";
-// @include make-drop-group;
-
-// @import "src/select-group";
-// @include make-select-group;
-
-// @import "src/btn-group";
-// @include make-btn-group;

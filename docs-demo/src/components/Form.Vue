@@ -90,19 +90,9 @@
 
 <br>
 <br>
-	<button :class="['btn btn-drop', size, dropMenu &&'open icon-open']" @click.prevent="dropMenu=!dropMenu">
-		<span>btn-drop + menu-group</span>
-		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
-		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
-			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
-				<span>{{it.text}}</span>
-			</li>
-		</ul>
-	</button>
-
-	<div :class="['drop-group', dropMenu &&'open']">
+	<div :class="['menu-drop', dropMenu &&'open']">
 		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
-			<span>drop-group + menu-group</span>
+			<span>menu-drop + menu-group</span>
 			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
 		</button>
 		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
@@ -111,38 +101,16 @@
 			</li>
 		</ul>
 	</div>
-	
-	<button :class="['btn btn-drop', size, dropMenu &&'open icon-open']" @click.prevent="dropMenu=!dropMenu">
-		<span>btn-drop + select-group</span>
-		<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
-		<ul :class="['group-col', 'select-group', size && ('group-' + size)]">
-			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
-				<span>{{it.text}}</span>
-			</li>
-		</ul>
-	</button>
 
-	<div :class="['drop-group', dropMenu &&'open']">
+	<div :class="['menu-drop', dropMenu &&'open']">
 		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
-			<span>drop-group + select-group</span>
+			<span>menu-drop + menu-group</span>
 			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
 		</button>
-		<ul :class="['group-col', 'select-group', size && ('group-' + size)]">
+		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
 			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
 				<span>{{it.text}}</span>
 			</li>
-			<li :class="['group-item', colorTheme]" >
-				<label :class="['radio', size]">
-					<input type="radio" name="select-radio1" checked>
-					<span class="radio-text">Radio Demo</span>
-				</label>
-			</li>
-			<li :class="['group-item', colorTheme]" >
-				<label :class="['radio', size]">
-					<input type="radio" name="select-radio1" >
-					<span class="radio-text">Radio Demo</span>
-				</label>
-			</li>
 			<label :class="['group-item radio', colorTheme]" >
 				<input type="radio" name="select-radio1" >
 				<span class="radio-text">Radio Demo</span>
@@ -151,18 +119,6 @@
 				<input type="radio" name="select-radio1" >
 				<span class="radio-text">Radio Demo</span>
 			</label>
-			<li :class="['group-item', colorTheme]" >
-				<label :class="['check', size]">
-					<input type="checkbox" name="select-check1" >
-					<span class="check-text">Radio Demo</span>
-				</label>
-			</li>
-			<li :class="['group-item', colorTheme]" >
-				<label :class="['check', size]">
-					<input type="checkbox" name="select-check1" checked>
-					<span class="check-text">Radio Demo</span>
-				</label>
-			</li>
 			<label :class="['group-item check', colorTheme]" >
 				<input type="checkbox" name="select-check1" >
 				<span class="check-text">Radio Demo</span>

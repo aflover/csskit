@@ -1,17 +1,16 @@
+//@VAR menu-group
+$menu-group-class				: '.#{$default-prefix}menu-group' !default;
+$menu-drop-class				: '.#{$default-prefix}menu-drop' !default;
+$menu-group-bd-radius			: $default-bd-radius !default;
+$menu-group-bd-color			: $default-bd-color !default;
+$menu-group-bg-color			: $default-bg-color !default;
+$menu-group-padding				: 5px !default;
+$menu-group-item-padding		: 1.5em !default;
+//!VAR menu-group
 
-@mixin make-menu-group() {
-	//@VAR menu-group
-	$menu-group-prefix				: $default-prefix !default;
-	$menu-group-class				: '.#{$menu-group-prefix}menu-group' !default;
+@mixin make-menu-group() {	
 
-	$menu-group-bd-radius			: $default-bd-radius !default;
-	$menu-group-bd-color			: $default-bd-color !default;
-	$menu-group-bg-color			: $default-bg-color !default;
-
-	$menu-group-padding				: 5px !default;
-	$menu-group-item-padding		: 1.5em !default;
-	//!VAR menu-group
-	
+	// 菜单列表容器
 	#{$menu-group-class} {
 		// 容器
 		background-color: $menu-group-bg-color;
@@ -20,25 +19,64 @@
 		// 阴影
 		box-shadow: 0 6px 12px rgba(0,0,0,.175);
 
-		> .group-item {
+		// 选项
+		> #{$group-item-class} {
 			position: relative;
 			background-color: $menu-group-bg-color;
-		}
 
-		&.group-col {
+			// 选中
+			&.checked {
+				&::before {
+					@include make-icon-right($menu-group-bd-color);
+					width: 1em;
+					height: .55em;
+					top: 25%;
+					right: .5em;
+				}
+			}
+		}
+		
+		// 列模式
+		&#{$group-col-class} {
 			padding: $menu-group-padding 0 ;
-			> .group-item {
+			> #{$group-item-class} {
 				padding-left: $menu-group-item-padding;
 				padding-right: $menu-group-item-padding;
 			}
 		}
-
-		&.group-row {
+		
+		// 行模式
+		&#{$group-row-class} {
 			padding: 0 $menu-group-padding ;
-			> .group-item {
+			> #{$group-item-class} {
 				padding: $menu-group-item-padding /2 $menu-group-item-padding;
 			}
 		}
 	}
-
+	
+	// 菜单弹出容器
+	#{$menu-drop-class}	{
+		position: relative;
+		display: inline-block;
+		> #{$group-col-class} {
+			display: none;
+			position: absolute;
+			z-index: 1000;
+			top: 100%;
+			min-width: 100%;
+			margin-top: -1px;
+			box-sizing: border-box;
+			text-align: left;
+			visibility: hidden;
+			opacity: 0;
+		}
+		&.open {
+			> #{$group-col-class} {
+				display: inline-block;
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+	
 }
