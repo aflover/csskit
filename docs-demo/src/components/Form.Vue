@@ -105,7 +105,7 @@
 	<div :class="['menu-drop', dropMenu &&'open']">
 		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
 			<span>menu-drop + menu-group</span>
-			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+			<i :class="['icon-inline', 'icon-arrow', colorTheme]"></i>
 		</button>
 		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
 			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
