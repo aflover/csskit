@@ -66,22 +66,15 @@
 	</select>
 <br>
 <br>
-
-
-<br>
-<br>
 	<button :class="['btn', size, tick && 'meta-tick']" >Default Button</button>
 	<button :class="['btn', size, tick && 'meta-tick']"  disabled>Default Button</button>
-<br>
-<br>
+
 	<button :class="['btn','primary', size, tick && 'meta-tick']" >primary</button>
 	<button :class="['btn','secondary', size, tick && 'meta-tick']" >secondary</button>
 	<button :class="['btn','warn', size, tick && 'meta-tick']" >warn</button>
 	<button :class="['btn','success', size, tick && 'meta-tick']" >success</button>
 	<button :class="['btn','error', size, tick && 'meta-tick']" >error</button>
 
-<br>
-<br>
 	<button :class="['btn','primary', size, tick && 'meta-tick']" disabled >primary</button>
 	<button :class="['btn','secondary', size, tick && 'meta-tick']" disabled >secondary</button>
 	<button :class="['btn','warn', size, tick && 'meta-tick']" disabled >warn</button>
@@ -92,7 +85,29 @@
 <br>
 	<div :class="['menu-drop', dropMenu &&'open']">
 		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
-			<span>menu-drop + menu-group</span>
+			<span>align-left check-left</span>
+			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+		</button>
+		<ul :class="['group-col align-left check-left menu-group', size && ('group-' + size)]">
+			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
+				<span>{{it.text}}</span>
+			</li>
+		</ul>
+	</div>
+	<div :class="['menu-drop', dropMenu &&'open']">
+		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
+			<span>align-right check-right</span>
+			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
+		</button>
+		<ul :class="['group-col align-right check-right menu-group', size && ('group-' + size)]">
+			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
+				<span>{{it.text}}</span>
+			</li>
+		</ul>
+	</div>
+	<div :class="['menu-drop', dropMenu &&'open']">
+		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
+			<span>最小宽度</span>
 			<i :class="['icon-inline', 'icon-caret', colorTheme]"></i>
 		</button>
 		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
@@ -101,16 +116,24 @@
 			</li>
 		</ul>
 	</div>
-
 	<div :class="['menu-drop', dropMenu &&'open']">
-		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
-			<span>menu-drop + menu-group</span>
-			<i :class="['icon-inline', 'icon-arrow', colorTheme]"></i>
-		</button>
+		<input :class="['input', size]" type="text" placeholder="输入选择" 
+			@focus="dropMenu = true"
+			:value="selectItem && selectItem.text"
+			/>
 		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
 			<li :class="['group-item', colorTheme, selectValue==it.value && 'checked']" v-for="it in selectData" @click.stop="changeValue(it)">
 				<span>{{it.text}}</span>
 			</li>
+		</ul>
+	</div>
+	<div :class="['menu-drop', dropMenu &&'open']">
+		<button :class="['btn', size, dropMenu &&'icon-open']" @click="dropMenu=!dropMenu">
+			<span>组合选择</span>
+			<i :class="['icon-inline', 'icon-arrow', colorTheme]"></i>
+		</button>
+		<ul :class="['group-col', 'menu-group', size && ('group-' + size)]">
+			<span class="group-title">单选</span>
 			<label :class="['group-item radio', colorTheme]" >
 				<input type="radio" name="select-radio1" >
 				<span class="radio-text">Radio Demo</span>
@@ -119,6 +142,7 @@
 				<input type="radio" name="select-radio1" >
 				<span class="radio-text">Radio Demo</span>
 			</label>
+			<span class="group-title">多选</span>
 			<label :class="['group-item check', colorTheme]" >
 				<input type="checkbox" name="select-check1" >
 				<span class="check-text">Radio Demo</span>
@@ -199,11 +223,13 @@
 					value: 0,
 				}),
 				selectValue: null,
+				selectItem: null,
 			};
 		},
 		methods: {
 			changeValue : function (it) {
 				this.selectValue = it.value;
+				this.selectItem = it;
 				this.dropMenu = false;
 			}
 		},

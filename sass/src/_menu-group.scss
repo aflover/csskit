@@ -5,7 +5,7 @@ $menu-group-bd-radius			: $default-bd-radius !default;
 $menu-group-bd-color			: $default-bd-color !default;
 $menu-group-bg-color			: $default-bg-color !default;
 $menu-group-padding				: 5px !default;
-$menu-group-item-padding		: 1.5em !default;
+$menu-group-item-padding		: 1em !default;
 //!VAR menu-group
 
 @mixin make-menu-group() {	
@@ -23,16 +23,13 @@ $menu-group-item-padding		: 1.5em !default;
 		> #{$group-item-class} {
 			position: relative;
 			background-color: $menu-group-bg-color;
+		}
 
-			// 选中
-			&.checked {
-				&::before {
-					@include make-icon-right($menu-group-bd-color);
-					width: 1em;
-					height: .55em;
-					top: 25%;
-					right: .5em;
-				}
+		// 行模式
+		&#{$group-row-class} {
+			padding: 0 $menu-group-padding ;
+			> #{$group-item-class} {
+				padding: $menu-group-item-padding /2 $menu-group-item-padding;
 			}
 		}
 		
@@ -42,14 +39,62 @@ $menu-group-item-padding		: 1.5em !default;
 			> #{$group-item-class} {
 				padding-left: $menu-group-item-padding;
 				padding-right: $menu-group-item-padding;
+				
+				// radio
+				&#{$radio-class} {
+					> .radio-text::before,
+					> .radio-text::after {
+						left: $menu-group-item-padding;
+					}
+				}
+
+				//check
+				&#{$check-class} {
+					> .check-text::before,
+					> .check-text::after {
+						left: $menu-group-item-padding;
+					}
+				}
 			}
-		}
-		
-		// 行模式
-		&#{$group-row-class} {
-			padding: 0 $menu-group-padding ;
-			> #{$group-item-class} {
-				padding: $menu-group-item-padding /2 $menu-group-item-padding;
+			// 右对齐
+			&.align-right {
+			    right: 0;
+			    margin-right: 0;
+			    min-width: auto;
+			}
+			// 左对齐
+			&.align-left {
+			    left: 0;
+			    margin-left: 0;
+			    min-width: auto;
+			}
+			// 选中
+			&.check-left,
+			&.check-right {
+				> #{$group-item-class}.checked::before { // 选中
+					@include make-icon-right($menu-group-bd-color);
+					width: 1em;
+					height: .55em;
+					top: 25%;
+				}
+			}
+			// 左选中
+			&.check-left {
+				> #{$group-item-class} {
+					padding-left: max($menu-group-item-padding, 2em); // 最小2em保证对号空间
+					&.checked::before { // 选中
+						left: .5em;
+					}
+				}
+			}
+			// 右选中
+			&.check-right {
+				> #{$group-item-class} {
+					padding-right: max($menu-group-item-padding, 2em);
+					&.checked::before {// 选中
+						right: .5em;
+					}
+				}
 			}
 		}
 	}

@@ -34,10 +34,6 @@
 @include make-base-table;
 @include make-base-group;
 
-// 分组元素
-@import "src/group-form";
-@include make-group-form;
-
 @import "src/btn-group";
 @include make-btn-group;
 
