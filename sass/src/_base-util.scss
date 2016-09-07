@@ -96,23 +96,23 @@
 //------------------------------------------------------- flex 对齐方式
 @mixin make-base-flex() {
 	.flex-start { // x轴原点 左对齐
-		justify-content: flex-start;
+		justify-content: flex-start !important;
 	}
 
 	.flex-center { // x轴居中 居中对齐
-		justify-content: center;
+		justify-content: center !important;
 	}
 
 	.flex-end { // x轴结束点 右对齐
-		justify-content: flex-end;
+		justify-content: flex-end !important;
 	}
 
 	.flex-space-between { // x轴平铺 中间补空
-		justify-content: space-between;
+		justify-content: space-between !important;
 	}
 
 	.flex-space-around { // x轴平铺 元素居中
-		justify-content: space-around;
+		justify-content: space-around !important;
 	}
 }
 

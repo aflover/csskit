@@ -1,10 +1,15 @@
 // 面板
 //@VAR panel
 $panel-class              	: '.#{$default-prefix}panel' !default;
-$panel-pad-size				: $default-pad-size/2 $default-pad-size !default;// 补白
-$panel-bg-color				: $default-bg-color !default; 			  		// 容器背景颜色
+$panel-pad-x				: $default-pad-size !default;	// 补白
+$panel-pad-y				: $default-pad-size/2 !default;	// 补白
+$panel-pad-size				: $panel-pad-y $panel-pad-x !default;	// 补白
+$panel-bg-color				: $default-bg-color !default; 			  			// 容器背景颜色
 $panel-bd-radius			: $default-bd-radius !default;
+
 $panel-bd-color				: $default-bd-color !default;
+$panel-header-bg-color		: $default-bg-color !default;
+$panel-footer-bg-color		: $default-bg-color !default;
 
 $panel-item-bd-color		: lighten($default-bd-color , 10) !default;
 
@@ -18,6 +23,7 @@ $panel-btn-pad-size			: $default-pad-size/2 !default;
 		background-color: $panel-bg-color;
 		border-radius: $panel-bd-radius;
 		border: 1px solid $panel-bd-color;
+
 		> .panel-header,
 		> .panel-body,
 		> .panel-footer, {
@@ -25,12 +31,21 @@ $panel-btn-pad-size			: $default-pad-size/2 !default;
 			padding: $panel-pad-size;
 		}
 		> .panel-header {
+			// position: relative;
+			// padding: 0 $panel-pad-x;
+			background-color: $panel-header-bg-color;
 			border-bottom: 1px solid $panel-item-bd-color;
+			>.panel-title {
+				@include make-font-size-default;
+				@include make-line-height-default;
+				font-weight: bold;
+			}
 		}
 		> .panel-body {
 
 		}
 		> .panel-footer {
+			background-color: $panel-footer-bg-color;
 			border-top: 1px solid $panel-item-bd-color;
 			// flex 右对齐
 			display: flex;
@@ -40,6 +55,15 @@ $panel-btn-pad-size			: $default-pad-size/2 !default;
 
 			> #{$btn-class} + #{$btn-class}  {
 				margin-left: $panel-btn-pad-size;
+			}
+		}
+
+		// 无边框模式
+		&.no-border {
+			border-color: transparent;
+			>.panel-header,
+			>.panel-footer, {
+				border-color: transparent;
 			}
 		}
 	}
