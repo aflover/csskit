@@ -1,9 +1,10 @@
 @import "vars"; // 全局变量
 
 // 功能函数
-@import "mixins/size-control";
 @import "functions/to-string";
 @import "functions/str-replace";
+@import "mixins/size-control";
+@import "mixins/clearfix";
 
 // 基础库
 @import "src/base-reset";
@@ -19,6 +20,8 @@
 @import "src/base-tab";
 @import "src/base-table";
 @import "src/base-group";
+@import "src/base-layer";
+@import "src/base-panel";
 
 @include make-base-reset;
 @include make-base-util;
@@ -33,6 +36,8 @@
 @include make-base-tab;
 @include make-base-table;
 @include make-base-group;
+@include make-base-layer;
+@include make-base-panel;
 
 @import "src/btn-group";
 @include make-btn-group;

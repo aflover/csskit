@@ -9,6 +9,7 @@ import Test from './components/Test'
 import Popup from './components/popup'
 import Tab from './components/Tab'
 import Form from './components/Form'
+import Layer from './components/Layer'
 
 export default {
     '/IconPhoton/': { component: IconPhoton, title:'Icon Photon', },
@@ -21,6 +22,7 @@ export default {
     
     '/Tab/': { component: Tab, title:'Tab', },
     '/Form/': { component: Form, title:'Form', },
+    '/Layer/': { component: Layer, title:'Layer', },
     '/Test/': { component: Test, title:'Test 测试', },
 }
 

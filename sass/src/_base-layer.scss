@@ -1,0 +1,30 @@
+// 层
+//@VAR layer
+$layer-class              	: '.#{$default-prefix}layer' !default;
+$layer-backdrop-class       : '.#{$default-prefix}layer-backdrop' !default;
+$layer-modal-class       	: '.#{$default-prefix}layer-modal' !default;
+$layer-bd-color   			: rgba(0,0,0, .4) !default;
+$layer-base-zindex			: $default-base-zindex !default;
+
+//!VAR layer
+
+@mixin make-base-layer() {
+	#{$layer-class} {
+		z-index: $layer-base-zindex;
+		position: fixed;
+		visibility: hidden;
+		opacity: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		&.backdrop {
+			background-color: $layer-bd-color ;
+			transition: all .3s ease;
+		}
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}

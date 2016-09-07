@@ -1,0 +1,46 @@
+// 面板
+//@VAR panel
+$panel-class              	: '.#{$default-prefix}panel' !default;
+$panel-pad-size				: $default-pad-size/2 $default-pad-size !default;// 补白
+$panel-bg-color				: $default-bg-color !default; 			  		// 容器背景颜色
+$panel-bd-radius			: $default-bd-radius !default;
+$panel-bd-color				: $default-bd-color !default;
+
+$panel-item-bd-color		: lighten($default-bd-color , 10) !default;
+
+$panel-btn-pad-size			: $default-pad-size/2 !default;
+
+//!VAR panel
+
+@mixin make-base-panel() {
+	#{$panel-class} {
+		position: relative;
+		background-color: $panel-bg-color;
+		border-radius: $panel-bd-radius;
+		border: 1px solid $panel-bd-color;
+		> .panel-header,
+		> .panel-body,
+		> .panel-footer, {
+			position: relative;
+			padding: $panel-pad-size;
+		}
+		> .panel-header {
+			border-bottom: 1px solid $panel-item-bd-color;
+		}
+		> .panel-body {
+
+		}
+		> .panel-footer {
+			border-top: 1px solid $panel-item-bd-color;
+			// flex 右对齐
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+
+			> #{$btn-class} + #{$btn-class}  {
+				margin-left: $panel-btn-pad-size;
+			}
+		}
+	}
+}
