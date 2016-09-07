@@ -54,6 +54,9 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @import "src/menu-group";
 @include make-menu-group;
 
+@import "src/accordion-group";
+@include make-accordion-group;
+
 // 主题
 @import "src/base-theme";
 @include make-base-theme;

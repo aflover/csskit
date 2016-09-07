@@ -7,6 +7,8 @@ $group-item-active-bg-color			: $default-active-bg-color !default;
 $group-item-hover-bg-color			: $default-hover-bg-color !default;
 $group-item-disabled-bg-color		: $default-disabled-bg-color !default;
 $group-active-cursor				: $default-active-cursor !default;
+
+$group-item-selectors				: '> #{$group-item-class}, > li > #{$group-item-class}';
 // 标题和分割线
 $group-title-class					: '#{$group-class}-title' !default;
 $group-divider-class				: '#{$group-class}-divider' !default;
@@ -26,7 +28,7 @@ $group-arrow-bd-color				: $default-bd-color !default;
 		margin: 0;
 		padding: 0;
 		display: inline-block; 
-		> #{$group-item-class} {
+		#{$group-item-selectors}  {
 			@include make-size-default;
 			white-space: nowrap;
 			user-select: none;
@@ -48,7 +50,7 @@ $group-arrow-bd-color				: $default-bd-color !default;
 
 	// 列分组
 	#{$group-col-class} {
-		> #{$group-item-class} {
+		#{$group-item-selectors} {
 			display: block;
 		}
 	}
@@ -56,7 +58,7 @@ $group-arrow-bd-color				: $default-bd-color !default;
 	// 行分组
 	#{$group-row-class} {
 		@include clearfix;
-		> #{$group-item-class} {
+		#{$group-item-selectors} {
 			float: left;
 		}
 	}
@@ -121,6 +123,44 @@ $group-arrow-bd-color				: $default-bd-color !default;
 			}
 		}
 	}
+
+	#{$group-row-class}  > li.has-sub,
+	#{$group-col-class}  > li.has-sub, {
+		position: relative;
+		> #{$group-col-class} {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			margin-left: -5px;
+			z-index: $group-base-zindex;
+		}
+		&:hover {
+			> #{$group-col-class} {
+				display: block;
+			}
+		}
+		&.disabled {
+			> #{$group-col-class} {
+				display: none;
+			}
+		}
+
+		> #{$group-item-class}::after {
+			border: .3em solid transparent;
+			border-top-color: darken($group-arrow-bd-color, 20);  // 右箭头
+			position: absolute;
+			top: 40%;
+			right: .15em;
+			content: '';
+			transform: rotate(-90deg);
+		}
+		&.disabled {
+			> #{$group-item-class} ::after {
+				border-top-color: darken($group-item-disabled-bg-color, 20);
+			}
+		}
+	}
 	
 	// 行模式
 	#{$group-row-class}  > #{$group-item-class}.has-sub {
@@ -136,5 +176,17 @@ $group-arrow-bd-color				: $default-bd-color !default;
 			top: 45%;
 		}
 	}
-
+	#{$group-row-class}  > li.has-sub {
+		> #{$group-col-class} {
+			top: 100%;
+			left: 0;
+			margin-left: 0;
+			min-width: 100%;
+			text-align: left;
+		}
+		> #{$group-item-class}::after {  // 下箭头
+			transform: rotate(0);
+			top: 45%;
+		}
+	}
 }

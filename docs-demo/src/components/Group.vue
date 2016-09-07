@@ -139,6 +139,53 @@
 			</ul>
 		</li>
 	</ul>
+
+	<!-- accordion-group -->
+	<ul :class="['group-col accordion-group', tableSize]">
+		<li class="group-item" >
+			<span class="icon-inline pt-home"></span><span>Home</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+		<li class="group-item active">
+			<span class="icon-inline pt-picture"></span><span>Photo</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+		<li class="group-item" >
+			<span class="icon-inline pt-download"></span><span>Download</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+		<li class="group-item" >
+			<span class="icon-inline pt-folder"></span><span>Document</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+		<li class="group-item disabled" >
+			<span class="icon-inline pt-window"></span><span>Application</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+		<li class="group-item" >
+			<span class="icon-inline pt-signal"></span><span>AirDrop</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+		<li class="group-item">
+			<span class="icon-inline pt-monitor"></span><span>Desktop</span>
+			<div class="according-content">
+				内容区
+			</div>
+		</li>
+	</ul>
+
 </div>
 </template>
 <script type="text/javascript">

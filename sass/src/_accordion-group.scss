@@ -1,0 +1,32 @@
+//@VAR accordion-group
+$accordion-group-class				: '.#{$default-prefix}accordion-group' !default;
+$accordion-drop-class				: '.#{$default-prefix}accordion-drop' !default;
+$accordion-group-bd-radius			: $default-bd-radius !default;
+$accordion-group-bd-color			: $default-bd-color !default;
+$accordion-group-bg-color			: $default-bg-color !default;
+//!VAR accordion-group
+
+@mixin make-accordion-group() {	
+
+	// 菜单列表容器
+	#{$accordion-group-class} {
+		// 容器
+		background-color: $accordion-group-bg-color;
+		border-radius : $accordion-group-bd-radius;
+		border: 1px solid $accordion-group-bd-color;
+
+		// 选项
+		> #{$group-item-class} {
+			position: relative;
+			background-color: $accordion-group-bg-color;
+		}
+
+		// 列模式
+		&#{$group-col-class} {
+			> #{$group-item-class} {
+
+			}
+		}
+	}
+
+}
