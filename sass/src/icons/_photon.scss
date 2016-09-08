@@ -2,14 +2,13 @@
 @import "icons-photon";
 @import "icon-mixin";
 
+$icon-font-photon-class:    'pt';
+$icon-font-photon-family:   'photon-entypo';
+$icon-font-photon-file:     'photon-entypo';
+$icon-font-photon-version:  '0.1.2';
+$icon-font-photon-path: 	'../fonts' !default;
+
 @mixin make-photon() {
-
-	$icon-font-photon-class:    'pt';
-	$icon-font-photon-family:   'photon-entypo';
-	$icon-font-photon-file:     'photon-entypo';
-	$icon-font-photon-version:  '0.1.2';
-	$icon-font-photon-path: 	'../fonts' !default;
-
 	// 添加字体
 	@include make-icon-font-face(
 		$icon-font-photon-family, 

@@ -157,9 +157,9 @@
 <br>
 <br>
 	<button :class="['btn', size, tick && 'meta-tick']" >
-		<i class="icon-inline fa-microphone"></i>
+		<i :class="['icon-inline fa-microphone', colorTheme]"></i>
 			<span>btn icon</span>
-		<i class="icon-inline fa-apple"></i>
+		<i :class="['icon-inline fa-apple', colorTheme]"></i>
 	</button>
 	<button :class="['btn icon-hover', size, tick && 'meta-tick']" >
 		<span>btn icon-caret</span>

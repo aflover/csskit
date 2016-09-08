@@ -2,14 +2,13 @@
 @import "icons-font-awesome";
 @import "icon-mixin";
 
+$icon-font-fontawesome-class:    'fa';
+$icon-font-fontawesome-family:   'FontAwesome';
+$icon-font-fontawesome-file:     'fontawesome-webfont';
+$icon-font-fontawesome-version:  '4.3.0';
+$icon-font-fontawesome-path: 	'../fonts' !default;
+
 @mixin make-font-awesome() {
-
-	$icon-font-fontawesome-class:    'fa';
-	$icon-font-fontawesome-family:   'FontAwesome';
-	$icon-font-fontawesome-file:     'fontawesome-webfont';
-	$icon-font-fontawesome-version:  '4.3.0';
-	$icon-font-fontawesome-path: 	'../fonts' !default;
-
 	// 添加字体
 	@include make-icon-font-face(
 		$icon-font-fontawesome-family, 

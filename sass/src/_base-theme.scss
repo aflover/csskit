@@ -92,6 +92,14 @@
             	background-color: $theme-color;
         	}
         }
+        // ICON 字体
+        [class^="#{$icon-font-photon-class}-"], [class*=" #{$icon-font-photon-class}-"],
+        [class^="#{$icon-font-fontawesome-class}-"], [class*=" #{$icon-font-fontawesome-class}-"],
+        {
+        	&.#{$theme-type} {
+        		color: $theme-color;
+        	}
+        }
         // 菜单
         #{$menu-group-class}#{$group-col-class} > #{$group-item-class}.#{$theme-type}.checked::before {
             border-left-color: $theme-color; 
