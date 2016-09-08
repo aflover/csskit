@@ -51,6 +51,25 @@ $icon-inline-selector       : span !default;                            // inlin
     height: 1em;
 }
 
+@mixin make-icon-close($color ) { // 关闭按钮
+    width: 1em;
+    height: 1em;
+    position: relative;
+    display: inline-block;
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        top: 50%;
+        left: 0;
+        height: .2em;
+        background-color: $color;
+    }
+    &::before { transform: rotate(45deg); }
+    &::after { transform: rotate(-45deg); }
+}
+
 @mixin make-base-icon() {
 
     // inline图标样式,
@@ -93,6 +112,10 @@ $icon-inline-selector       : span !default;                            // inlin
         &:after {
             @include make-icon-arrow($icon-default-bd-color);
         }
+    }
+    // 关闭
+    #{$icon-class}-close {
+        @include make-icon-close($icon-default-bd-color);
     }
     // 三角箭头翻转
     .icon-open,

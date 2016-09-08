@@ -176,7 +176,7 @@
 <br>
 <br>
 	<button :class="['btn', size, tick && 'meta-tick']" >
-		<i class="icon-inline fa-microphone"></i><span>btn icon</span><i class="icon-inline fa-apple"></i>
+		<span>btn icon-close</span><i :class="['icon-inline', 'icon-close', colorTheme]"></i>
 	</button>
 	<button :class="['btn icon-open', size, tick && 'meta-tick']" ><span>btn icon-caret</span><i :class="['icon-inline', 'icon-caret', colorTheme]"></i></button>
 	<button :class="['btn', size, tick && 'meta-tick']" ><span>btn icon-right</span><i :class="['icon-inline', 'icon-right', colorTheme]"></i></button>

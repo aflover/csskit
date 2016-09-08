@@ -85,6 +85,13 @@
             border-right-color: $theme-color;
             border-bottom-color: $theme-color;
         }
+        // ICON 关闭
+        #{$icon-class}-close.#{$theme-type} {
+        	&::before,
+        	&::after {
+            	background-color: $theme-color;
+        	}
+        }
         // 菜单
         #{$menu-group-class}#{$group-col-class} > #{$group-item-class}.#{$theme-type}.checked::before {
             border-left-color: $theme-color; 
