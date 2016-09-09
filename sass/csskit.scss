@@ -62,6 +62,10 @@ $icon-font-fontawesome-path: '../fonts' !default;
 @import "src/accordion-group";
 @include make-accordion-group;
 
+// 元素扩展
+@import "elements/_btn-dismiss.scss";
+@include make-btn-dismiss;
+
 // 主题
 @import "src/base-theme";
 @include make-base-theme;

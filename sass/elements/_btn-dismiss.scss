@@ -1,0 +1,13 @@
+@mixin make-btn-dismiss() {
+	.btn-dismiss {
+		position: absolute;
+	    right: 2px;
+	    top: 2px;
+	    z-index: 1;
+	    border-radius: 50%;
+	    border-color: transparent;
+	    width: 2em;
+	    height: 2em;
+	    padding: 0;
+	}	
+}

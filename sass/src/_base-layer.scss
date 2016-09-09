@@ -11,18 +11,30 @@ $layer-base-zindex			: $default-base-zindex !default;
 @mixin make-base-layer() {
 	#{$layer-class} {
 		z-index: $layer-base-zindex;
-		position: fixed;
 		visibility: hidden;
 		opacity: 0;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		&.backdrop {
-			background-color: $layer-bd-color ;
-			transition: all .3s ease;
+		>.backdrop {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			visibility: hidden;
+			opacity: 0;
 		}
-		&.open {
+		&.layer-backdrop {
+			>.backdrop {
+				background-color: $layer-bd-color ;
+				transition: all .3s ease;
+			}
+		}
+		&.open, {
+		&.open >.backdrop {
 			opacity: 1;
 			visibility: visible;
 		}

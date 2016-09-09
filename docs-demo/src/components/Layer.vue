@@ -9,25 +9,28 @@
 		</div>
 
 		<button @click="backdrop=!backdrop">layer backdrop</button>
-		<div :class="['layer backdrop', backdrop && 'open']" @click="backdrop=!backdrop">
-			
+		<div :class="['layer layer-backdrop', backdrop && 'open']">
+			<div class="dropmask"  @click="backdrop=false"></div>
+			<div :class="['panel', noBorder && 'no-border']" style=" display: inline-block;   min-width: 30%;">
+				<button class="btn btn-dismiss" @click="backdrop=false">
+					<i class="icon-inline icon-close"></i>
+				</button>
+				<div class="panel-header" v-show="!noHeader">
+					<div class="panel-title">Panel-Title</div>
+				</div>
+				<div class="panel-body">
+					Panel-body
+				</div>
+				<div :class="['panel-footer', flexAlign]" v-show="!noFooter">
+					<button class="btn">取消</button>
+					<button class="btn primary">确定</button>
+				</div>
+			</div>
 		</div>
 
 		<br>
 		<br>
 
-		<div :class="['panel', noBorder && 'no-border']" style=" display: inline-block;   min-width: 30%;">
-			<div class="panel-header" v-show="!noHeader">
-				<div class="panel-title">Panel-Title</div>
-			</div>
-			<div class="panel-body">
-				Panel-body
-			</div>
-			<div :class="['panel-footer', flexAlign]" v-show="!noFooter">
-				<button class="btn">取消</button>
-				<button class="btn primary">确定</button>
-			</div>
-		</div>
 	</div>
 </template>
 

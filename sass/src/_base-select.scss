@@ -6,7 +6,7 @@ $select-disabled-bg-color		: $default-disabled-bg-color !default;
 //!VAR select
 
 @mixin make-base-select() {
-	select#{$select-class} {
+	#{$select-class} {
 		@include make-size-default;
 		border: 1px solid $select-bd-color;
 		border-radius: $select-bd-radius;
