@@ -57,14 +57,5 @@ $panel-btn-pad-size			: $default-pad-size/2 !default;
 				margin-left: $panel-btn-pad-size;
 			}
 		}
-
-		// 无边框模式
-		&.no-border {
-			border-color: transparent;
-			>.panel-header,
-			>.panel-footer, {
-				border-color: transparent;
-			}
-		}
 	}
 }
