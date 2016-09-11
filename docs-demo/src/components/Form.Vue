@@ -41,6 +41,13 @@
 
 <br>
 <br>
+	<label :class="['label','primary', size]" >primary</label>
+	<label :class="['label','secondary', size]" >secondary</label>
+	<label :class="['label','warn', size]" >warn</label>
+	<label :class="['label','success', size]" >success</label>
+	<label :class="['label','error', size]" >error</label>
+<br>
+<br>
 	<select :class="['select', size]" value= "2">
 		<option v-for="it in defaultSelectOptions" :value="it.value">{{it.text}}</option>
 	</select>

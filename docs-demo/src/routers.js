@@ -10,6 +10,7 @@ import Popup from './components/popup'
 import Tab from './components/Tab'
 import Form from './components/Form'
 import Layer from './components/Layer'
+import VueDemo from './components/VueDemo'
 
 export default {
     '/IconPhoton/': { component: IconPhoton, title:'Icon Photon', },
@@ -24,5 +25,6 @@ export default {
     '/Form/': { component: Form, title:'Form', },
     '/Layer/': { component: Layer, title:'Layer', },
     '/Test/': { component: Test, title:'Test 测试', },
+    '/VueDemo/': { component: VueDemo, title:'VueDemo', },
 }
 

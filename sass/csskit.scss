@@ -12,6 +12,7 @@
 @import "src/base-grid";
 @import "src/base-window";
 @import "src/base-input";
+@import "src/base-label";
 @import "src/base-select";
 @import "src/base-radio";
 @import "src/base-check";
@@ -28,6 +29,7 @@
 @include make-base-grid;
 @include make-base-window;
 @include make-base-input;
+@include make-base-label;
 @include make-base-select;
 @include make-base-radio;
 @include make-base-check;

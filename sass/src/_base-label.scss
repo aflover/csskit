@@ -1,0 +1,14 @@
+//@VAR label
+$label-class				: '.#{$default-prefix}label' !default;
+$label-bd-radius			: $default-bd-radius !default;
+$label-bd-color			    : $default-bd-color !default;
+//!VAR label
+
+@mixin make-base-label() {
+	#{$label-class} {
+		@include make-size-default;
+		border-radius: $label-bd-radius;
+		outline: none;
+		background-color: lighten($label-bd-color, 0);
+	}
+}

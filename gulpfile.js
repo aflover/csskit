@@ -12,6 +12,7 @@ var bourbon = require("bourbon").includePaths,
     watch = require('gulp-watch'),
     path = require('path'),
     fs = require('fs'),
+    sourcemaps = require('gulp-sourcemaps'),
     sass = require("gulp-sass");
 
 var paths = {
@@ -35,7 +36,10 @@ gulp.task("sass", function() {
     ].concat(bourbon);
 // console.log(includePaths);
     return gulp.src(paths.scss)
-        .pipe(sass({ includePaths: includePaths }))
+        // .pipe(sourcemaps.init())
+        .pipe(sass({ includePaths: includePaths}))
+        // .pipe(sourcemaps.write('./dist/css/app.css'))
+        // .pipe(sourcemaps.write())
         .on('error', handleSassError)
         // .pipe(autoprefix("last 2 versions"))
         .pipe(gulp.dest("./dist/css"))

@@ -1,15 +1,16 @@
+
 @mixin make-button-variant($text-color, $color ) {
 	color: $text-color;
-	border-color: darken($color, 4);
+	border-color: darken($color, 8);
 	background-color: $color;
 	&:hover,
 	&:focus {
-		background-color: darken($color, 2);
+		background-color: darken($color, 6);
 	}
 
 	&.selected,
 	&:active {
-		background-color: darken($color, 6);
+		background-color: darken($color, 10);
 	}
 }
 
@@ -70,6 +71,11 @@
 		// 选择框
 		#{$select-class}.#{$theme-type} {
 			@include make-select-variant($theme-color);
+		}
+		// 标签
+		#{$label-class}.#{$theme-type} {
+			color: $default-light-color;
+			background-color: $theme-color;
 		}
 		// ICON 下三角
 	    #{$icon-class}-caret.#{$theme-type}::after {
