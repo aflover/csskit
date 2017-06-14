@@ -9,10 +9,6 @@
     "build": "node build/build.js",
     "test": ""
   },
-  "dependencies": {
-    "vue": "^1.0.21",
-    "babel-runtime": "^6.0.0"
-  },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
@@ -34,7 +30,7 @@
     "sass-loader": "^4.0.0",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",
-    "vue": "^2.0.0-rc.3",
+    "vue": "^2.3.4",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^9.4.0",
